@@ -1,0 +1,5 @@
+Instalr nodeJs version LTS
+comprabar quedo instalado con: node -v en la consola
+comprabar quedo instalado npm con: npm --version 
+ejecutar consola el siguiente coamndo: npm install -g @angular/cli
+comprobar si angular quedo instalado con: ng version  
