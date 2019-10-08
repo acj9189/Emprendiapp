@@ -1,5 +1,13 @@
-Instalr nodeJs version LTS
-comprabar quedo instalado con: node -v en la consola
+
+Todo se realiza en la consola...
+
+Instalar nodeJs version LTS de la pagina lo descarga,este instalador trae tambien npm.
+comprabar quedo instalado con: node -v 
 comprabar quedo instalado npm con: npm --version 
-ejecutar consola el siguiente coamndo: npm install -g @angular/cli
+ejecutar el siguiente comando, este instalara angular: npm install -g @angular/cli
 comprobar si angular quedo instalado con: ng version  
+
+
+/* 	para crear un proyecto en angular se usa el comando: ng new "nombre del proyecto" 
+	
+	Para iniicar el servidor de angular de usa el comando: ng serve --open  	/*
