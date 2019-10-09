@@ -10,4 +10,6 @@ comprobar si angular quedo instalado con: ng version
 
 /* 	para crear un proyecto en angular se usa el comando: ng new "nombre del proyecto" 
 	
-	Para iniicar el servidor de angular de usa el comando: ng serve --open  	/*
+	Para iniicar el servidor de angular de usa el comando: ng serve --open  	
+	
+	Este comando sirve para que regenere las cosas de desarrollo cuando se subio a git: npm install --save-dev @angular-devkit/build-angular/*
