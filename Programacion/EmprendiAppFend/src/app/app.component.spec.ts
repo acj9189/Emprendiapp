@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'EmprendiApp'`, () => {
+  it(`should have as title 'EmprendiAppFend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('EmprendiApp');
+    expect(app.title).toEqual('EmprendiAppFend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('EmprendiApp app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('EmprendiAppFend app is running!');
   });
 });
