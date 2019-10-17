@@ -12,4 +12,7 @@ comprobar si angular quedo instalado con: ng version
 	
 	Para iniicar el servidor de angular de usa el comando: ng serve --open  	
 	
-	Este comando sirve para que regenere las cosas de desarrollo cuando se subio a git: npm install --save-dev @angular-devkit/build-angular/*
+	Este comando sirve para que regenere las cosas de desarrollo cuando se subio a git: npm install --save-dev @angular-devkit/build-angular
+	
+
+/*
