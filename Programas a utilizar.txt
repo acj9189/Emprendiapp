@@ -1,11 +1,15 @@
 
 Todo se realiza en la consola...
 
+Pasos Frontend
+
 Instalar nodeJs version LTS de la pagina lo descarga,este instalador trae tambien npm.
 comprabar quedo instalado con: node -v 
 comprabar quedo instalado npm con: npm --version 
 ejecutar el siguiente comando, este instalara angular: npm install -g @angular/cli
 comprobar si angular quedo instalado con: ng version  
+
+
 
 
 /* 	para crear un proyecto en angular se usa el comando: ng new "nombre del proyecto" 
@@ -16,3 +20,13 @@ comprobar si angular quedo instalado con: ng version
 	
 
 /*
+
+
+Pasos Backend
+
+Instalar netbens version 10
+Luego instalar Plugin  de Srping en Netbens de la siguiente pagina:  http://plugins.netbeans.org/plugin/67888/nb-springboot
+Luego reinicar netbens
+y importar el proyecto en este caso EmprendiAppBend
+
+
