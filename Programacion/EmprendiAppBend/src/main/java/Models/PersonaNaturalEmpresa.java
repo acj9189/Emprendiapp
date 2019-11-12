@@ -1,8 +1,15 @@
 package Models;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,6 +32,14 @@ public class PersonaNaturalEmpresa {
 	private String telefonoContacto;
 	private String redesSociales;
 	private String videoPitch;
+	
+	@OneToMany()
+	@JoinColumn(name = "miebrosDuenos")
+	private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
+	
+	@ManyToMany(cascade = CascadeType.ALL)// hay cosas que analizar
+	@JoinTable(name = "Produce")
+	private Set<ProductoServicio> productos;
 	
 	public PersonaNaturalEmpresa() {
 		

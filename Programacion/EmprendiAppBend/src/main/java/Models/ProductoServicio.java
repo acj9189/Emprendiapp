@@ -1,8 +1,11 @@
 package Models;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,6 +27,9 @@ public class ProductoServicio {
 	private String descripcionProductoServicio;
 	private Integer costoUnidad;
 	private String descripcionProblemaQSoluciona;
+	
+	@ManyToMany(mappedBy = "ProductoServicios")
+	private Set<PersonaNaturalEmpresa> empresas;
 	
 	public ProductoServicio(Integer id, String nombre, String descripcionProductoServicio, Integer costoUnidad,
 			String descripcionProblemaQSoluciona) {
