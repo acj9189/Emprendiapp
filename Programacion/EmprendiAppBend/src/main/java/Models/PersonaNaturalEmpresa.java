@@ -32,14 +32,15 @@ public class PersonaNaturalEmpresa {
 	private String telefonoContacto;
 	private String redesSociales;
 	private String videoPitch;
+
+	//@OneToMany()
+	//@JoinColumn(name = "miebrosDuenos")
+	//private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
 	
-	/*@OneToMany()
-	@JoinColumn(name = "miebrosDuenos")
-	private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
-	
-	@ManyToMany(cascade = CascadeType.ALL)// hay cosas que analizar
-	@JoinTable(name = "Produce")
-	private Set<ProductoServicio> productos;*/
+	//@ManyToMany(cascade = CascadeType.ALL)// hay cosas que analizar
+	//@JoinTable(name = "Produce")
+	//private Set<ProductoServicio> productos;
+
 	
 	public PersonaNaturalEmpresa() {
 		
