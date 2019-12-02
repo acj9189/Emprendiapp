@@ -28,12 +28,11 @@ public class ProductoServicio {
 	private Integer costoUnidad;
 	private String descripcionProblemaQSoluciona;
 	
-	@ManyToMany(mappedBy = "ProductoServicios")
-	private Set<PersonaNaturalEmpresa> empresas;
+	/*@ManyToMany(mappedBy = "ProductoServicios")
+	private Set<PersonaNaturalEmpresa> empresas;*/
 	
-	public ProductoServicio(Integer id, String nombre, String descripcionProductoServicio, Integer costoUnidad,
+	public ProductoServicio(String nombre, String descripcionProductoServicio, Integer costoUnidad,
 			String descripcionProblemaQSoluciona) {
-		this.id = id;
 		this.nombre = nombre;
 		this.descripcionProductoServicio = descripcionProductoServicio;
 		this.costoUnidad = costoUnidad;

@@ -33,13 +33,13 @@ public class PersonaNaturalEmpresa {
 	private String redesSociales;
 	private String videoPitch;
 	
-	@OneToMany()
+	/*@OneToMany()
 	@JoinColumn(name = "miebrosDuenos")
 	private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
 	
 	@ManyToMany(cascade = CascadeType.ALL)// hay cosas que analizar
 	@JoinTable(name = "Produce")
-	private Set<ProductoServicio> productos;
+	private Set<ProductoServicio> productos;*/
 	
 	public PersonaNaturalEmpresa() {
 		
