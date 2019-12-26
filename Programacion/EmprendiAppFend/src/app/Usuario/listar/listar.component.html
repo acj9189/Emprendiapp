@@ -1,0 +1,34 @@
+<p>listar works!</p>
+
+<div class="contanier">
+    <div class="card">
+        <div class="card-header">
+            <h3>Usuarios</h3>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>telefono</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor= "let usuario of usuarios" class="text-center">
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.nombres}}</td>
+                        <td>{{usuario.apellidos}}</td>
+                        <td>{{usuario.telefono}}</td>
+                    </tr>
+                       
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
