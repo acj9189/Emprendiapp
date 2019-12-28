@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.EmprendiApp.Models.Usuario;
+//import com.EmprendiApp.Respositories.UsuarioAsesorConsultorRepository;
 import com.EmprendiApp.Respositories.UsuarioRepository;
 
 @SpringBootApplication
@@ -15,6 +16,8 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 
 	@Autowired
 	UsuarioRepository UsuarioRepo;
+	//@Autowired
+	//UsuarioAsesorConsultorRepository usuarioAsesorConsultorRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(EmprendiAppBackEndApplication.class, args);

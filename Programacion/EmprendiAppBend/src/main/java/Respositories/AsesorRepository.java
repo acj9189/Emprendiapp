@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import Models.AsesorConsultor;
 
-public interface AsesorRepositoy extends JpaRepository<AsesorConsultor, Integer>{
+public interface AsesorRepository extends JpaRepository<AsesorConsultor, Integer>{
 
 }

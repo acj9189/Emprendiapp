@@ -8,26 +8,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.EmprendiApp.Models.Usuario;
-import com.EmprendiApp.Respositories.UsuarioRepository;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.EmprendiApp.Models.UsuarioAsesorConsultor;
+import com.EmprendiApp.Respositories.UsuarioAsesorConsultorRepository;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-@RequestMapping("/")
+@RequestMapping("/aa")
 @RestController
-@JsonIgnoreProperties(ignoreUnknown = true) 
-public class UsuarioController {
+public class UsuarioAsesorConsultorController {
 	
 	@Autowired
-	private UsuarioRepository userRepository;
+	private UsuarioAsesorConsultorRepository userRepository;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("/allUsers")
-	private List<Usuario> getAllRomanos(){
+	@GetMapping("/allAsesores")
+	private List<UsuarioAsesorConsultor> getAllRomanos(){
 		return userRepository.findAll();
 		
 	}
-	
 
 }
