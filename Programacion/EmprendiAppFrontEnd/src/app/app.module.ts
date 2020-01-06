@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuscarFiltroComponent } from './buscar-filtro/buscar-filtro.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
+import { InfoEmpresaComponent } from './info-empresa/info-empresa.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.componen
     HeaderComponent,
     FooterComponent,
     BuscarFiltroComponent,
-    EnviarMensajeComponent
+    EnviarMensajeComponent,
+    InfoEmpresaComponent
   ],
   imports: [
     BrowserModule,

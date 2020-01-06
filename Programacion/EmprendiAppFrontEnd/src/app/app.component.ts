@@ -10,20 +10,27 @@ export class AppComponent {
   title = 'EmprendiApp';
 
   ingreso:boolean=false;
-  constructor(private router:Router){}
+  constructor(private router:Router){
+  }
 //hola
   receiveMessage($event){
     this.ingreso=$event;
-    console.log("ingreso",this.ingreso);
     if(this.ingreso){
-      console.log("entraste")
-      this.Listar();
+      this.infoEmpresa();
+    }else{
+      this.inicio();
     }
   }
 
-  public Listar(){
-    console.log("mundo");
+  public infoEmpresa(){
+    this.router.navigate(['infoEmpresa']);
+  }
 
+  public inicio(){
+    this.router.navigate(['']);
+  }
+
+  public Listar(){
     this.router.navigate(["listar"]);
   }
 
@@ -38,4 +45,12 @@ export class AppComponent {
   public Principal(){
     this.router.navigate(["principal"]);
   }  
+
+  public buscarFiltro(){
+    this.router.navigate(['buscarFiltro']);
+  }
+
+  public enviarMensaje(){
+    this.router.navigate(['enviarMensaje']);
+  }
 }

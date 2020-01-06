@@ -3,4 +3,7 @@ export class Usuario{
     nombres:String;
     apellidos:String;
     telefono:String;
+    correo:String;
+    interfaces:String;
+    direccion:String;
 }

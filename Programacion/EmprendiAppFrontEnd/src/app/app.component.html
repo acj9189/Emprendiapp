@@ -1,9 +1,9 @@
 
 <app-header (messageEvent)="receiveMessage($event)"></app-header>
 
-<!--<app-principal *ngIF="!ingreso"></app-principal>-->
+<app-principal *ngIf="!ingreso"></app-principal>
 <!--<app-buscar-filtro></app-buscar-filtro>-->
-<app-enviar-mensaje></app-enviar-mensaje>
+<!--<app-enviar-mensaje></app-enviar-mensaje>-->
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 <!--<router-outlet></router-outlet>-->
