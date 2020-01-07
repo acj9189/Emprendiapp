@@ -15,6 +15,10 @@ import { FooterComponent } from './footer/footer.component';
 import { BuscarFiltroComponent } from './buscar-filtro/buscar-filtro.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 import { InfoEmpresaComponent } from './info-empresa/info-empresa.component';
+import { InfoSocioComponent } from './info-socio/info-socio.component';
+import { InfoInversorComponent } from './info-inversor/info-inversor.component';
+import { InfoAsesorComponent } from './info-asesor/info-asesor.component';
+import { InfoConsultorComponent } from './info-consultor/info-consultor.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { InfoEmpresaComponent } from './info-empresa/info-empresa.component';
     FooterComponent,
     BuscarFiltroComponent,
     EnviarMensajeComponent,
-    InfoEmpresaComponent
+    InfoEmpresaComponent,
+    InfoSocioComponent,
+    InfoInversorComponent,
+    InfoAsesorComponent,
+    InfoConsultorComponent
   ],
   imports: [
     BrowserModule,

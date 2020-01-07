@@ -1,5 +1,6 @@
 import { Usuario } from './Usuario';
 import { SocioInversor } from './SocioInversor';
+import { AsesorConultor } from './AsesorConsultor';
 
 export class Empresa extends Usuario{
     idEmpresa:number;
@@ -9,5 +10,6 @@ export class Empresa extends Usuario{
     redesSociales:String;
     videoPitch:String;    
     sociosInversores:SocioInversor[];
-    Empresas:Empresa[];
+    AsesorConsultor:AsesorConultor[];
+    EmpresasSocias:Empresa[];
 }
