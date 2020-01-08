@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+    <div class="col-3">Nombre</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">apellido</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">telefono</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">correo</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">direccion</div>
+    <input class="col-9" type="text">
+<!--<div class="row">-->
+    <div class="col-3">redes Sociales</div>
+    <div id="redes" #redesSociales> 
+        <input class="col-8" type="text">
+    </div>
+    <button (click)="LineaMas(redesSociales)">+</button>
+<!--</div>-->
+
+    <div class="col-3">habildades y conocimeintos</div>
+    <div id="empresas" #habilidades>
+        <input class="col-8" type="text">
+    </div>
+    <button (click)="LineaMas(habilidades)">+</button>
+    
+    <div class="col-3">Empresas co las que esta realizando consultorias</div>
+    <div id="empresas" #Empresa>
+        <input class="col-8" type="text">
+    </div>
+    <button (click)="LineaMas(Empresa)">+</button>
+</div>

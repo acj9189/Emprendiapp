@@ -19,6 +19,11 @@ import { InfoSocioComponent } from './info-socio/info-socio.component';
 import { InfoInversorComponent } from './info-inversor/info-inversor.component';
 import { InfoAsesorComponent } from './info-asesor/info-asesor.component';
 import { InfoConsultorComponent } from './info-consultor/info-consultor.component';
+import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
+import { RegistroInversorComponent } from './registro-inversor/registro-inversor.component';
+import { RegistrarSocioComponent } from './registrar-socio/registrar-socio.component';
+import { RegistroAesorComponent } from './registro-aesor/registro-aesor.component';
+import { RegitroConsultorComponent } from './regitro-consultor/regitro-consultor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { InfoConsultorComponent } from './info-consultor/info-consultor.componen
     InfoSocioComponent,
     InfoInversorComponent,
     InfoAsesorComponent,
-    InfoConsultorComponent
+    InfoConsultorComponent,
+    RegistroEmpresaComponent,
+    RegistroInversorComponent,
+    RegistrarSocioComponent,
+    RegistroAesorComponent,
+    RegitroConsultorComponent
   ],
   imports: [
     BrowserModule,

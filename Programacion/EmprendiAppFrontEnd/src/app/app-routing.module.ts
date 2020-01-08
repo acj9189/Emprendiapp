@@ -11,6 +11,8 @@ import { InfoSocioComponent } from './info-socio/info-socio.component'
 import { InfoInversorComponent } from './info-inversor/info-inversor.component'
 import { InfoConsultorComponent } from './info-consultor/info-consultor.component'
 import { InfoAsesorComponent } from './info-asesor/info-asesor.component'
+import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component'
+import { RegistroInversorComponent } from './registro-inversor/registro-inversor.component'
 
 const routes: Routes = [
   {path: 'listar', component: ListarComponent}, 
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'infoSocio' , component: InfoSocioComponent},
   {path: 'infoInversor', component: InfoInversorComponent},
   {path: 'infoConsultor', component: InfoConsultorComponent},
-  {path: 'infoAsesor', component: InfoAsesorComponent}
+  {path: 'infoAsesor', component: InfoAsesorComponent},
+  {path: 'regEmpresa', component: RegistroEmpresaComponent},
+  {path: 'regInversor', component: RegistroInversorComponent}
 ];
 
 @NgModule({
