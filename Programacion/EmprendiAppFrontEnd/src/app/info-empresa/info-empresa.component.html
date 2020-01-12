@@ -4,39 +4,52 @@
 <table border="0">
     <tr>
         <th>Nombre</th>
-        <th></th>
+        <th>{{empresa.nombre}}</th>
     </tr>
     <tr>
         <th>Direccion</th>
-        <th></th>
+        <th>{{empresa.direccion}}</th>
     </tr>
     <tr>
         <th>Telefono contacto</th>
-        <th></th>
+        <th>{{empresa.telefonoContacto}}</th>
     </tr>
     <tr>
         <th>Redes Soliales</th>
-        <th></th>
+        <th>{{empresa.redesSociales}}</th>
     </tr>
     <tr>
         <th>Emprsas asociadas</th>
-        <th></th>
+        <th *ngFor='let empresas of empresa.EmpresasTrbajo'>
+            {{empresas.nombre}}
+        </th>
     </tr>
     <tr>
         <th>Socios</th>
-        <th></th>
+        <th *ngFor='let socios of empresa.sociosInversores'>
+            {{socios.nombres}}
+        </th>
     </tr>
     <tr>
         <th>Inversores</th>
-        <th></th>
+        <th *ngFor='let inversores of empresa.sociosInversores'>
+            {{inversores.nombres}}
+        </th>
     </tr>
     <tr>
         <th>Consultores</th>
-        <th></th>
+        <th *ngFor='let consultores of empresa.AsesorConsultor'>
+            {{consultores.nombres}}
+        </th>
     </tr>
     <tr>
         <th>Asesores</th>
-        <th></th>
+        <th *ngFor='let asesores of empresa.AsesorConsultor'>
+            {{asesores.nombres}}
+        </th>
     </tr>
 </table>
+<!--a completar-->
+<button>consultar empresa</button>
+<button>enviar mensaje</button>
 </div>

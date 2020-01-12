@@ -4,28 +4,46 @@
 <table border="0">
     <tr>
         <th>Nombre</th>
-        <th></th>
+        <th>{{asesor.nombres}</th>
     </tr>
     <tr>
-        <th>Direccion</th>
-        <th></th>
+        <th>Apellido</th>
+        <th>{{asesor.apellidos}}</th>
     </tr>
     <tr>
-        <th>Telefono contacto</th>
-        <th></th>
-    </tr>
-    <tr>
-        <th>Redes Soliales</th>
-        <th></th>
+        <th>Correo</th>
+        <th>{{asesor.correo}}</th>
     </tr>
     <tr>
         <th>areas en la que se especialisa</th>
-        <th></th>
+        <th>{{asesor.areaExperticia}}</th>
+    </tr>
+    <th>
+        <tr>Costo Hora</tr>
+        <tr>{{asesor.CostotHora}}</tr>
+    </th>
+    <tr>
+        <th>Direccion</th>
+        <th>{{asesor.direccion}}</th>
+    </tr>
+    
+    <tr>
+        <th>Telefono contacto</th>
+        <th>{{asesor.telefono}}</th>
     </tr>
     <tr>
-        <th>Emprsas a las que asesora</th>
-        <th></th>
+        <th>Redes Soliales</th>
+        <th>{{asesor.redesSociales}}</th>
     </tr>
-<a href="/src/app/enviar-mensaje/enviar-mensaje.component.html">enviar mensaje</a>
+    
+    <tr>
+        <th>Emprsas a las que asesora</th>
+        <th *ngFor='let Empresa of asesor.EmpresasTrbajo'>
+            {{Empresa.nombre}}
+        </th>
+    </tr>
 </table>
+<!--falta referencia a rutas-->
+<button>buscar Empresa</button>
+<button>Enviar Mensaje</button>
 </div>
