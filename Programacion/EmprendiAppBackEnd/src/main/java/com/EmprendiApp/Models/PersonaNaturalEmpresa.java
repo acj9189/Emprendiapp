@@ -3,6 +3,7 @@ package com.EmprendiApp.Models;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,10 +25,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class PersonaNaturalEmpresa {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
 	private String nombre;
 	private String direccion;
@@ -46,10 +51,9 @@ public class PersonaNaturalEmpresa {
 		
 	}
 	
-	public PersonaNaturalEmpresa(Integer iD, String nombre, String direccion, String telefonoContacto,
+	public PersonaNaturalEmpresa(String nombre, String direccion, String telefonoContacto,
 			String redesSociales, String videoPitch) {
-		super();
-		this.id = iD;
+		//super();
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefonoContacto = telefonoContacto;

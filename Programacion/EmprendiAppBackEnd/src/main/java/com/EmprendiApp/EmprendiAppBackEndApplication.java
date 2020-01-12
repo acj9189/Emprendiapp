@@ -6,11 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.EmprendiApp.Models.ProductoServicio;
-import com.EmprendiApp.Models.Usuario;
-import com.EmprendiApp.Respositories.ProductoServicioRepository;
-//import com.EmprendiApp.Respositories.UsuarioAsesorConsultorRepository;
-import com.EmprendiApp.Respositories.UsuarioRepository;
+import com.EmprendiApp.Models.*;
+import com.EmprendiApp.Respositories.*;
+
 
 @SpringBootApplication
 //@CrossOrigin(origins = "http://localhost:4200")
@@ -21,6 +19,9 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 	@Autowired
 	ProductoServicioRepository Producto;
 	
+	@Autowired
+	PersonaNaturalEmpresaRepository empresaRepo;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(EmprendiAppBackEndApplication.class, args);
 	}
@@ -29,6 +30,7 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//UsuarioRepo.save(new Usuario("Carlos", "Cardenas", "3113762626", "acj8991@gmail.com", "Emprendimientos de videojuegos", "calle 20 32-63"));
 		//Producto.save(new ProductoServicio("Leche", "Leche en polvo para animales", 50, ""));
+		empresaRepo.save(new PersonaNaturalEmpresa("Andres", "", "", "", ""));
 		
 		
 		
