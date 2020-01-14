@@ -30,7 +30,7 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//UsuarioRepo.save(new Usuario("Carlos", "Cardenas", "3113762626", "acj8991@gmail.com", "Emprendimientos de videojuegos", "calle 20 32-63"));
 		//Producto.save(new ProductoServicio("Leche", "Leche en polvo para animales", 50, ""));
-		empresaRepo.save(new PersonaNaturalEmpresa("Andres", "", "", "", ""));
+		//empresaRepo.save(new PersonaNaturalEmpresa("Andres", "", "", "", ""));
 		
 		
 		
