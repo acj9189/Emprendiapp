@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from "src/app/Service/userService";
+import { Router } from '@angular/router';
+import { SocioInversor } from 'src/app/Modelos/SocioInversor';
 
 @Component({
   selector: 'app-info-inversor',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoInversorComponent implements OnInit {
 
-  constructor() { }
+  inversor:SocioInversor;
+  constructor(private service:ServiceService, private router:Router) { }
 
   ngOnInit() {
+    this.service.getSocioInversor().subscribe(data=>{
+      this.inversor = data;
+    });
   }
 
 }

@@ -4,24 +4,43 @@
 <table border="0">
     <tr>
         <th>Nombre</th>
-        <th></th>
+        <th>{{socio.nombres}}</th>
+    </tr>
+    <tr>
+        <th>Apellido</th>
+        <th>{{socio.apellidos}}</th>
+    </tr>
+    <tr>
+        <th>Correo</th>
+        <th>{{socio.correo}}</th>
+    </tr>
+    <tr>
+        <th>Area Experticia</th>
+        <th>{{socio.AreaExperticai}}</th>
+    </tr>
+    <tr>
+        <th>Cantidad horas que trabaja por dia</th>
+        <th>{{socio.CantidadHorasDispuetoATrabajar}}</th>
     </tr>
     <tr>
         <th>Direccion</th>
-        <th></th>
+        <th>{{socio.direccion}}</th>
     </tr>
     <tr>
         <th>Telefono contacto</th>
-        <th></th>
+        <th>{{socio.telefono}}</th>
     </tr>
     <tr>
         <th>Redes Soliales</th>
-        <th></th>
+        <th>{{socio.redesSociales}}</th>
     </tr>
     <tr>
         <th>Emprsas del las que es socio</th>
-        <th></th>
+        <th *ngFor='let empresas of socio.EmpresaTrabajo'>
+            {{empresas.nombre}}
+        </th>
     </tr>
-<a href="/src/app/enviar-mensaje/enviar-mensaje.component.html">enviar mensaje</a>
 </table>
+<button>>buscar empresa</button>
+<button>enviar mensaje</button>
 </div>

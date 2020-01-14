@@ -4,24 +4,41 @@
 <table border="0">
     <tr>
         <th>Nombre</th>
-        <th></th>
+        <th>{{inversor.nombres}}</th>
     </tr>
     <tr>
+        <th>Apellido</th>
+        <th>{{inversor.apellidos}}</th>
+    </tr>
+    <tr>
+        <th>Correo</th>
+        <th>{{inversor.correo}</th>
+    </tr>
+    <tr>
+        <th>Area Experticia</th>
+        <th>{{inversor.AreaExperticai}}</th>
+    </tr>
+
+    <tr>
         <th>Direccion</th>
-        <th></th>
+        <th>{{inversor.direccion}}</th>
     </tr>
     <tr>
         <th>Telefono contacto</th>
-        <th></th>
+        <th>{{inversor.telefono}}</th>
     </tr>
     <tr>
         <th>Redes Soliales</th>
-        <th></th>
+        <th>{{inversor.redesSociales}}</th>
     </tr>
     <tr>
         <th>Emprsas en las que ha invertido</th>
-        <th></th>
+        <th *ngFor='let empresas of inversor.EmpresaTrabajo'>
+            {{empresas.nombre}}
+        </th>
     </tr>
-<a href="/src/app/enviar-mensaje/enviar-mensaje.component.html">enviar mensaje</a>
 </table>
+<!--a completar-->
+<button>consultar empresa</button>
+<button>enviar mensaje</button>
 </div>
