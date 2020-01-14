@@ -10,7 +10,7 @@ export class ServiceService {
   usuario: Usuario;
   constructor(private http: HttpClient) { }
   
-  private Url = 'http://localhost:8690';
+  private Url = 'http://localhost:8690/usuarios';
 
   public getUsuarios() {
     return this.http.get<Usuario[]>(this.Url + '/allUsers');
