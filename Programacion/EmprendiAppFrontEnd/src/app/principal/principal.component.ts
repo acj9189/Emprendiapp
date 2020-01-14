@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-principal',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  public Listar(){
+    this.router.navigate(["listar"]);
+  }
+
+  public Agregar(){
+    this.router.navigate(["add"]);
+  }
+
+  public edit(){
+    this.router.navigate(["edit"]);
+  }
 }

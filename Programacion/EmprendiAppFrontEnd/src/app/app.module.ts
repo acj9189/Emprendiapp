@@ -24,6 +24,7 @@ import { RegistroInversorComponent } from './registro-inversor/registro-inversor
 import { RegistrarSocioComponent } from './registrar-socio/registrar-socio.component';
 import { RegistroAesorComponent } from './registro-aesor/registro-aesor.component';
 import { RegitroConsultorComponent } from './regitro-consultor/regitro-consultor.component';
+import { RemoverEmpresaComponent } from './remover-empresa/remover-empresa.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { RegitroConsultorComponent } from './regitro-consultor/regitro-consultor
     RegistroInversorComponent,
     RegistrarSocioComponent,
     RegistroAesorComponent,
-    RegitroConsultorComponent
+    RegitroConsultorComponent,
+    RemoverEmpresaComponent
   ],
   imports: [
     BrowserModule,

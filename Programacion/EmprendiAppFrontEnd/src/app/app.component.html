@@ -1,10 +1,8 @@
 
 <app-header (messageEvent)="receiveMessage($event)"></app-header>
 
-<!--<app-principal *ngIf="!ingreso"></app-principal>-->
-<app-registro-empresa></app-registro-empresa>
-<!--<app-buscar-filtro></app-buscar-filtro>-->
-<!--<app-enviar-mensaje></app-enviar-mensaje>-->
+<app-principal *ngIf="!ingreso"></app-principal>
+<!--<app-remover-empresa></app-remover-empresa>-->
+
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-<!--<router-outlet></router-outlet>-->
