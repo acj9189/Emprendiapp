@@ -6,5 +6,5 @@ export class Usuario{
     correo:String;
     interfaces:String;
     direccion:String;
-    redesSociales:String;
+    //redesSociales:String;
 }

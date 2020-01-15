@@ -25,6 +25,11 @@ import { RegistrarSocioComponent } from './Socio/registrar-socio/registrar-socio
 import { RegistroAesorComponent } from './Asesor/registro-aesor/registro-aesor.component';
 import { RegitroConsultorComponent } from './Consultor/regitro-consultor/regitro-consultor.component';
 import { RemoverEmpresaComponent } from './Empresa/remover-empresa/remover-empresa.component';
+import { EditarEmpresaComponent } from './Empresa/editar-empresa/editar-empresa.component';
+import { InfoProductoComponent } from './Producto/info-producto/info-producto.component';
+import { RegistrarProductoComponent } from './Producto/registrar-producto/registrar-producto.component';
+import { EditarProductoComponent } from './Producto/editar-producto/editar-producto.component';
+import { RemoverProductoComponent } from './Producto/remover-producto/remover-producto.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,12 @@ import { RemoverEmpresaComponent } from './Empresa/remover-empresa/remover-empre
     RegistrarSocioComponent,
     RegistroAesorComponent,
     RegitroConsultorComponent,
-    RemoverEmpresaComponent
+    RemoverEmpresaComponent,
+    EditarEmpresaComponent,
+    InfoProductoComponent,
+    RegistrarProductoComponent,
+    EditarProductoComponent,
+    RemoverProductoComponent
   ],
   imports: [
     BrowserModule,

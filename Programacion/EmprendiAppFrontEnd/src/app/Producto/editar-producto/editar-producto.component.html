@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div>Informacion de la empresa</div>
+    <table border="0">
+        <tr>
+            <th>Nombre</th>
+            <th><input type="text" [(ngmodel)]="producto.nombre"></th>
+        </tr>
+        <tr>
+            <th>descripcion producto o servicio</th>
+            <th><input type="text" [(ngmodel)]="producto.descripcionProductoServicio"></th>
+        </tr>
+        <tr>
+            <th>descripcion problema</th>
+            <th><input type="text" [(ngmodel)]="producto.descripcionProblemaQSoluciona"></th>
+        </tr>
+        <tr>
+            <th>Costo</th>
+            <th><input type="text" [(ngmodel)]="producto.costoUnidad"></th>
+        </tr>
+    </table>
+    <!--falta conexcion con ase de datos-->
+    <button>actualizar</button>
+</div>

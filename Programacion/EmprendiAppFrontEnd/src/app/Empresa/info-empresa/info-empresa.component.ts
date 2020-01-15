@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from "src/app/Service/userService";
 import { Router } from '@angular/router';
-import { Empresa } from 'src/app/Modelos/Empresa';
+import { PersonaNaturalEmpresa } from 'src/app/Modelos/PersonaNaturalEmpresa';
 
 @Component({
   selector: 'app-info-empresa',
@@ -10,7 +10,7 @@ import { Empresa } from 'src/app/Modelos/Empresa';
 })
 export class InfoEmpresaComponent implements OnInit {
 
-  empresa:Empresa;
+  empresa:PersonaNaturalEmpresa;
   constructor(private service:ServiceService, private router:Router) { }
 
   ngOnInit() {
