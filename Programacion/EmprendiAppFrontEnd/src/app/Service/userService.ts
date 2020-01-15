@@ -14,9 +14,10 @@ export class ServiceService {
   private Url = 'http://localhost:8690/usuarios';
 
   public getUsuarios() {
-    return this.http.get<Usuario[]>(this.Url + '/allUsers');
+    return this.http.get<Usuario[]>(this.Url + '/all');
   }
-
+  
+/*
   public getAsesorConsultor(){
     return this.http.get<AsesorConultor>(this.Url + '/allUsers');
   }
@@ -27,5 +28,5 @@ export class ServiceService {
 
   public getSocioInversor(){
     return this.http.get<SocioInversor>(this.Url + '/allUsers');
-  }
+  }*/
 }
