@@ -18,11 +18,11 @@ export class PrincipalComponent implements OnInit {
     this.router.navigate(["listar"]);
   }
 
-  public Agregar(){
-    this.router.navigate(["add"]);
-  }
-
   public edit(){
     this.router.navigate(["edit"]);
+  }
+
+  public add(){
+    this.router.navigate(["add"]);
   }
 }

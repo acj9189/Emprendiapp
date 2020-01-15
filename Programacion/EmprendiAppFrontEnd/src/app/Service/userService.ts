@@ -16,6 +16,11 @@ export class ServiceService {
   public getUsuarios() {
     return this.http.get<Usuario[]>(this.Url + '/all');
   }
+
+  public addUsuarios(usuario: Usuario){
+    return this.http.post<Usuario>(this.Url + '/usuario', Usuario);
+
+  }
   
 /*
   public getAsesorConsultor(){
