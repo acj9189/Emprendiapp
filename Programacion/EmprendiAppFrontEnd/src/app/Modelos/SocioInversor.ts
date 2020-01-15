@@ -1,10 +1,11 @@
 import { Usuario } from './Usuario'
-import { Empresa } from './Empresa'
+import { PersonaNaturalEmpresa } from './PersonaNaturalEmpresa'
+//necesaria revision
 export class SocioInversor extends Usuario{
     TipoSocioInversor:boolean;
     AreaExperticai:String;
     ConocimientoAporta:String;
     CantidadHorasDispuetoATrabajar:String;
     AreasInteres:String;
-    EmpresaTrabajo:Empresa[];
+    EmpresaTrabajo:PersonaNaturalEmpresa[];
 }

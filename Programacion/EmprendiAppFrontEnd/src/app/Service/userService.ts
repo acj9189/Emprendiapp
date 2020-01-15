@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../Modelos/Usuario';
 import { AsesorConultor } from '../Modelos/AsesorConsultor';
-import { Empresa } from '../Modelos/Empresa';
+import { PersonaNaturalEmpresa } from '../Modelos/PersonaNaturalEmpresa';
 import { SocioInversor } from '../Modelos/SocioInversor';
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class ServiceService {
   }
 
   public getEmpresa(){
-    return this.http.get<Empresa>(this.Url + '/allUsers');
+    return this.http.get<PersonaNaturalEmpresa>(this.Url + '/allUsers');
   }
 
   public getSocioInversor(){
