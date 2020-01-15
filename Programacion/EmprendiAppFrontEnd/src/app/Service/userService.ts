@@ -22,7 +22,7 @@ export class ServiceService {
 
   }
   
-/*
+
   public getAsesorConsultor(){
     return this.http.get<AsesorConultor>(this.Url + '/allUsers');
   }
@@ -33,5 +33,5 @@ export class ServiceService {
 
   public getSocioInversor(){
     return this.http.get<SocioInversor>(this.Url + '/allUsers');
-  }*/
+  }
 }
