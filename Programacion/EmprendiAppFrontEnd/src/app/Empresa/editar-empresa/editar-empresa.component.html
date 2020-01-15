@@ -1,24 +1,24 @@
 <div class="container-fluid">
-<!--
+
     <div>Informacion de la empresa</div>
     <table border="0">
         <tr>
             <th>Nombre</th>
             <th>
-                <input type="text" [(ngmodel)]="empresa.nombre">
+                <input type="text" #empresaNombre>
             </th>
         </tr>
         <tr>
             <th>Direccion</th>
-            <th><input type="text" [(ngmodel)]="empresa.direccion"></th>
+            <th><input type="text" #empresaDireccion></th>
         </tr>
         <tr>
             <th>Telefono contacto</th>
-            <th><input type="text" [(ngmodel)]="empresa.telefonoContacto"></th>
+            <th><input type="text" #empresaTelefonoContacto></th>
         </tr>
         <tr>
             <th>Redes Soliales</th>
-            <th><input type="text" [(ngmodel)]="empresa.redesSociales"></th>
+            <th><input type="text" #empresaRedesSociales></th>
         </tr>
     
         <tr>
@@ -26,10 +26,10 @@
                 vido pitch
             </th>
             <th>
-                <input type="text" [(ngmodel)]="empresa.videoPitch">
+                <input type="text" #empresaVideoPitch>
             </th>
         </tr>
-    </table>-->
+    </table>
     <!--falta realizar metodo-->
     <button>Actualizar</button>
 </div>
