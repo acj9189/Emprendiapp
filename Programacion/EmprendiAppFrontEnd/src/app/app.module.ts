@@ -14,17 +14,17 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuscarFiltroComponent } from './buscar-filtro/buscar-filtro.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
-import { InfoEmpresaComponent } from './info-empresa/info-empresa.component';
-import { InfoSocioComponent } from './info-socio/info-socio.component';
-import { InfoInversorComponent } from './info-inversor/info-inversor.component';
-import { InfoAsesorComponent } from './info-asesor/info-asesor.component';
-import { InfoConsultorComponent } from './info-consultor/info-consultor.component';
-import { RegistroEmpresaComponent } from './registro-empresa/registro-empresa.component';
-import { RegistroInversorComponent } from './registro-inversor/registro-inversor.component';
-import { RegistrarSocioComponent } from './registrar-socio/registrar-socio.component';
-import { RegistroAesorComponent } from './registro-aesor/registro-aesor.component';
-import { RegitroConsultorComponent } from './regitro-consultor/regitro-consultor.component';
-import { RemoverEmpresaComponent } from './remover-empresa/remover-empresa.component';
+import { InfoEmpresaComponent } from './Empresa/info-empresa/info-empresa.component';
+import { InfoSocioComponent } from './Socio/info-socio/info-socio.component';
+import { InfoInversorComponent } from './Inversor/info-inversor/info-inversor.component';
+import { InfoAsesorComponent } from './Asesor/info-asesor/info-asesor.component';
+import { InfoConsultorComponent } from './Consultor/info-consultor/info-consultor.component';
+import { RegistroEmpresaComponent } from './Empresa/registro-empresa/registro-empresa.component';
+import { RegistroInversorComponent } from './Inversor/registro-inversor/registro-inversor.component';
+import { RegistrarSocioComponent } from './Socio/registrar-socio/registrar-socio.component';
+import { RegistroAesorComponent } from './Asesor/registro-aesor/registro-aesor.component';
+import { RegitroConsultorComponent } from './Consultor/regitro-consultor/regitro-consultor.component';
+import { RemoverEmpresaComponent } from './Empresa/remover-empresa/remover-empresa.component';
 
 @NgModule({
   declarations: [
