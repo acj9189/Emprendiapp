@@ -17,8 +17,13 @@ export class ServiceService {
     return this.http.get<Usuario[]>(this.Url + '/all');
   }
 
-  public addUsuarios(usuario: Usuario){
-    return this.http.post<Usuario>(this.Url + '/usuario', Usuario);
+  public addUsuarios(usuario/*: Usuario*/){
+    //alert(usuario.a("hola"));
+    console.log("locas del coño");
+    console.log(usuario);
+    console.log(usuario.nombres);
+
+    return this.http.post<Usuario>(this.Url + '/usuario', usuario);
 
   }
   

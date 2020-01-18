@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Modelos/Usuario';
 import { ServiceService } from "src/app/Service/userService";
@@ -11,6 +11,8 @@ import { ServiceService } from "src/app/Service/userService";
 export class AddComponent implements OnInit {
 
   usuarios:Usuario[];
+  //usuarioEnvio:Usuario;
+
   constructor(private service:ServiceService, private router:Router) { }
 
 
@@ -18,14 +20,21 @@ export class AddComponent implements OnInit {
     
   }
 
-  public Guardar(usuario:Usuario){
-    
-    this.service.addUsuarios(usuario).subscribe(data=>{
-      alert("Se agrego con exito...");
-      this.router.navigate(["listar"]);
-      
+  public Guardar(/*usuario:Usuario*/ nombres,apellidos,email){
+    //console.log(usuario.a());
+
+    let usuarioEnvio = new Usuario();   
+    usuarioEnvio.nombres= nombres.value;
+    usuarioEnvio.apellidos= apellidos.value;
+    usuarioEnvio.correo= email.value;
+
+    this.service.addUsuarios(usuarioEnvio).subscribe(data=>{
+      usuarioEnvio=data;
     })
-  }
+
+    alert("Se agrego con exito...espero que si ");
+    this.router.navigate(["listar"]);
+    }
 
   
 
