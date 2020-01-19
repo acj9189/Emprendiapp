@@ -17,8 +17,6 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class Usuario {
@@ -27,11 +25,23 @@ public class Usuario {
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
+	@Column(name = "nombres", nullable = true)
 	private String nombres;
+	
+	@Column(name = "apellidos", nullable = true)
 	private String apellidos;
+	
+	@Column(name = "telefono", nullable = true)
 	private String telefono;
+	
+	@Column(name = "email", nullable = true)
 	private String email;
+	
+	@Column(name = "descripcionIntereses", nullable = true)
 	private String descripcionIntereses;
+	
+	@Column(name = "direccionContacto", nullable = true)
 	private String direccionContacto;
 
 	public Usuario() {

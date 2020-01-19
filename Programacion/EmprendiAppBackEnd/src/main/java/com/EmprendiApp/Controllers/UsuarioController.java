@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.EmprendiApp.Models.ProductoServicio;
 import com.EmprendiApp.Models.Usuario;
 import com.EmprendiApp.Respositories.UsuarioRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -49,6 +47,7 @@ public class UsuarioController {
 
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/usuario")
 	@ResponseBody
 	private Usuario NuevoUsuario(@Valid @RequestBody Usuario ususario) {
