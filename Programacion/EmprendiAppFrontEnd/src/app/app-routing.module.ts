@@ -22,8 +22,16 @@ import { InfoProductoComponent } from './Producto/info-producto/info-producto.co
 import { RegistrarProductoComponent } from './Producto/registrar-producto/registrar-producto.component';
 import { RemoverProductoComponent } from './Producto/remover-producto/remover-producto.component';
 import { RegistrarSocioComponent } from './Socio/registrar-socio/registrar-socio.component';
+import { InfoAdministradorComponent } from './Administrador/info-administrador/info-administrador.component';
+import { EditarAdministradorComponent } from './Administrador/editar-administrador/editar-administrador.component';
+import { RemoverAdministradorComponent } from './Administrador/remover-administrador/remover-administrador.component';
+import { AgregarAdministradorComponent } from './Administrador/agregar-administrador/agregar-administrador.component';
 
 const routes: Routes = [
+  {path: 'agregarAdministrador',component:AgregarAdministradorComponent},
+  {path: 'removerAdministrador',component:RemoverAdministradorComponent},
+  {path: 'editarAdministradr',component:EditarAdministradorComponent},
+  {path: 'infoAdministrador',component:InfoAdministradorComponent},
   {path: 'registrarSocio',component:RegistrarSocioComponent},
   {path: 'removerProducto',component:RemoverProductoComponent},
   {path: 'registroProducto',component:RegistrarProductoComponent},
@@ -53,3 +61,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+//Administrador

@@ -30,6 +30,15 @@ import { InfoProductoComponent } from './Producto/info-producto/info-producto.co
 import { RegistrarProductoComponent } from './Producto/registrar-producto/registrar-producto.component';
 import { EditarProductoComponent } from './Producto/editar-producto/editar-producto.component';
 import { RemoverProductoComponent } from './Producto/remover-producto/remover-producto.component';
+import { InfoAdministradorComponent } from './Administrador/info-administrador/info-administrador.component';
+import { EditarAdministradorComponent } from './Administrador/editar-administrador/editar-administrador.component';
+import { RemoverAdministradorComponent } from './Administrador/remover-administrador/remover-administrador.component';
+import { AgregarAdministradorComponent } from './Administrador/agregar-administrador/agregar-administrador.component';
+import { MenuAdministradorComponent } from './Administrador/menu-administrador/menu-administrador.component';
+import { MenuAsesorComponent } from './Asesor/menu-asesor/menu-asesor.component';
+import { MenuConsultorComponent } from './Consultor/menu-consultor/menu-consultor.component';
+import { MenuEmpresaComponent } from './Empresa/menu-empresa/menu-empresa.component';
+import { MenuInversorComponent } from './Inversor/menu-inversor/menu-inversor.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +66,16 @@ import { RemoverProductoComponent } from './Producto/remover-producto/remover-pr
     InfoProductoComponent,
     RegistrarProductoComponent,
     EditarProductoComponent,
-    RemoverProductoComponent
+    RemoverProductoComponent,
+    InfoAdministradorComponent,
+    EditarAdministradorComponent,
+    RemoverAdministradorComponent,
+    AgregarAdministradorComponent,
+    MenuAdministradorComponent,
+    MenuAsesorComponent,
+    MenuConsultorComponent,
+    MenuEmpresaComponent,
+    MenuInversorComponent
   ],
   imports: [
     BrowserModule,

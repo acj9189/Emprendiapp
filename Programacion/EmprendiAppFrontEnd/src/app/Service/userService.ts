@@ -19,9 +19,7 @@ export class ServiceService {
 
   public addUsuarios(usuario/*: Usuario*/){
     //alert(usuario.a("hola"));
-    console.log("locas del coño");
-    console.log(usuario);
-    console.log(usuario.nombres);
+  
 
     return this.http.post<Usuario>(this.Url + '/usuario', usuario);
 

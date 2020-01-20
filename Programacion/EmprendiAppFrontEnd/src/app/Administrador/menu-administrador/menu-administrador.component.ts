@@ -1,25 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-menu-administrador',
+  templateUrl: './menu-administrador.component.html',
+  styleUrls: ['./menu-administrador.component.css']
 })
-export class AppComponent {
-  title = 'EmprendiApp';
+export class MenuAdministradorComponent implements OnInit {
 
-  ingreso:boolean=false;
-  constructor(private router:Router){
-  }
-//hola
-  receiveMessage($event){
-    this.ingreso=$event;
-    if(this.ingreso){
-      this.infoAdmin();
-    }else{
-      this.inicio();
-    }
+  constructor(private router:Router) { }
+
+  ngOnInit() {
   }
 
   public infoEmpresa(){
@@ -30,6 +21,7 @@ export class AppComponent {
     this.router.navigate(['infoAdministrador']);
   }
 
+  //verificar si es necesaria aqui
   public infoProducto(){
     this.router.navigate(['infoProducto'])
   }
