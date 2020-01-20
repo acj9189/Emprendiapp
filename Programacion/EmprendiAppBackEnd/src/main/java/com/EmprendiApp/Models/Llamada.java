@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Llamada {
 	
