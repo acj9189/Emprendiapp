@@ -1,10 +1,14 @@
 package com.EmprendiApp.Models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -22,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 public class Usuario {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
 	
@@ -43,18 +47,22 @@ public class Usuario {
 	
 	@Column(name = "direccionContacto", nullable = true)
 	private String direccionContacto;
+	
 
 	public Usuario() {
 
 	}
-
-	public Usuario(String nombres, String apellidos, String telefono, String email, String descripcionIntereses, String direccionContacto ) {
+	
+	public Usuario(Integer id, String nombres, String apellidos, String telefono, String email,
+			String descripcionIntereses, String direccionContacto) {
+		super();
+		this.id = id;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.email = email;
 		this.descripcionIntereses = descripcionIntereses;
-		this.direccionContacto = direccionContacto; 
+		this.direccionContacto = direccionContacto;
 	}
 
 	public Integer getId() {

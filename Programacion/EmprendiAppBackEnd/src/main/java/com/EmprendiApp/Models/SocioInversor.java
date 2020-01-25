@@ -1,7 +1,14 @@
-package Models;
+package com.EmprendiApp.Models;
 
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.EmprendiApp.Models.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,140 +22,105 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class SocioInversor extends Usuario{
+public class SocioInversor{
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = false)
+	private Integer id;
+	
+	@Column(name = "areasExperticia", nullable = true)
 	private String areasExperticia;
+	
+	@Column(name = "conociminetoQAporta", nullable = true)
 	private String conociminetoQAporta;
+	
+	@Column(name = "cantidadHorasDispuestoTrabajar", nullable = true)
 	private int cantidadHorasDispuestoTrabajar;
+	
+	@Column(name = "areasInteres", nullable = true)
 	private String areasInteres;
+	
+	@Column(name = "tipoSocioInversor", nullable = true)
 	private boolean tipoSocioInversor; // Cuando la varible esta en false es Socio, cuando esta en true es Inversor
 	
 	
-	public SocioInversor() {
+	@JoinColumn(name = "Usuario_id", unique = true, nullable = false)
+	@OneToOne(cascade = CascadeType.ALL)
+	private Usuario usuario;
+
+	public SocioInversor(Integer id, String areasExperticia, String conociminetoQAporta,
+			int cantidadHorasDispuestoTrabajar, String areasInteres, boolean tipoSocioInversor, Usuario usuario) {
 		super();
-	
-	}
-	
-	public SocioInversor(String nombres, String apellidos, String telefono, String email, String descripcionIntereses,
-			String direccionContacto, String areasExperticia, String conociminetoQAporta, int cantidadHorasDispuestoTrabajar,
-			String areasInteres, boolean tipoSocioInversor) {
-		super(nombres, apellidos, telefono, email, descripcionIntereses, direccionContacto);
+		this.id = id;
 		this.areasExperticia = areasExperticia;
 		this.conociminetoQAporta = conociminetoQAporta;
 		this.cantidadHorasDispuestoTrabajar = cantidadHorasDispuestoTrabajar;
 		this.areasInteres = areasInteres;
 		this.tipoSocioInversor = tipoSocioInversor;
+		this.usuario = usuario;
 	}
 
-	@Override
+	public SocioInversor() {
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Integer getId() {
-		return super.getId();
+		return id;
 	}
-	
-	@Override
-	public void setId(Integer iD) {
-		super.setId(iD);
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
-	@Override
-	public String getNombres() {
-		return super.getNombres();
-	}
-	
-	@Override
-	public void setNombres(String nombres) {
-		super.setNombres(nombres);
-	}
-	
-	@Override
-	public String getApellidos() {
-		return super.getApellidos();
-	}
-	
-	@Override
-	public void setApellidos(String apellidos) {
-		super.setApellidos(apellidos);
-	}
-	
-	@Override
-	public String getTelefono() {
-		return super.getTelefono();
-	}
-	
-	@Override
-	public void setTelefono(String telefono) {
-		super.setTelefono(telefono);
-	}
-	
-	@Override
-	public String getEmail() {
-		return super.getEmail();
-	}
-	
-	@Override
-	public void setEmail(String email) {
-		super.setEmail(email);
-	}
-	
-	@Override
-	public String getDescripcionIntereses() {
-		return super.getDescripcionIntereses();
-	}
-	
-	@Override
-	public void setDescripcionIntereses(String descripcionIntereses) {
-		super.setDescripcionIntereses(descripcionIntereses);
-	}
-	
-	@Override
-	public String getDireccionContacto() {
-		return super.getDireccionContacto();
-	}
-	
-	@Override
-	public void setDireccionContacto(String direccionContacto) {
-		super.setDireccionContacto(direccionContacto);
-	}
-	
+
 	public String getAreasExperticia() {
 		return areasExperticia;
 	}
-	
+
 	public void setAreasExperticia(String areasExperticia) {
 		this.areasExperticia = areasExperticia;
 	}
-	
+
 	public String getConociminetoQAporta() {
 		return conociminetoQAporta;
 	}
-	
+
 	public void setConociminetoQAporta(String conociminetoQAporta) {
 		this.conociminetoQAporta = conociminetoQAporta;
 	}
-	
+
 	public int getCantidadHorasDispuestoTrabajar() {
 		return cantidadHorasDispuestoTrabajar;
 	}
-	
+
 	public void setCantidadHorasDispuestoTrabajar(int cantidadHorasDispuestoTrabajar) {
 		this.cantidadHorasDispuestoTrabajar = cantidadHorasDispuestoTrabajar;
 	}
-	
+
 	public String getAreasInteres() {
 		return areasInteres;
 	}
-	
+
 	public void setAreasInteres(String areasInteres) {
 		this.areasInteres = areasInteres;
 	}
-	
+
 	public boolean isTipoSocioInversor() {
 		return tipoSocioInversor;
 	}
-	
+
 	public void setTipoSocioInversor(boolean tipoSocioInversor) {
 		this.tipoSocioInversor = tipoSocioInversor;
 	}
+
 	
 	
 
