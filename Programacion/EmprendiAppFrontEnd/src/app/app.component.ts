@@ -16,7 +16,7 @@ export class AppComponent {
   receiveMessage($event){
     this.ingreso=$event;
     if(this.ingreso){
-      this.infoEmpresa();
+      this.infoAdmin();
     }else{
       this.inicio();
     }
@@ -24,6 +24,30 @@ export class AppComponent {
 
   public infoEmpresa(){
     this.router.navigate(['infoEmpresa']);
+  }
+
+  public infoAdmin(){
+    this.router.navigate(['infoAdministrador']);
+  }
+
+  public infoProducto(){
+    this.router.navigate(['infoProducto'])
+  }
+
+  public infoSocio(){
+    this.router.navigate(['infoSocio']);
+  }
+
+  public infoInversor(){
+    this.router.navigate(['infoInversor']);
+  }
+
+  public infoConsultor(){
+    this.router.navigate(['infoConsultor']);
+  }
+
+  public infoAsesor(){
+    this.router.navigate(['infoAsesor']);
   }
 
   public inicio(){

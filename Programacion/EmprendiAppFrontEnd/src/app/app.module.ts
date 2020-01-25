@@ -30,6 +30,26 @@ import { InfoProductoComponent } from './Producto/info-producto/info-producto.co
 import { RegistrarProductoComponent } from './Producto/registrar-producto/registrar-producto.component';
 import { EditarProductoComponent } from './Producto/editar-producto/editar-producto.component';
 import { RemoverProductoComponent } from './Producto/remover-producto/remover-producto.component';
+import { InfoAdministradorComponent } from './Administrador/info-administrador/info-administrador.component';
+import { EditarAdministradorComponent } from './Administrador/editar-administrador/editar-administrador.component';
+import { RemoverAdministradorComponent } from './Administrador/remover-administrador/remover-administrador.component';
+import { AgregarAdministradorComponent } from './Administrador/agregar-administrador/agregar-administrador.component';
+import { MenuAdministradorComponent } from './Administrador/menu-administrador/menu-administrador.component';
+import { MenuAsesorComponent } from './Asesor/menu-asesor/menu-asesor.component';
+import { MenuConsultorComponent } from './Consultor/menu-consultor/menu-consultor.component';
+import { MenuEmpresaComponent } from './Empresa/menu-empresa/menu-empresa.component';
+import { MenuInversorComponent } from './Inversor/menu-inversor/menu-inversor.component';
+import { EditarAsesorComponent } from './Asesor/editar-asesor/editar-asesor.component';
+import { RemoverAsesorComponent } from './Asesor/remover-asesor/remover-asesor.component';
+import { EditarConsultorComponent } from './Consultor/editar-consultor/editar-consultor.component';
+import { RemoverConsultorComponent } from './Consultor/remover-consultor/remover-consultor.component';
+import { EditarInversorComponent } from './Inversor/editar-inversor/editar-inversor.component';
+import { RemoverInversorComponent } from './Inversor/remover-inversor/remover-inversor.component';
+import { MenuSocioComponent } from './Socio/menu-socio/menu-socio.component';
+import { EditarSocioComponent } from './Socio/editar-socio/editar-socio.component';
+import { RemoverSocioComponent } from './Socio/remover-socio/remover-socio.component';
+import { BuscarAdministradorComponent } from './Administrador/buscar-administrador/buscar-administrador.component';
+import { ListarAdminEditComponent } from './Administrador/listar-admin-edit/listar-admin-edit.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +77,27 @@ import { RemoverProductoComponent } from './Producto/remover-producto/remover-pr
     InfoProductoComponent,
     RegistrarProductoComponent,
     EditarProductoComponent,
-    RemoverProductoComponent
+    RemoverProductoComponent,
+    InfoAdministradorComponent,
+    EditarAdministradorComponent,
+    RemoverAdministradorComponent,
+    AgregarAdministradorComponent,
+    MenuAdministradorComponent,
+    MenuAsesorComponent,
+    MenuConsultorComponent,
+    MenuEmpresaComponent,
+    MenuInversorComponent,
+    EditarAsesorComponent,
+    RemoverAsesorComponent,
+    EditarConsultorComponent,
+    RemoverConsultorComponent,
+    EditarInversorComponent,
+    RemoverInversorComponent,
+    MenuSocioComponent,
+    EditarSocioComponent,
+    RemoverSocioComponent,
+    BuscarAdministradorComponent,
+    ListarAdminEditComponent
   ],
   imports: [
     BrowserModule,
