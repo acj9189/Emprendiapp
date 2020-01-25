@@ -39,6 +39,17 @@ import { MenuAsesorComponent } from './Asesor/menu-asesor/menu-asesor.component'
 import { MenuConsultorComponent } from './Consultor/menu-consultor/menu-consultor.component';
 import { MenuEmpresaComponent } from './Empresa/menu-empresa/menu-empresa.component';
 import { MenuInversorComponent } from './Inversor/menu-inversor/menu-inversor.component';
+import { EditarAsesorComponent } from './Asesor/editar-asesor/editar-asesor.component';
+import { RemoverAsesorComponent } from './Asesor/remover-asesor/remover-asesor.component';
+import { EditarConsultorComponent } from './Consultor/editar-consultor/editar-consultor.component';
+import { RemoverConsultorComponent } from './Consultor/remover-consultor/remover-consultor.component';
+import { EditarInversorComponent } from './Inversor/editar-inversor/editar-inversor.component';
+import { RemoverInversorComponent } from './Inversor/remover-inversor/remover-inversor.component';
+import { MenuSocioComponent } from './Socio/menu-socio/menu-socio.component';
+import { EditarSocioComponent } from './Socio/editar-socio/editar-socio.component';
+import { RemoverSocioComponent } from './Socio/remover-socio/remover-socio.component';
+import { BuscarAdministradorComponent } from './Administrador/buscar-administrador/buscar-administrador.component';
+import { ListarAdminEditComponent } from './Administrador/listar-admin-edit/listar-admin-edit.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +86,18 @@ import { MenuInversorComponent } from './Inversor/menu-inversor/menu-inversor.co
     MenuAsesorComponent,
     MenuConsultorComponent,
     MenuEmpresaComponent,
-    MenuInversorComponent
+    MenuInversorComponent,
+    EditarAsesorComponent,
+    RemoverAsesorComponent,
+    EditarConsultorComponent,
+    RemoverConsultorComponent,
+    EditarInversorComponent,
+    RemoverInversorComponent,
+    MenuSocioComponent,
+    EditarSocioComponent,
+    RemoverSocioComponent,
+    BuscarAdministradorComponent,
+    ListarAdminEditComponent
   ],
   imports: [
     BrowserModule,
