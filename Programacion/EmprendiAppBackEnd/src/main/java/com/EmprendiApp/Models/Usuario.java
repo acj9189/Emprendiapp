@@ -48,6 +48,9 @@ public class Usuario {
 	@Column(name = "direccionContacto", nullable = true)
 	private String direccionContacto;
 	
+	
+	//private SocioInversor socio;
+	
 
 	public Usuario() {
 

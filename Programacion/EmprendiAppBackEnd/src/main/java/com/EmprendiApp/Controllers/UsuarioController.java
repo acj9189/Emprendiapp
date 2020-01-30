@@ -37,14 +37,12 @@ public class UsuarioController {
 	@ResponseBody
 	private List<Usuario> getAllRomanos(){
 		return userRepository.findAll();
-		
 	}
 	
 	@GetMapping("/usuario/{id}") //analizar
 	@ResponseBody
 	private Optional<Usuario> getUsuario(@PathVariable Integer id) {
 		return userRepository.findById(id);
-
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -52,7 +50,6 @@ public class UsuarioController {
 	@ResponseBody
 	private Usuario NuevoUsuario(@Valid @RequestBody Usuario ususario) {
 		return userRepository.save(ususario);
-
 	}
 
 	@PutMapping("/usuario/{id}")
@@ -72,7 +69,6 @@ public class UsuarioController {
 
 		final Usuario updatedUsuario = userRepository.save(usuarioBuscado);
 		return ResponseEntity.ok(updatedUsuario);
-
 	}
 
 	@DeleteMapping("/usuario/{id}")
