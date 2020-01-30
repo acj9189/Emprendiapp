@@ -35,10 +35,6 @@ export class AddComponent implements OnInit {
       usuarioEnvio=data;
     })
 
-    alert("Se agrego con exito...espero que si ");
     this.router.navigate(["listar"]);
     }
-
-  
-
 }

@@ -4,7 +4,7 @@ import { ListarComponent } from './Usuario/listar/listar.component';
 import { AddComponent } from './Usuario/add/add.component';
 import { EditComponent } from './Usuario/edit/edit.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { BuscarFiltroComponent } from './buscar-filtro/buscar-filtro.component';
+import { BuscarFiltroComponent } from './Busquedas/buscar-filtro/buscar-filtro.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 import { InfoEmpresaComponent } from './Empresa/info-empresa/info-empresa.component';
 import { InfoSocioComponent } from './Socio/info-socio/info-socio.component';
@@ -34,13 +34,23 @@ import { EditarInversorComponent } from './Inversor/editar-inversor/editar-inver
 import { RemoverInversorComponent } from './Inversor/remover-inversor/remover-inversor.component';
 import { EditarSocioComponent } from './Socio/editar-socio/editar-socio.component';
 import { RemoverSocioComponent } from './Socio/remover-socio/remover-socio.component';
-import { ListarAdminEditComponent } from './Administrador/listar-admin-edit/listar-admin-edit.component';
+import { ListarAdminEditComponent } from './Busquedas/listar-admin/listar-admin-edit.component';
+import { ListaAdminComponent } from './Administrador/lista-admin/lista-admin.component';
+import { ListaAsesorComponent } from './Administrador/lista-asesor/lista-asesor.component';
+import { ListaConsultorComponent } from './Administrador/lista-consultor/lista-consultor.component';
+import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empresa.component';
+import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
 
 const routes: Routes = [
+  {path: 'listaInversor',component:ListaInversorComponent},
+  {path: 'listaEmpresa',component:ListaEmpresaComponent},
+  {path: 'listaConsultor',component:ListaConsultorComponent},
+  {path: 'listaAsesor',component:ListaAsesorComponent},
+  {path: 'listaAdmin',component:ListaAdminComponent},
   {path: 'listarAdministradorEdit',component:ListarAdminEditComponent},
   {path: 'agregarAdministrador',component:AgregarAdministradorComponent},
   {path: 'removerAdministrador',component:RemoverAdministradorComponent},
-  {path: 'editarAdministradr/:id',component:EditarAdministradorComponent},
+  {path: 'editarAdministradr',component:EditarAdministradorComponent},
   {path: 'infoAdministrador',component:InfoAdministradorComponent},
   {path: 'registrarSocio',component:RegistrarSocioComponent},
   {path: 'editarSocio',component:EditarSocioComponent},

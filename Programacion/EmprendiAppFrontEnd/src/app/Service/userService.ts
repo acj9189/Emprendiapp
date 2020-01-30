@@ -19,7 +19,6 @@ export class ServiceService {
 
   public addUsuarios(usuario/*: Usuario*/){
     //alert(usuario.a("hola"));
-  
 
     return this.http.post<Usuario>(this.Url + '/usuario', usuario);
 
