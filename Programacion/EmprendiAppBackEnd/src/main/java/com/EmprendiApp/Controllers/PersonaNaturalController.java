@@ -41,49 +41,49 @@ public class PersonaNaturalController {
 
 	}
 
-	/*@GetMapping("/producto/{id}")
+	@GetMapping("/empresa/{id}")
 	@ResponseBody
-	private Optional<ProductoServicio> getProducto(@PathVariable Integer id) {
-		return productoServicioRepository.findById(id);
+	private Optional<PersonaNaturalEmpresa> getEmpresa(@PathVariable Integer id) {
+		return empresaRepository.findById(id);
 
 	}
 
-	@PostMapping("/producto")
+	@PostMapping("/empresa")
 	@ResponseBody
-	private ProductoServicio NuevoProducto(@Valid @RequestBody ProductoServicio producto) {
-		return productoServicioRepository.save(producto);
+	private PersonaNaturalEmpresa NuevaEmpresa(@Valid @RequestBody PersonaNaturalEmpresa empresa) {
+		return empresaRepository.save(empresa);
 
 	}
 
-	@PutMapping("/producto/{id}")
+	@PutMapping("/empresa/{id}")
 	@ResponseBody
-	private ResponseEntity<ProductoServicio> updateProducto(@PathVariable(value = "id") Integer Id,
-			@Valid @RequestBody ProductoServicio productoDatails) throws ResourceNotFoundException {
+	private ResponseEntity<PersonaNaturalEmpresa> updateEmpresa(@PathVariable(value = "id") Integer Id,
+			@Valid @RequestBody PersonaNaturalEmpresa empresaDitails) throws ResourceNotFoundException {
 
-		ProductoServicio producto = productoServicioRepository.findById(Id)
+		PersonaNaturalEmpresa empresa = empresaRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el producto o servicio  :: " + Id));
 
-		producto.setNombre(productoDatails.getNombre());
-		producto.setDescripcionProductoServicio(productoDatails.getDescripcionProblemaQSoluciona());
-		producto.setCostoUnidad(productoDatails.getCostoUnidad());
-		producto.setDescripcionProblemaQSoluciona(productoDatails.getDescripcionProblemaQSoluciona());
+		empresa.setNombre(empresaDitails.getNombre());
+		empresa.setDireccion(empresaDitails.getDireccion());
+		empresa.setRedesSociales(empresaDitails.getRedesSociales());
+		empresa.setTelefonoContacto(empresaDitails.getTelefonoContacto());
+		empresa.setVideoPitch(empresaDitails.getVideoPitch());
 
-		final ProductoServicio updatedProducto = productoServicioRepository.save(producto);
+		final PersonaNaturalEmpresa updatedProducto =  empresaRepository.save(empresa);
 		return ResponseEntity.ok(updatedProducto);
 
 	}
 
-	@DeleteMapping("/producto/{id}")
+	@DeleteMapping("/empresa/{id}")
 	@ResponseBody
-	private boolean deleteProducto(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	private boolean deleteEmkpresa(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
-
-		ProductoServicio deleteProduct = productoServicioRepository.findById(Id).orElseThrow(
-				() -> new ResourceNotFoundException("No se encontro el producto o servicio a eliminar :: " + Id));
-		productoServicioRepository.delete(deleteProduct);
+		PersonaNaturalEmpresa deleteEmpresa = empresaRepository.findById(Id).orElseThrow(
+				() -> new ResourceNotFoundException("No se encontro la empresa  o l;a persna natural a eliminar :: " + Id));
+		empresaRepository.delete(deleteEmpresa);
 		response = true;
 		return response;
-	}*/
+	}
 
 
 }

@@ -35,7 +35,7 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 		UsuarioRepo.save(aa);
 		//Producto.save(new ProductoServicio("Leche", "Leche en polvo para animales", 50, ""));
 		//empresaRepo.save(new PersonaNaturalEmpresa("Andres", "", "", "", ""));
-		ss.save(new SocioInversor("", "", 55, "", true, aa));
+		//ss.save(new SocioInversor("", "", 55, "", true, aa));
 		
 		
 		

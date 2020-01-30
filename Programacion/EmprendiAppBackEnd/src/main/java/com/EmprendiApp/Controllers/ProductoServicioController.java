@@ -56,15 +56,15 @@ public class ProductoServicioController {
 	@PutMapping("/producto/{id}")
 	@ResponseBody
 	private ResponseEntity<ProductoServicio> updateProducto(@PathVariable(value = "id") Integer Id,
-			@Valid @RequestBody ProductoServicio productoDatails) throws ResourceNotFoundException {
+			@Valid @RequestBody ProductoServicio productoDitails) throws ResourceNotFoundException {
 
 		ProductoServicio producto = productoServicioRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el producto o servicio  :: " + Id));
 
-		producto.setNombre(productoDatails.getNombre());
-		producto.setDescripcionProductoServicio(productoDatails.getDescripcionProblemaQSoluciona());
-		producto.setCostoUnidad(productoDatails.getCostoUnidad());
-		producto.setDescripcionProblemaQSoluciona(productoDatails.getDescripcionProblemaQSoluciona());
+		producto.setNombre(productoDitails.getNombre());
+		producto.setDescripcionProductoServicio(productoDitails.getDescripcionProblemaQSoluciona());
+		producto.setCostoUnidad(productoDitails.getCostoUnidad());
+		producto.setDescripcionProblemaQSoluciona(productoDitails.getDescripcionProblemaQSoluciona());
 
 		final ProductoServicio updatedProducto = productoServicioRepository.save(producto);
 		return ResponseEntity.ok(updatedProducto);
