@@ -53,10 +53,8 @@ public class Usuario {
 
 	}
 	
-	public Usuario(Integer id, String nombres, String apellidos, String telefono, String email,
+	public Usuario(String nombres, String apellidos, String telefono, String email,
 			String descripcionIntereses, String direccionContacto) {
-		super();
-		this.id = id;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.telefono = telefono;

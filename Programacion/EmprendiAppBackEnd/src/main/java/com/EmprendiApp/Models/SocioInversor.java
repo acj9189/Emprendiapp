@@ -50,10 +50,9 @@ public class SocioInversor{
 	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 
-	public SocioInversor(Integer id, String areasExperticia, String conociminetoQAporta,
+	public SocioInversor(String areasExperticia, String conociminetoQAporta,
 			int cantidadHorasDispuestoTrabajar, String areasInteres, boolean tipoSocioInversor, Usuario usuario) {
 		super();
-		this.id = id;
 		this.areasExperticia = areasExperticia;
 		this.conociminetoQAporta = conociminetoQAporta;
 		this.cantidadHorasDispuestoTrabajar = cantidadHorasDispuestoTrabajar;

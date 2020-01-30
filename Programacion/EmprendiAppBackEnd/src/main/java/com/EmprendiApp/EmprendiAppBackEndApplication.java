@@ -22,15 +22,20 @@ public class EmprendiAppBackEndApplication implements CommandLineRunner {
 	@Autowired
 	PersonaNaturalEmpresaRepository empresaRepo;
 	
+	SocioInversorRepository ss;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(EmprendiAppBackEndApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		//UsuarioRepo.save(new Usuario("Carlos", "Cardenas", "3113762626", "acj8991@gmail.com", "Emprendimientos de videojuegos", "calle 20 32-63"));
+		
+		Usuario aa = new Usuario("Carlos", "Cardenas", "3113762626", "acj8991@gmail.com", "Emprendimientos de videojuegos", "calle 20 32-63");
+		UsuarioRepo.save(aa);
 		//Producto.save(new ProductoServicio("Leche", "Leche en polvo para animales", 50, ""));
 		//empresaRepo.save(new PersonaNaturalEmpresa("Andres", "", "", "", ""));
+		ss.save(new SocioInversor("", "", 55, "", true, aa));
 		
 		
 		
