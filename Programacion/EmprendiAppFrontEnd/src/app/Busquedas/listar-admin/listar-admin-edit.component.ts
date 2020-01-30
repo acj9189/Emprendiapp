@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +8,19 @@ import { Router } from '@angular/router';
 })
 export class ListarAdminEditComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  @Input() private tipo: String;
+  constructor(private router:Router) {
+   }
 
   ngOnInit() {
-
+    
   }
 
   public Buscar(nombreBusqueda){
+    console.log("revisando")
     console.log(nombreBusqueda.value);
-    this.router.navigate(['editarAdministradr/25']);
+    console.log(this.tipo);
+
+    //this.router.navigate(['editarAdministradr']);
   }
 }

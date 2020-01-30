@@ -15,7 +15,8 @@ export class MenuAdministradorComponent implements OnInit {
 
   //Empresa
   public infoEmpresa(){
-    this.router.navigate(['infoEmpresa']);
+    //this.router.navigate(['infoEmpresa']);
+    this.router.navigate(['listaEmpresa']);
   }
 
   public removerEmpresa(){
@@ -32,7 +33,8 @@ export class MenuAdministradorComponent implements OnInit {
   //--------
   //adminstrador
   public infoAdmin(){
-    this.router.navigate(['infoAdministrador']);
+    //this.router.navigate(['infoAdministrador']);
+    this.router.navigate(['listaAdmin']);
   }
 
   public agregarAdministrador(){
@@ -108,7 +110,8 @@ export class MenuAdministradorComponent implements OnInit {
 
   //Concultor
   public infoConsultor(){
-    this.router.navigate(['infoConsultor']);
+    //this.router.navigate(['infoConsultor']);
+    this.router.navigate(['listaConsultor']);
   }
 
   public registroConsultor(){
@@ -126,7 +129,8 @@ export class MenuAdministradorComponent implements OnInit {
   //-------------
   //Asesor
   public infoAsesor(){
-    this.router.navigate(['infoAsesor']);
+    //this.router.navigate(['infoAsesor']);
+    this.router.navigate(['listaAsesor']);
   }
 
   public registroAsesor(){

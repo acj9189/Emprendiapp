@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './principal/principal.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { BuscarFiltroComponent } from './buscar-filtro/buscar-filtro.component';
+import { BuscarFiltroComponent } from './Busquedas/buscar-filtro/buscar-filtro.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 import { InfoEmpresaComponent } from './Empresa/info-empresa/info-empresa.component';
 import { InfoSocioComponent } from './Socio/info-socio/info-socio.component';
@@ -49,7 +49,18 @@ import { MenuSocioComponent } from './Socio/menu-socio/menu-socio.component';
 import { EditarSocioComponent } from './Socio/editar-socio/editar-socio.component';
 import { RemoverSocioComponent } from './Socio/remover-socio/remover-socio.component';
 import { BuscarAdministradorComponent } from './Administrador/buscar-administrador/buscar-administrador.component';
-import { ListarAdminEditComponent } from './Administrador/listar-admin-edit/listar-admin-edit.component';
+import { ListarAdminEditComponent } from './Busquedas/listar-admin/listar-admin-edit.component';
+import { ListarConsultorComponent } from './Busquedas/listar-consultor/listar-consultor.component';
+import { ListarAsesorComponent } from './Busquedas/listar-asesor/listar-asesor.component';
+import { ListarEmpresaComponent } from './Busquedas/listar-empresa/listar-empresa.component';
+import { ListarInversorComponent } from './Busquedas/listar-inversor/listar-inversor.component';
+import { ListarSocioComponent } from './Busquedas/listar-socio/listar-socio.component';
+import { ListarProductoComponent } from './Busquedas/listar-producto/listar-producto.component';
+import { ListaAdminComponent } from './Administrador/lista-admin/lista-admin.component';
+import { ListaAsesorComponent } from './Administrador/lista-asesor/lista-asesor.component';
+import { ListaConsultorComponent } from './Administrador/lista-consultor/lista-consultor.component';
+import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empresa.component';
+import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +108,18 @@ import { ListarAdminEditComponent } from './Administrador/listar-admin-edit/list
     EditarSocioComponent,
     RemoverSocioComponent,
     BuscarAdministradorComponent,
-    ListarAdminEditComponent
+    ListarAdminEditComponent,
+    ListarConsultorComponent,
+    ListarAsesorComponent,
+    ListarEmpresaComponent,
+    ListarInversorComponent,
+    ListarSocioComponent,
+    ListarProductoComponent,
+    ListaAdminComponent,
+    ListaAsesorComponent,
+    ListaConsultorComponent,
+    ListaEmpresaComponent,
+    ListaInversorComponent
   ],
   imports: [
     BrowserModule,
