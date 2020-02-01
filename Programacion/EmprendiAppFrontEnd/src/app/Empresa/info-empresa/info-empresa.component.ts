@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from "src/app/Service/userService";
 import { Router } from '@angular/router';
 import { PersonaNaturalEmpresa } from 'src/app/Modelos/PersonaNaturalEmpresa';
 
@@ -11,12 +10,10 @@ import { PersonaNaturalEmpresa } from 'src/app/Modelos/PersonaNaturalEmpresa';
 export class InfoEmpresaComponent implements OnInit {
 
   empresa:PersonaNaturalEmpresa;
-  constructor(private service:ServiceService, private router:Router) { }
+  constructor( private router:Router) { }
 
   ngOnInit() {
-    this.service.getEmpresa().subscribe(data=>{
-      this.empresa = data;
-    });
+
   }
 
 }

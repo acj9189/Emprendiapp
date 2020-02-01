@@ -61,6 +61,8 @@ import { ListaAsesorComponent } from './Administrador/lista-asesor/lista-asesor.
 import { ListaConsultorComponent } from './Administrador/lista-consultor/lista-consultor.component';
 import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empresa.component';
 import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
+import { ListaProductoComponent } from './Administrador/lista-producto/lista-producto.component';
+import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +121,9 @@ import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inv
     ListaAsesorComponent,
     ListaConsultorComponent,
     ListaEmpresaComponent,
-    ListaInversorComponent
+    ListaInversorComponent,
+    ListaProductoComponent,
+    ListaSocioComponent
   ],
   imports: [
     BrowserModule,

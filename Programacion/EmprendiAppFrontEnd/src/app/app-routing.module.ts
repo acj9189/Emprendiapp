@@ -40,8 +40,12 @@ import { ListaAsesorComponent } from './Administrador/lista-asesor/lista-asesor.
 import { ListaConsultorComponent } from './Administrador/lista-consultor/lista-consultor.component';
 import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empresa.component';
 import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
+import { ListaProductoComponent } from './Administrador/lista-producto/lista-producto.component';
+import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.component';
 
 const routes: Routes = [
+  {path: 'listaSocio',component:ListaSocioComponent},
+  {path: 'listaProducto',component:ListaProductoComponent},
   {path: 'listaInversor',component:ListaInversorComponent},
   {path: 'listaEmpresa',component:ListaEmpresaComponent},
   {path: 'listaConsultor',component:ListaConsultorComponent},

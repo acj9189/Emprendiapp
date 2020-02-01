@@ -13,9 +13,7 @@ export class InfoSocioComponent implements OnInit {
   constructor(private service:ServiceService, private router:Router) { }
 
   ngOnInit() {
-    this.service.getSocioInversor().subscribe(data=>{
-      this.socio = data;
-    });
+
   }
 
 }

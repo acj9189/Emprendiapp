@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from "src/app/Service/userService";
 import { Router } from '@angular/router';
 import { AsesorConultor } from 'src/app/Modelos/AsesorConsultor';
 
@@ -11,12 +10,10 @@ import { AsesorConultor } from 'src/app/Modelos/AsesorConsultor';
 export class InfoConsultorComponent implements OnInit {
 
   Consultor:AsesorConultor;
-  constructor(private service:ServiceService, private router:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
-    this.service.getAsesorConsultor().subscribe(data=>{
-      this.Consultor = data;
-    });
+
   }
 
 }

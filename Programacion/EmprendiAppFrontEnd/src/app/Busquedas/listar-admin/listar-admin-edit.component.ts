@@ -1,5 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from "src/app/Service/userService";
+import { Usuario } from 'src/app/Modelos/Usuario';
 
 @Component({
   selector: 'app-listar-admin-edit',
@@ -9,18 +11,18 @@ import { Router } from '@angular/router';
 export class ListarAdminEditComponent implements OnInit {
 
   @Input() private tipo: String;
-  constructor(private router:Router) {
+  usuarios:Usuario[];
+  constructor(private service:ServiceService, private router:Router) {
    }
 
   ngOnInit() {
-    
+    this.service.getUsuarios().subscribe(data=>{
+      this.usuarios = data;
+    });
   }
 
   public Buscar(nombreBusqueda){
-    console.log("revisando")
-    console.log(nombreBusqueda.value);
-    console.log(this.tipo);
-
+    
     //this.router.navigate(['editarAdministradr']);
   }
 }

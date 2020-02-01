@@ -73,7 +73,8 @@ export class MenuAdministradorComponent implements OnInit {
 
   //Socio
   public infoSocio(){
-    this.router.navigate(['infoSocio']);
+    //this.router.navigate(['infoSocio']);
+    this.router.navigate(['listaSocio']);
   }
 
   public registrarSocio(){
@@ -93,7 +94,8 @@ export class MenuAdministradorComponent implements OnInit {
   //--------
   //Inversor
   public infoInversor(){
-    this.router.navigate(['infoInversor']);
+    //this.router.navigate(['infoInversor']);
+    this.router.navigate(['listaInversor']);
   }
 
   public regInversor(){
@@ -143,6 +145,11 @@ export class MenuAdministradorComponent implements OnInit {
 
   public removerAsesor(){
     this.router.navigate(['removerAsesor']);
+  }
+
+  //infoProducto
+  public infoProductp(){
+    this.router.navigate(['listaProducto']);
   }
 
   //------------

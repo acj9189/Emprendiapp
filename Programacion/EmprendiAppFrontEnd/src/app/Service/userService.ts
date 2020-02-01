@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../Modelos/Usuario';
-import { AsesorConultor } from '../Modelos/AsesorConsultor';
-import { PersonaNaturalEmpresa } from '../Modelos/PersonaNaturalEmpresa';
-import { SocioInversor } from '../Modelos/SocioInversor';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,22 +15,7 @@ export class ServiceService {
   }
 
   public addUsuarios(usuario/*: Usuario*/){
-    //alert(usuario.a("hola"));
-
     return this.http.post<Usuario>(this.Url + '/usuario', usuario);
-
   }
-  
-
-  public getAsesorConsultor(){
-    return this.http.get<AsesorConultor>(this.Url + '/allUsers');
-  }
-
-  public getEmpresa(){
-    return this.http.get<PersonaNaturalEmpresa>(this.Url + '/allUsers');
-  }
-
-  public getSocioInversor(){
-    return this.http.get<SocioInversor>(this.Url + '/allUsers');
-  }
+ 
 }
