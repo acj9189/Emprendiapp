@@ -26,9 +26,9 @@ export class AddComponent implements OnInit {
     let usuarioEnvio = new Usuario();   
     usuarioEnvio.nombres= nombres.value;
     usuarioEnvio.apellidos= apellidos.value;
-    usuarioEnvio.correo= email.value;
-    usuarioEnvio.direccion = "";
-    usuarioEnvio.interfaces = "";
+    usuarioEnvio.email= email.value;
+    usuarioEnvio.direccionContacto = "";
+    usuarioEnvio.descripcionIntereses = "";
     usuarioEnvio.telefono = "";
 
     this.service.addUsuarios(usuarioEnvio).subscribe(data=>{

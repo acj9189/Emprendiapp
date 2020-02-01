@@ -21,6 +21,10 @@ export class ListarSocioComponent implements OnInit {
     });    
   }
 
+  public registrarSocio(){
+    this.router.navigate(['registrarSocio']);
+  }
+  
   public mostrar(){
     console.log(this.socio);
   }

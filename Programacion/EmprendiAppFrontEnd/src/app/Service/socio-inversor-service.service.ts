@@ -14,4 +14,10 @@ export class SocioInversorServiceService {
   public getSocios(){
     return this.http.get<SocioInversor[]>(this.Url+'/all');
   }
+
+  public registrarSocio(socio){
+    console.log(socio);
+    //console.log(socio.Usuario_id);
+    return this.http.post<SocioInversor>(this.Url+'/socio',socio);
+  }
 }

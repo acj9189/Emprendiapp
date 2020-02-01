@@ -22,8 +22,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class PersonaNaturalEmpresa {

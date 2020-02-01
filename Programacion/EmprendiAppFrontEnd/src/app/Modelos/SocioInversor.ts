@@ -3,11 +3,11 @@ import { PersonaNaturalEmpresa } from './PersonaNaturalEmpresa'
 //necesaria revision
 export class SocioInversor {
     id:number;
-    TipoSocioInversor:boolean;
-    AreaExperticai:String;
-    ConocimientoAporta:String;
-    CantidadHorasDispuetoATrabajar:String;
-    AreasInteres:String;
+    areasExperticia:String;
+    conociminetoQAporta:String;
+    tipoSocioInversor:boolean;
+    cantidadHorasDispuestoTrabajar:String;
+    areasInteres:String;
     //EmpresaTrabajo:PersonaNaturalEmpresa[];
     usuario:Usuario;
 }

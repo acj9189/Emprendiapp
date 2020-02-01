@@ -3,8 +3,8 @@ export class Usuario{
     nombres:String;
     apellidos:String;
     telefono:String;
-    correo:String;
-    interfaces:String;
-    direccion:String;
+    email:String;
+    descripcionIntereses:String;
+    direccionContacto:String;
     //redesSociales:String;
 }
