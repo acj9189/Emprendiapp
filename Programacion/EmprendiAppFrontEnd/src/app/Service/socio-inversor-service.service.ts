@@ -16,8 +16,6 @@ export class SocioInversorServiceService {
   }
 
   public registrarSocio(socio){
-    console.log(socio);
-    //console.log(socio.Usuario_id);
     return this.http.post<SocioInversor>(this.Url+'/socio',socio);
   }
 
@@ -27,5 +25,9 @@ export class SocioInversorServiceService {
 
   public infoSocio(id){
     return this.http.get<SocioInversor>(this.Url+'/socio/'+id);
+  }
+
+  public updateSocio(id,socio){
+    return this.http.put<SocioInversor>(this.Url+'/socio/'+id,socio);
   }
 }

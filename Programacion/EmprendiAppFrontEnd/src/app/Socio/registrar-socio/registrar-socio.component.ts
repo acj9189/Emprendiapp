@@ -51,7 +51,6 @@ export class RegistrarSocioComponent implements OnInit {
 
       console.log("Socio: "+socio);
       alert("revisar envio faslta revisar socio");
-      //this.router.navigate(['listaSocio']);
   }
 
   public LineaMas(ide){

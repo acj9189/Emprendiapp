@@ -9,33 +9,34 @@
         identificador: {{socio.id}}
     </div>
     <div>
-        nombre: {{socio.usuario.nombres}}
+        nombre: {{socio.usuario.nombres}} <input type="text" value="">
     </div>
     <div>
-        apellidos: {{socio.usuario.apellidos}}
+        apellidos: {{socio.usuario.apellidos}} <input type="text" value="">
     </div>
     <div>
-        telefono: {{socio.usuario.telefono}}
+        telefono: {{socio.usuario.telefono}} <input type="text" value="">
     </div>
     <div>
-        email: {{socio.usuario.email}}
+        email: {{socio.usuario.email}} <input type="text" value="">
     </div>
     <div>
-        descripcion de los intereses: {{socio.usuario.descripcionIntereses}}
+        direccion de contacto: {{socio.usuario.direccionContacto}} <input type="text" value="">
+    </div> 
+    <div>
+        descripcion de los intereses: {{socio.usuario.descripcionIntereses}}<input type="text" value="">
+    </div>
+     
+    <div>
+        areas en las que se expecialisa: {{socio.areasExperticia}} <input type="text" value="">
     </div>
     <div>
-        direccion de contacto: {{socio.usuario.direccionContacto}}
-    </div>  
-    <div>
-        areas en las que se expecialisa: {{socio.areasExperticia}}
+        cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}} <input type="text" value="">
     </div>
     <div>
-        conocimineto que aporta: {{socio.conociminetoQAporta}}
+        conocimineto que aporta: {{socio.conociminetoQAporta}} <input type="text" value="">
     </div>
     <div>
-        cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}}
-    </div>
-    <div>
-        <button (click)="eliminar()">Elminiar</button>
+        <button (click)="actualizar()">actualizar</button>
     </div>
 </div>

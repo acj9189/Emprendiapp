@@ -35,6 +35,9 @@ export class ListarSocioComponent implements OnInit {
     this.router.navigate(['infoSocio',id]);
   }
 
+  public actualizarSocio(id){
+    this.router.navigate(['editarSocio',id]);
+  }
   public mostrar(){
     console.log(this.socio);
   }
