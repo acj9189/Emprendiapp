@@ -46,7 +46,7 @@ public class SocioInversor{
 	private boolean tipoSocioInversor; // Cuando la varible esta en false es Socio, cuando esta en true es Inversor
 	
 	
-	@JoinColumn(name = "Usuario_id", unique = true, nullable = false)
+	@JoinColumn(name = "usuario_id", unique = true, nullable = false)
 	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 

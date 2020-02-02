@@ -38,21 +38,18 @@ public class PersonaNaturalController {
 	@ResponseBody
 	private List<PersonaNaturalEmpresa> getAllEmpresas() {
 		return empresaRepository.findAll();
-
 	}
 
 	@GetMapping("/empresa/{id}")
 	@ResponseBody
 	private Optional<PersonaNaturalEmpresa> getEmpresa(@PathVariable Integer id) {
 		return empresaRepository.findById(id);
-
 	}
 
 	@PostMapping("/empresa")
 	@ResponseBody
 	private PersonaNaturalEmpresa NuevaEmpresa(@Valid @RequestBody PersonaNaturalEmpresa empresa) {
 		return empresaRepository.save(empresa);
-
 	}
 
 	@PutMapping("/empresa/{id}")
@@ -71,12 +68,11 @@ public class PersonaNaturalController {
 
 		final PersonaNaturalEmpresa updatedProducto =  empresaRepository.save(empresa);
 		return ResponseEntity.ok(updatedProducto);
-
 	}
 
 	@DeleteMapping("/empresa/{id}")
 	@ResponseBody
-	private boolean deleteEmkpresa(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	private boolean deleteEmpresa(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		PersonaNaturalEmpresa deleteEmpresa = empresaRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro la empresa  o l;a persna natural a eliminar :: " + Id));

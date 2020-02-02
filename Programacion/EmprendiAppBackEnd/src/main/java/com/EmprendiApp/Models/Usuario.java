@@ -11,13 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+
 
 @Data
 @Entity
@@ -50,12 +46,16 @@ public class Usuario {
 	
 	@Column(name = "redesSociales", nullable = true)
 	private String redesSociales;
+	
+	@JoinColumn(name = "perfil_id", unique = true, nullable = true)
+	@OneToOne(cascade = CascadeType.ALL)
+	private Perfil perfil;
 
 	public Usuario() {
 	}
-
+	
 	public Usuario(Integer id, String nombres, String apellidos, String telefono, String email,
-			String descripcionIntereses, String direccionContacto, String redesSociales) {
+			String descripcionIntereses, String direccionContacto, String redesSociales, Perfil perfil) {
 		super();
 		this.id = id;
 		this.nombres = nombres;
@@ -65,6 +65,15 @@ public class Usuario {
 		this.descripcionIntereses = descripcionIntereses;
 		this.direccionContacto = direccionContacto;
 		this.redesSociales = redesSociales;
+		this.perfil = perfil;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	public Integer getId() {
