@@ -25,6 +25,16 @@ export class ListarSocioComponent implements OnInit {
     this.router.navigate(['registrarSocio']);
   }
   
+  public removerSocio(id){
+    //console.log(id);
+    this.router.navigate(['removerSocio',id]);
+  }
+
+  public infoSocio(id){
+    //console.log(id);
+    this.router.navigate(['infoSocio',id]);
+  }
+
   public mostrar(){
     console.log(this.socio);
   }

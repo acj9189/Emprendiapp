@@ -31,7 +31,7 @@
                         <td>{{socio.conociminetoQAporta}}</td>
                         <td>{{socio.cantidadHorasDispuestoTrabajar}}</td>
                         <td>{{socio.areasInteres}}</td>
-                        <td *ngIf="BotonMostrar()"><button>ver</button><button>editar</button><button>eliminar</button></td>
+                        <td *ngIf="BotonMostrar()"><button (click)="infoSocio(socio.id)">ver</button><button>editar</button><button (click)="removerSocio(socio.id)">eliminar</button></td>
                         <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
                     </tr>
                 </tbody>

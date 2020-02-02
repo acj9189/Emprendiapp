@@ -42,7 +42,7 @@ export class RegistrarSocioComponent implements OnInit {
       socio.areasInteres=document.getElementsByTagName("input")[6].value;
       socio.cantidadHorasDispuestoTrabajar=document.getElementsByTagName("input")[7].value
       socio.conociminetoQAporta=document.getElementsByTagName("input")[8].value;
-      socio.tipoSocioInversor=true;
+      socio.tipoSocioInversor=false;
       socio.usuario=usuario;
       console.log("usuario: "+usuario);
       this.service.registrarSocio(socio).subscribe(data=>{

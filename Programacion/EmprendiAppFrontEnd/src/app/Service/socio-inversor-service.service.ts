@@ -20,4 +20,12 @@ export class SocioInversorServiceService {
     //console.log(socio.Usuario_id);
     return this.http.post<SocioInversor>(this.Url+'/socio',socio);
   }
+
+  public removeSocio(id){
+    return this.http.delete<SocioInversor>(this.Url+'/socio/'+id);
+  }
+
+  public infoSocio(id){
+    return this.http.get<SocioInversor>(this.Url+'/socio/'+id);
+  }
 }
