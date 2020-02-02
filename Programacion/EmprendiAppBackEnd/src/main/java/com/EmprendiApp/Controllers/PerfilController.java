@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.EmprendiApp.Models.Perfil;
-import com.EmprendiApp.Models.PersonaNaturalEmpresa;
 import com.EmprendiApp.Respositories.PerfilRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

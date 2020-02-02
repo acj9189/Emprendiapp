@@ -6,10 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Data
 @Entity
@@ -19,6 +17,7 @@ public class Notificacion {
 	@Id
 	@GeneratedValue
 	private int Id;
+	private String titulo;
 	private String tipo;
 	private Date fechaNotificacion;
 	private String descripcion;
@@ -28,7 +27,10 @@ public class Notificacion {
 
 	}
 
-	public Notificacion(String tipo, Date fechaNotificacion, String descripcion) {
+	public Notificacion(int id, String titulo, String tipo, Date fechaNotificacion, String descripcion) {
+		super();
+		Id = id;
+		this.titulo = titulo;
 		this.tipo = tipo;
 		this.fechaNotificacion = fechaNotificacion;
 		this.descripcion = descripcion;
@@ -40,6 +42,14 @@ public class Notificacion {
 
 	public void setId(int id) {
 		Id = id;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getTipo() {

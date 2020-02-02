@@ -18,11 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.EmprendiApp.Models.PersonaNaturalEmpresa;
-import com.EmprendiApp.Models.ProductoServicio;
 import com.EmprendiApp.Respositories.PersonaNaturalEmpresaRepository;
-import com.EmprendiApp.Respositories.ProductoServicioRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -59,13 +56,11 @@ public class PersonaNaturalController {
 
 		PersonaNaturalEmpresa empresa = empresaRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el producto o servicio  :: " + Id));
-
 		empresa.setNombre(empresaDitails.getNombre());
 		empresa.setDireccion(empresaDitails.getDireccion());
 		empresa.setRedesSociales(empresaDitails.getRedesSociales());
 		empresa.setTelefonoContacto(empresaDitails.getTelefonoContacto());
 		empresa.setVideoPitch(empresaDitails.getVideoPitch());
-
 		final PersonaNaturalEmpresa updatedProducto =  empresaRepository.save(empresa);
 		return ResponseEntity.ok(updatedProducto);
 	}
