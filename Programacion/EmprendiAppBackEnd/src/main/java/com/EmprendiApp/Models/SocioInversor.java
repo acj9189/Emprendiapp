@@ -42,7 +42,7 @@ public class SocioInversor{
 	@Column(name = "areasInteres", nullable = true)
 	private String areasInteres;
 	
-	@Column(name = "tipoSocioInversor", nullable = true)
+	@Column(name = "tipoSocioInversor", nullable = false)
 	private boolean tipoSocioInversor; // Cuando la varible esta en false es Socio, cuando esta en true es Inversor
 	
 	

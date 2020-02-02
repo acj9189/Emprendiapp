@@ -48,22 +48,23 @@ public class Usuario {
 	@Column(name = "direccionContacto", nullable = true)
 	private String direccionContacto;
 	
-	
-	//private SocioInversor socio;
-	
+	@Column(name = "redesSociales", nullable = true)
+	private String redesSociales;
 
 	public Usuario() {
-
 	}
-	
-	public Usuario(String nombres, String apellidos, String telefono, String email,
-			String descripcionIntereses, String direccionContacto) {
+
+	public Usuario(Integer id, String nombres, String apellidos, String telefono, String email,
+			String descripcionIntereses, String direccionContacto, String redesSociales) {
+		super();
+		this.id = id;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.email = email;
 		this.descripcionIntereses = descripcionIntereses;
 		this.direccionContacto = direccionContacto;
+		this.redesSociales = redesSociales;
 	}
 
 	public Integer getId() {
@@ -121,6 +122,13 @@ public class Usuario {
 	public void setDireccionContacto(String direccionContacto) {
 		this.direccionContacto = direccionContacto;
 	}
-	
+
+	public String getRedesSociales() {
+		return redesSociales;
+	}
+
+	public void setRedesSociales(String redesSociales) {
+		this.redesSociales = redesSociales;
+	}
 
 }

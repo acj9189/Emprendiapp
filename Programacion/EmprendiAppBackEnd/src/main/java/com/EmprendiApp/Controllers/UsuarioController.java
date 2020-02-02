@@ -39,7 +39,7 @@ public class UsuarioController {
 		return userRepository.findAll();
 	}
 	
-	@GetMapping("/usuario/{id}") //analizar
+	@GetMapping("/usuario/{id}")
 	@ResponseBody
 	private Optional<Usuario> getUsuario(@PathVariable Integer id) {
 		return userRepository.findById(id);
