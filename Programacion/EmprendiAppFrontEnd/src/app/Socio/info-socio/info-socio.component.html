@@ -1,46 +1,41 @@
 <div class="container-fluid">
+    <div>
+        <button (click)="retorno()">retorno</button>
+    </div>
 
-<div>Informacion del socio</div>
-<table border="0">
-    <tr>
-        <th>Nombre</th>
-        <th>{{socio.nombres}}</th>
-    </tr>
-    <tr>
-        <th>Apellido</th>
-        <th>{{socio.apellidos}}</th>
-    </tr>
-    <tr>
-        <th>Correo</th>
-        <th>{{socio.correo}}</th>
-    </tr>
-    <tr>
-        <th>Area Experticia</th>
-        <th>{{socio.AreaExperticai}}</th>
-    </tr>
-    <tr>
-        <th>Cantidad horas que trabaja por dia</th>
-        <th>{{socio.CantidadHorasDispuetoATrabajar}}</th>
-    </tr>
-    <tr>
-        <th>Direccion</th>
-        <th>{{socio.direccion}}</th>
-    </tr>
-    <tr>
-        <th>Telefono contacto</th>
-        <th>{{socio.telefono}}</th>
-    </tr>
-    <tr>
-        <th>Redes Soliales</th>
-        <th>{{socio.redesSociales}}</th>
-    </tr>
-    <tr>
-        <th>Emprsas del las que es socio</th>
-        <th *ngFor='let empresas of socio.EmpresaTrabajo'>
-            {{empresas.nombre}}
-        </th>
-    </tr>
-</table>
-<button>>buscar empresa</button>
-<button>enviar mensaje</button>
+    <button (click)="mostrar()">mostrar</button>
+
+    <div>
+        identificador: {{socio.id}}
+    </div>
+    <div>
+        nombre: {{socio.usuario.nombres}}
+    </div>
+    <div>
+        apellidos: {{socio.usuario.apellidos}}
+    </div>
+    <div>
+        telefono: {{socio.usuario.telefono}}
+    </div>
+    <div>
+        email: {{socio.usuario.email}}
+    </div>
+    <div>
+        descripcion de los intereses: {{socio.usuario.descripcionIntereses}}
+    </div>
+    <div>
+        direccion de contacto: {{socio.usuario.direccionContacto}}
+    </div>  
+    <div>
+        areas en las que se expecialisa: {{socio.areasExperticia}}
+    </div>
+    <div>
+        conocimineto que aporta: {{socio.conociminetoQAporta}}
+    </div>
+    <div>
+        cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}}
+    </div>
+    <div>
+        <button (click)="eliminar()">Elminiar</button>
+    </div>
 </div>
