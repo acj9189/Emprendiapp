@@ -32,23 +32,22 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository userRepository;
 	
-	//@CrossOrigin(origins = "http://localhost:4200")
+
 	@GetMapping("/all")
 	@ResponseBody
-	private List<Usuario> getAllRomanos(){
+	private List<Usuario> getAllUsuarios(){
 		return userRepository.findAll();
 	}
 	
-	@GetMapping("/usuario/{id}") //analizar
+	@GetMapping("/usuario/{id}")
 	@ResponseBody
 	private Optional<Usuario> getUsuario(@PathVariable Integer id) {
 		return userRepository.findById(id);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/usuario")
 	@ResponseBody
-	private Usuario NuevoUsuario(@Valid @RequestBody Usuario ususario) {
+	private Usuario nuevoUsuario(@Valid @RequestBody Usuario ususario) {
 		return userRepository.save(ususario);
 	}
 
@@ -59,14 +58,12 @@ public class UsuarioController {
 
 		Usuario usuarioBuscado = userRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el Usuario  :: " + Id));
-
 		usuarioBuscado.setNombres(usuario.getNombres());
 		usuarioBuscado.setApellidos(usuario.getApellidos());
 		usuarioBuscado.setDescripcionIntereses(usuario.getDescripcionIntereses());
 		usuarioBuscado.setDireccionContacto(usuario.getDireccionContacto());
 		usuarioBuscado.setEmail(usuario.getEmail());
 		usuarioBuscado.setTelefono(usuario.getTelefono());
-
 		final Usuario updatedUsuario = userRepository.save(usuarioBuscado);
 		return ResponseEntity.ok(updatedUsuario);
 	}
@@ -75,7 +72,6 @@ public class UsuarioController {
 	@ResponseBody
 	private boolean deleteUsuario(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
-
 		Usuario deleteUsuario = userRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el usuario a eliminar :: " + Id));
 		userRepository.delete(deleteUsuario);

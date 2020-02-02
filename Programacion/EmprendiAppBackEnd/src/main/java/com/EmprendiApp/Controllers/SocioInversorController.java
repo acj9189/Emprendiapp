@@ -1,5 +1,6 @@
 package com.EmprendiApp.Controllers;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.EmprendiApp.Models.SocioInversor;
-import com.EmprendiApp.Models.Usuario;
 import com.EmprendiApp.Respositories.SocioInversorRepository;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -34,11 +34,37 @@ public class SocioInversorController {
 	//@CrossOrigin(origins = "http://localhost:4200")
 		@GetMapping("/all")
 		@ResponseBody
-		private List<SocioInversor> getAllSocios(){
+		private List<SocioInversor> getAllSociosInversores(){
 			return socioRepository.findAll();
 		}
 		
-		@GetMapping("/socio/{id}") //analizar
+		@GetMapping("/socio/socio/all")
+		@ResponseBody
+		private List<SocioInversor> getAllSocios(){
+			List<SocioInversor> socios = new LinkedList<SocioInversor>();
+			List<SocioInversor> sociosInversores = socioRepository.findAll();
+			for(SocioInversor socio: sociosInversores ) {
+				if(!socio.isTipoSocioInversor()) {
+					socios.add(socio);
+				}
+			}
+			return socios;	
+		}
+		
+		@GetMapping("/socio/inversor/all")
+		@ResponseBody
+		private List<SocioInversor> getAllInversor(){
+			List<SocioInversor> inversores = new LinkedList<SocioInversor>();
+			List<SocioInversor> sociosInversores = socioRepository.findAll();
+			for(SocioInversor inversor: sociosInversores ) {
+				if(inversor.isTipoSocioInversor()) {
+					inversores.add(inversor);
+				}
+			}
+			return inversores;	
+		}
+		
+		@GetMapping("/socio/{id}")
 		@ResponseBody
 		private Optional<SocioInversor> getSocio(@PathVariable Integer id) {
 			return socioRepository.findById(id);
@@ -79,5 +105,7 @@ public class SocioInversorController {
 			response = true;
 			return response;
 		}
+		
+	
 
 }

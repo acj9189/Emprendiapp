@@ -6,18 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+
 
 @Data
 @Entity
@@ -48,22 +42,36 @@ public class Usuario {
 	@Column(name = "direccionContacto", nullable = true)
 	private String direccionContacto;
 	
+	@Column(name = "redesSociales", nullable = true)
+	private String redesSociales;
 	
-	//private SocioInversor socio;
-	
+	@JoinColumn(name = "perfil_id", unique = true, nullable = true)
+	@OneToOne(cascade = CascadeType.ALL)
+	private Perfil perfil;
 
 	public Usuario() {
-
 	}
 	
-	public Usuario(String nombres, String apellidos, String telefono, String email,
-			String descripcionIntereses, String direccionContacto) {
+	public Usuario(Integer id, String nombres, String apellidos, String telefono, String email,
+			String descripcionIntereses, String direccionContacto, String redesSociales, Perfil perfil) {
+		super();
+		this.id = id;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.email = email;
 		this.descripcionIntereses = descripcionIntereses;
 		this.direccionContacto = direccionContacto;
+		this.redesSociales = redesSociales;
+		this.perfil = perfil;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	public Integer getId() {
@@ -121,6 +129,13 @@ public class Usuario {
 	public void setDireccionContacto(String direccionContacto) {
 		this.direccionContacto = direccionContacto;
 	}
-	
+
+	public String getRedesSociales() {
+		return redesSociales;
+	}
+
+	public void setRedesSociales(String redesSociales) {
+		this.redesSociales = redesSociales;
+	}
 
 }

@@ -9,13 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
 import com.EmprendiApp.Models.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -42,11 +38,11 @@ public class SocioInversor{
 	@Column(name = "areasInteres", nullable = true)
 	private String areasInteres;
 	
-	@Column(name = "tipoSocioInversor", nullable = true)
+	@Column(name = "tipoSocioInversor", nullable = false)
 	private boolean tipoSocioInversor; // Cuando la varible esta en false es Socio, cuando esta en true es Inversor
 	
 	
-	@JoinColumn(name = "Usuario_id", unique = true, nullable = false)
+	@JoinColumn(name = "usuario_id", unique = true, nullable = false)
 	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 
