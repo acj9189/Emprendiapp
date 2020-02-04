@@ -114,9 +114,6 @@ public class SocioInversor{
 
 	public void setTipoSocioInversor(boolean tipoSocioInversor) {
 		this.tipoSocioInversor = tipoSocioInversor;
-	}
-
-	
-	
+	}	
 
 }

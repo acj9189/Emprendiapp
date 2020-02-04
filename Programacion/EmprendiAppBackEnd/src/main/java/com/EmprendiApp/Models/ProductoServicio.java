@@ -26,9 +26,7 @@ public class ProductoServicio {
 	
 	/*@ManyToMany(mappedBy = "ProductoServicios")
 	private Set<PersonaNaturalEmpresa> empresas;*/
-	
-	
-	
+
 	public ProductoServicio(String nombre, String descripcionProductoServicio, Integer costoUnidad,
 			String descripcionProblemaQSoluciona) {
 		this.nombre = nombre;

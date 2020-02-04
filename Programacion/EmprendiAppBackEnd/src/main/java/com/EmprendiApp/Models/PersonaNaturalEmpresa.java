@@ -3,10 +3,18 @@ package com.EmprendiApp.Models;
 
 
 
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -34,10 +42,13 @@ public class PersonaNaturalEmpresa {
 	//@JoinColumn(name = "miebrosDuenos")
 	//private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
 	
-	//@ManyToMany(cascade = CascadeType.ALL)// hay cosas que analizar
-	//@JoinTable(name = "Produce")
-	//private Set<ProductoServicio> productos;
-
+	@JoinColumn(name = "productos_id", unique = true, nullable = false)
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<ProductoServicio> productos;
+	
+	//@JoinTable(name = "lista_enpresa", joinColumns = @JoinColumn(name = "lista_enpresas_id", nullable = false), inverseJoinColumns = @JoinColumn(name="lista_clietes_id", nullable = false) )
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Usuario> sonCLientes;
 	
 	public PersonaNaturalEmpresa() {
 		
