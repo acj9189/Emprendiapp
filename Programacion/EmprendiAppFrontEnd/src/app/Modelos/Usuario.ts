@@ -1,3 +1,5 @@
+import {Perfil} from './Perfil';
+
 export class Usuario{
     id:number;
     nombres:String;
@@ -6,5 +8,6 @@ export class Usuario{
     email:String;
     descripcionIntereses:String;
     direccionContacto:String;
-    //redesSociales:String;
+    redesSociales:String;
+	perfil:Perfil;
 }

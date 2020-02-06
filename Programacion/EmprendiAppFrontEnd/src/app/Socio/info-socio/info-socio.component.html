@@ -1,41 +1,49 @@
-<div class="container-fluid">
-    <div>
-        <button (click)="retorno()">retorno</button>
-    </div>
+<div class="container-fluid row">
+   
 
-    <button (click)="mostrar()">mostrar</button>
-
-    <div>
-        identificador: {{socio.id}}
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
     </div>
-    <div>
-        nombre: {{socio.usuario.nombres}}
+    <div class="col-10">
+        <div class="div">
+            identificador: {{socio.id}}
+        </div> 
+        <div class="div">
+            nombre: {{socio.usuario.nombres}}
+        </div>
+        <div class="div">
+            apellidos: {{socio.usuario.apellidos}}
+        </div>
+        <div class="div">
+            telefono: {{socio.usuario.telefono}}
+        </div>
+        <div class="div">
+            email: {{socio.usuario.email}}
+        </div>
+        <div class="div">
+            descripcion de los intereses: {{socio.usuario.descripcionIntereses}}
+        </div>
+        <div class="div"> 
+            direccion de contacto: {{socio.usuario.direccionContacto}}
+        </div>  
+        <div class="div">
+            areas en las que se expecialisa: {{socio.areasExperticia}}
+        </div>
+        <div class="div">
+            conocimineto que aporta: {{socio.conociminetoQAporta}}
+        </div>
+        <div class="div">
+            cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}}
+        </div>
+        <div class="div">
+            redes Sociales
+            <div *ngFor="let redes1 of redes">
+                <div>{{redes1}}</div>
+            </div>
+        </div>
+        <div>
+            <button (click)="retorno()">retorno</button>
+        </div>
     </div>
-    <div>
-        apellidos: {{socio.usuario.apellidos}}
-    </div>
-    <div>
-        telefono: {{socio.usuario.telefono}}
-    </div>
-    <div>
-        email: {{socio.usuario.email}}
-    </div>
-    <div>
-        descripcion de los intereses: {{socio.usuario.descripcionIntereses}}
-    </div>
-    <div>
-        direccion de contacto: {{socio.usuario.direccionContacto}}
-    </div>  
-    <div>
-        areas en las que se expecialisa: {{socio.areasExperticia}}
-    </div>
-    <div>
-        conocimineto que aporta: {{socio.conociminetoQAporta}}
-    </div>
-    <div>
-        cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}}
-    </div>
-    <div>
-        <button (click)="eliminar()">Elminiar</button>
-    </div>
+    
 </div>

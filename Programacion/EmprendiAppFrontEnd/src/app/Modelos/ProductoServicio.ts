@@ -1,4 +1,4 @@
-export class Producto{
+export class ProductoServicio{
     id:number;
 	nombre:String ;
 	descripcionProductoServicio: String ;

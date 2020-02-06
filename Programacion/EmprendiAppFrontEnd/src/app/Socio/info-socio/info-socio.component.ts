@@ -14,14 +14,20 @@ export class InfoSocioComponent implements OnInit {
   constructor(private service:SocioInversorServiceService, private router:Router,private rutaActiva: ActivatedRoute) { }
   private id:number;
   private socio:SocioInversor;
+  private redes:String[];
 
   ngOnInit() {
     this.id=this.rutaActiva.snapshot.params.id;
     this.service.infoSocio(this.id).subscribe(data=>{
       this.socio=data;
+      this.separaRedes(this.socio.usuario.redesSociales);
     });
   }
 
+  private separaRedes(redes:String){
+    this.redes=redes.split(";")
+  }
+  
   public mostrar(){
     console.log(this.socio);
   }
