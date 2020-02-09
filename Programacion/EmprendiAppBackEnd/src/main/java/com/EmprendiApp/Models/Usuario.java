@@ -49,12 +49,12 @@ public class Usuario {
 	private String redesSociales;
 	
 	@JoinColumn(name = "perfil_id", unique = true, nullable = true)
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	private Perfil perfil;
 	
 
 	//@JoinTable(name = "lista_enpresas", joinColumns = @JoinColumn(name = "lista_enpresas_id", nullable = false), inverseJoinColumns = @JoinColumn(name="lista_clietes_id", nullable = false) )
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany()
 	private List<PersonaNaturalEmpresa> esCLiente;
 
 	public Usuario() {

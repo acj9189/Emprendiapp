@@ -44,7 +44,7 @@ public class AsesorConsultor{
 	
 	
 	@JoinColumn(name = "usuario_id", unique = true, nullable = false)
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 
 

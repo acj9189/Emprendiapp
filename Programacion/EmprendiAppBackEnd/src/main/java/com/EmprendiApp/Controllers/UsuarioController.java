@@ -78,6 +78,4 @@ public class UsuarioController {
 		response = true;
 		return response;
 	}
-	
-
 }

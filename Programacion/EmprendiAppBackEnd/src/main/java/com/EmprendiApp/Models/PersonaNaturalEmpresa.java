@@ -1,9 +1,5 @@
 package com.EmprendiApp.Models;
 
-
-
-
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,8 +18,6 @@ import lombok.Data;
 
 @Data
 @Entity
-//@AllArgsConstructor
-//@NoArgsConstructor
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class PersonaNaturalEmpresa {
@@ -38,10 +32,7 @@ public class PersonaNaturalEmpresa {
 	private String redesSociales;
 	private String videoPitch;
 
-	//@OneToMany()
-	//@JoinColumn(name = "miebrosDuenos")
-	//private Set<Usuario> miebrosDuenos; // List<Ussuario> miebrosDuenos;
-	
+
 	@JoinColumn(name = "productos_id", unique = true, nullable = false)
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<ProductoServicio> productos;
@@ -56,7 +47,6 @@ public class PersonaNaturalEmpresa {
 	
 	public PersonaNaturalEmpresa(String nombre, String direccion, String telefonoContacto,
 			String redesSociales, String videoPitch) {
-		//super();
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefonoContacto = telefonoContacto;
