@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Modelos/Usuario';
 import { SocioInversor } from 'src/app/Modelos/SocioInversor';
 import { SocioInversorServiceService } from 'src/app/Service/socio-inversor-service.service';
+import { Perfil } from 'src/app/Modelos/Perfil';
 
 @Component({
   selector: 'app-registrar-socio',
@@ -21,15 +22,16 @@ export class RegistrarSocioComponent implements OnInit {
   public registrarSocio(){
       let socio= new SocioInversor();
       let usuario = new Usuario();
+      let perfil = new Perfil();
 
       let i = document.getElementsByTagName("input").length;
-      let j = 5;
+      let j = 9;
       let redesSocialess="";
       redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
       
       while (j<i-2){
         j++;
-        redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+        redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
       }
       
       usuario.nombres=document.getElementsByTagName("input")[0].value;
@@ -38,20 +40,27 @@ export class RegistrarSocioComponent implements OnInit {
       usuario.email=document.getElementsByTagName("input")[3].value;
       usuario.direccionContacto=document.getElementsByTagName("input")[4].value;
       usuario.descripcionIntereses=document.getElementsByTagName("input")[6].value;
+      
       socio.areasExperticia=document.getElementsByTagName("input")[5].value;
       socio.areasInteres=document.getElementsByTagName("input")[6].value;
       socio.cantidadHorasDispuestoTrabajar=document.getElementsByTagName("input")[7].value
       socio.conociminetoQAporta=document.getElementsByTagName("input")[8].value;
+      
+      usuario.redesSociales=redesSocialess;
+      perfil.nombre="socio";
+      perfil.descripcion="negocios para la empresa";
+      usuario.perfil=perfil;
       socio.tipoSocioInversor=false;
       socio.usuario=usuario;
-      console.log("usuario: "+usuario);
-      this.service.registrarSocio(socio).subscribe(data=>{
+      if(socio.usuario.nombres!=""){
+        this.service.registrarSocio(socio).subscribe(data=>{
           socio=data;
-      });
-
-      console.log("Socio: "+socio);
-      alert("revisar envio faslta revisar socio");
-  }
+        });
+        alert("revisar envio faslta revisar socio");
+        this.router.navigate(['listaSocio']);
+      }  
+      alert("alguno debe llnear al menos el campo nombre");
+    }
 
   public LineaMas(ide){
     var node=document.createElement("input");

@@ -15,33 +15,38 @@ export class EditarSocioComponent implements OnInit {
   constructor(private service:SocioInversorServiceService, private router:Router,private rutaActiva: ActivatedRoute) { }
   private id:number;
   private socio:SocioInversor;
+  private redes:String[];
+
 
   ngOnInit() {
     this.id=this.rutaActiva.snapshot.params.id;
     this.service.infoSocio(this.id).subscribe(data=>{
       this.socio=data;
+      this.separaRedes(this.socio.usuario.redesSociales);
     });
   }
 
-  public mostrar(){
-    console.log(this.socio);
+  private separaRedes(redes:String){
+    this.redes=redes.split(";")
   }
 
   public retorno(){
     this.router.navigate(['listaSocio']);
   }
 
-  public ActualizarSocio(){
- 
-
+  public actualizar(){
     let i = document.getElementsByTagName("input").length;
-    let j = 5;
-    let redesSocialess="";
-    redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+    let j = 9;
+    let redesSocialess=this.socio.usuario.redesSociales;
+    if(document.getElementsByTagName("input")[j].value!=""){
+      redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+    }
       
     while (j<i-2){
       j++;
+      if(document.getElementsByTagName("input")[j].value!=""){
       redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+      }
     }
     if(document.getElementsByTagName("input")[0].value!=""){
       this.socio.usuario.nombres=document.getElementsByTagName("input")[0].value;
@@ -72,16 +77,22 @@ export class EditarSocioComponent implements OnInit {
       this.socio.conociminetoQAporta=document.getElementsByTagName("input")[8].value;
     }
     this.socio.tipoSocioInversor=false;
+    if(redesSocialess!=""){
+      this.socio.usuario.redesSociales=redesSocialess;
+    }
 
     alert("revisar envio faslta revisar socio");
-    return this.socio;
+    this.service.updateSocio(this.id,this.socio).subscribe(data=>{
+      this.socio=data;
+    });
+    //return this.socio;
   }
 
-  public actualizar(){
-    let socio=this.ActualizarSocio();
-   this.service.updateSocio(this.id,socio).subscribe(data=>{
-    this.socio=data;
-   }); 
-   this.router.navigate(['infoSocio/'+this.id]);
+  public LineaMas(/*ide*/){
+    var node=document.createElement("input");
+    node.setAttribute('class','col-8');
+    node.setAttribute('type','text');
+    document.getElementById("redes2").appendChild(node);
+    //ide.appendChild(node);
   }
 }

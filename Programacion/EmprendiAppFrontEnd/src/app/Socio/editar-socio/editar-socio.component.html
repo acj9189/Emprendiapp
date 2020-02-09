@@ -1,42 +1,48 @@
-<div class="container-fluid">
-    <div>
-        <button (click)="retorno()">retorno</button>
+<div class="container-fluid row">
+    
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
     </div>
 
-    <button (click)="mostrar()">mostrar</button>
+    <div class="col-10">
+        <div class="col-3">identificador: {{socio.id}}</div> 
+        
+        <div class="col-5">nombre: {{socio.usuario.nombres}}</div>
+        <input type="text" value="" class="col-10">
+        
+        <div class="col-5">apellidos: {{socio.usuario.apellidos}}</div>
+        <input type="text" value="" class="col-10">
 
-    <div>
-        identificador: {{socio.id}}
-    </div>
-    <div>
-        nombre: {{socio.usuario.nombres}} <input type="text" value="">
-    </div>
-    <div>
-        apellidos: {{socio.usuario.apellidos}} <input type="text" value="">
-    </div>
-    <div>
-        telefono: {{socio.usuario.telefono}} <input type="text" value="">
-    </div>
-    <div>
-        email: {{socio.usuario.email}} <input type="text" value="">
-    </div>
-    <div>
-        direccion de contacto: {{socio.usuario.direccionContacto}} <input type="text" value="">
-    </div> 
-    <div>
-        descripcion de los intereses: {{socio.usuario.descripcionIntereses}}<input type="text" value="">
-    </div>
-     
-    <div>
-        areas en las que se expecialisa: {{socio.areasExperticia}} <input type="text" value="">
-    </div>
-    <div>
-        cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}} <input type="text" value="">
-    </div>
-    <div>
-        conocimineto que aporta: {{socio.conociminetoQAporta}} <input type="text" value="">
-    </div>
-    <div>
-        <button (click)="actualizar()">actualizar</button>
+        <div class="col-5"> telefono: {{socio.usuario.telefono}}</div>
+        <input type="text" value="" class="col-10">
+        
+        <div class="col-5">email: {{socio.usuario.email}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">direccion de contacto: {{socio.usuario.direccionContacto}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">descripcion de los intereses: {{socio.usuario.descripcionIntereses}}</div>
+        <input type="text" value="" class="col-10">
+  
+        <div class="col-5">areas en las que se expecialisa: {{socio.areasExperticia}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">cantidad horas dispuesto trabajar: {{socio.cantidadHorasDispuestoTrabajar}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">conocimineto que aporta: {{socio.conociminetoQAporta}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-3">Redes sociales</div>
+        <div *ngFor="let redes1 of redes" #rede2 id="redes2">
+           <div class="col-10">{{redes1}} <input type="text" value="" class="col-10"></div> 
+        </div>
+        <button (click)="LineaMas()">+</button>
+
+        <div>
+            <button (click)="actualizar()">actualizar</button>
+            <button (click)="retorno()">retorno</button>
+        </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Producto} from 'src/app/Modelos/Producto'
+import {ProductoServicio} from 'src/app/Modelos/ProductoServicio'
 @Component({
   selector: 'app-info-producto',
   templateUrl: './info-producto.component.html',
@@ -7,7 +7,7 @@ import {Producto} from 'src/app/Modelos/Producto'
 })
 export class InfoProductoComponent implements OnInit {
 
-  producto:Producto;
+  producto:ProductoServicio;
   constructor() { }
 
   //falta coneccion con la base de datos

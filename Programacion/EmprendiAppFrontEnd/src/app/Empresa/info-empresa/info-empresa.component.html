@@ -1,64 +1,56 @@
-<div class="container-fluid">
+<div class="container-fluid row">
 
-<div>Informacion de la empresa</div>
-<table border="0">
-    <tr>
-        <th>Nombre</th>
-        <th>{{empresa.nombre}}</th>
-    </tr>
-    <tr>
-        <th>Direccion</th>
-        <th>{{empresa.direccion}}</th>
-    </tr>
-    <tr>
-        <th>Telefono contacto</th>
-        <th>{{empresa.telefonoContacto}}</th>
-    </tr>
-    <tr>
-        <th>Redes Soliales</th>
-        <th>{{empresa.redesSociales}}</th>
-    </tr>
-
-    <tr>
-        <th>
-            vido pitch
-        </th>
-        <th>
-            {{empresa.videoPitch}}
-        </th>
-    </tr>
+<div class="col-5">Informacion de la empresa</div>
+    
+        <div class="col-2">Nombre</div>
+        <div class="col-10">{{empresa.nombre}}</div>
+   
+        <div class="col-2">Direccion</div>
+        <div class="col-10">{{empresa.direccion}}</div>
+    
+        <div class="col-2">Telefono contacto</div>
+        <div class="col-10">{{empresa.telefonoContacto}}</div>
+   
+        <div class="col-2">Redes Soliales</div>
+        <div *ngFor="let redes1 of redes">
+            <div  class="col-10">{{redes1}}</div>
+        </div>
+  
+        <div class="col-10">vido pitch</div>
+        <div class="col-10">{{empresa.videoPitch}}</div>
+    
 <!--
     <tr>
-        <th>Emprsas asociadas</th>
-        <th *ngFor='let empresas of empresa.EmpresasTrbajo'>
+        <div>Emprsas asociadas</div>
+        <div *ngFor='let empresas of empresa.EmpresasTrbajo'>
             {{empresas.nombre}}
-        </th>
+        </div>
     </tr>
     <tr>
-        <th>Socios</th>
-        <th *ngFor='let socios of empresa.sociosInversores'>
+        <div>Socios</div>
+        <div *ngFor='let socios of empresa.sociosInversores'>
             {{socios.nombres}}
-        </th>
+        </div>
     </tr>
     <tr>
-        <th>Inversores</th>
-        <th *ngFor='let inversores of empresa.sociosInversores'>
+        <div>Inversores</div>
+        <div *ngFor='let inversores of empresa.sociosInversores'>
             {{inversores.nombres}}
-        </th>
+        </div>
     </tr>
     <tr>
-        <th>Consultores</th>
-        <th *ngFor='let consultores of empresa.AsesorConsultor'>
+        <div>Consultores</div>
+        <div *ngFor='let consultores of empresa.AsesorConsultor'>
             {{consultores.nombres}}
-        </th>
+        </div>
     </tr>
     <tr>
-        <th>Asesores</th>
-        <th *ngFor='let asesores of empresa.AsesorConsultor'>
+        <div>Asesores</div>
+        <div *ngFor='let asesores of empresa.AsesorConsultor'>
             {{asesores.nombres}}
-        </th>
+        </div>
     </tr>-->
-</table>
+
 <!--a completar-->
 <button>consultar empresa</button>
 <button>enviar mensaje</button>

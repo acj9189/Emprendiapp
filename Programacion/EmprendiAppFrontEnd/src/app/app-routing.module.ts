@@ -42,8 +42,16 @@ import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empre
 import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
 import { ListaProductoComponent } from './Administrador/lista-producto/lista-producto.component';
 import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.component';
+import { VerSocioComponent } from './Socio/ver-socio/ver-socio.component';
+import { VerSocioAdminComponent } from './Administrador/ver-socio-Admin/ver-socio-Admin.component';
+import { VerInversorComponent } from './Inversor/ver-inversor/ver-inversor.component';
+import { VerInversorAdminComponent } from './Administrador/ver-inversor-admin/ver-inversor-admin.component';
 
 const routes: Routes = [
+  {path: 'verInversorAdmin/:id',component:VerInversorAdminComponent},
+  {path: 'verInversor/:id',component:VerInversorComponent},
+  {path: 'verSocio/:id',component:VerSocioComponent},
+  {path: 'verSocioAdmin/:id',component:VerSocioAdminComponent},
   {path: 'listaSocio',component:ListaSocioComponent},
   {path: 'listaProducto',component:ListaProductoComponent},
   {path: 'listaInversor',component:ListaInversorComponent},

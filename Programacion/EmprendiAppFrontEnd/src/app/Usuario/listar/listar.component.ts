@@ -12,7 +12,7 @@ export class ListarComponent implements OnInit {
 
   usuarios:Usuario[];
   constructor(private service:ServiceService, private router:Router) { }
-
+  redesSociales:String[];
   ngOnInit() {
     this.service.getUsuarios().subscribe(data=>{
       this.usuarios = data;

@@ -1,44 +1,41 @@
-<div class="container-fluid">
-
-<div>Informacion del inveror</div>
-<table border="0">
-    <tr>
-        <th>Nombre</th>
-        <th>{{inversor.nombres}}</th>
-    </tr>
-    <tr>
-        <th>Apellido</th>
-        <th>{{inversor.apellidos}}</th>
-    </tr>
-    <tr>
-        <th>Correo</th>
-        <th>{{inversor.correo}</th>
-    </tr>
-    <tr>
-        <th>Area Experticia</th>
-        <th>{{inversor.AreaExperticai}}</th>
-    </tr>
-
-    <tr>
-        <th>Direccion</th>
-        <th>{{inversor.direccion}}</th>
-    </tr>
-    <tr>
-        <th>Telefono contacto</th>
-        <th>{{inversor.telefono}}</th>
-    </tr>
-    <tr>
-        <th>Redes Soliales</th>
-        <th>{{inversor.redesSociales}}</th>
-    </tr>
-    <tr>
-        <th>Emprsas en las que ha invertido</th>
-        <th *ngFor='let empresas of inversor.EmpresaTrabajo'>
-            {{empresas.nombre}}
-        </th>
-    </tr>
-</table>
-<!--a completar-->
-<button>consultar empresa</button>
-<button>enviar mensaje</button>
+<div class="container-fluid row">
+ 
+    <div class="col-10">
+        <div class="div">
+            identificador: {{socio.id}}
+        </div> 
+        <div class="div">
+            nombre: {{socio.usuario.nombres}}
+        </div>
+        <div class="div">
+            apellidos: {{socio.usuario.apellidos}}
+        </div>
+        <div class="div">
+            telefono: {{socio.usuario.telefono}}
+        </div>
+        <div class="div">
+            email: {{socio.usuario.email}}
+        </div>
+        <div class="div">
+            descripcion de los intereses: {{socio.usuario.descripcionIntereses}}
+        </div>
+        <div class="div"> 
+            direccion de contacto: {{socio.usuario.direccionContacto}}
+        </div>  
+        <div class="div">
+            areas en las que se expecialisa: {{socio.areasExperticia}}
+        </div>
+        <div class="div">
+            conocimineto que aporta: {{socio.conociminetoQAporta}}
+        </div>
+        <div class="div">
+            redes Sociales
+            <div *ngFor="let redes1 of redes">
+                <div>{{redes1}}</div>
+            </div>
+        </div>
+        <div>
+            <button (click)="retorno()">retorno</button>
+        </div>
+    </div>
 </div>
