@@ -1,1 +1,45 @@
-<p>editar-inversor works!</p>
+<div class="container-fluid row">
+    
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
+    </div>
+
+    <div class="col-10">
+        <div class="col-3">identificador: {{socio.id}}</div> 
+        
+        <div class="col-5">nombre: {{socio.usuario.nombres}}</div>
+        <input type="text" value="" class="col-10">
+        
+        <div class="col-5">apellidos: {{socio.usuario.apellidos}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5"> telefono: {{socio.usuario.telefono}}</div>
+        <input type="text" value="" class="col-10">
+        
+        <div class="col-5">email: {{socio.usuario.email}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">direccion de contacto: {{socio.usuario.direccionContacto}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">descripcion de los intereses: {{socio.usuario.descripcionIntereses}}</div>
+        <input type="text" value="" class="col-10">
+  
+        <div class="col-5">areas en las que se expecialisa: {{socio.areasExperticia}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-5">conocimineto que aporta: {{socio.conociminetoQAporta}}</div>
+        <input type="text" value="" class="col-10">
+
+        <div class="col-3">Redes sociales</div>
+        <div *ngFor="let redes1 of redes" #rede2 id="redes2">
+           <div class="col-10">{{redes1}} <input type="text" value="" class="col-10"></div> 
+        </div>
+        <button (click)="LineaMas()">+</button>
+
+        <div>
+            <button (click)="actualizar()">actualizar</button>
+        </div>
+    </div>
+    nota revisar el perfil al crear el inversor
+</div>

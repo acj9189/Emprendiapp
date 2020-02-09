@@ -1,31 +1,49 @@
-<div class="container-fluid">
-
-    <div class="col-3">Nombre</div>
-    <input class="col-9" type="text">
-
-    <div class="col-3">apellido</div>
-    <input class="col-9" type="text">
-
-    <div class="col-3">telefono</div>
-    <input class="col-9" type="text">
-
-    <div class="col-3">correo</div>
-    <input class="col-9" type="text">
-
-    <div class="col-3">direccion</div>
-    <input class="col-9" type="text">
-
-<!--<div class="row">-->
-    <div class="col-3">redes Sociales</div>
-    <div id="redes" #redesSociales> 
-        <input class="col-8" type="text">
+<div class="container-fluid row">
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
     </div>
-    <button (click)="LineaMas(redesSociales)">+</button>
-<!--</div>-->
 
-    <div class="col-3">Empresas en las que ha invertido</div>
+    <div class="col-10">
+
+        <div class="col-3">Nombre</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">apellido</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">telefono</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">correo</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">direccion</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">area experticia</div>
+        <input class="col-10" type="text">
+        
+        <div class="col-3">area interes</div>
+        <input class="col-10" type="text">
+
+        <div class="col-3">tipo de conoimiento</div>
+        <input class="col-10" type="text">
+
+        <!--<div class="row">-->
+        <div class="col-3">redes Sociales</div>
+        <div id="redes" #redesSociales> 
+            <input class="col-8" type="text">
+        </div>
+        <button (click)="LineaMas(redesSociales)">+</button>
+        <!--</div>-->
+        <div>
+            <button (click)="registrarSocio()">registrar</button>
+        </div>
+    </div>
+    
+    <!--<div class="col-3">Empresas a las que esta asociado</div>
     <div id="empresas" #Empresa>
         <input class="col-8" type="text">
     </div>
-    <button (click)="LineaMas(Empresa)">+</button>
+    <button (click)="LineaMas(Empresa)">+</button>-->
 </div>

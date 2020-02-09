@@ -63,6 +63,11 @@ import { ListaEmpresaComponent } from './Administrador/lista-empresa/lista-empre
 import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inversor.component';
 import { ListaProductoComponent } from './Administrador/lista-producto/lista-producto.component';
 import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.component';
+import { VerSocioComponent } from './Socio/ver-socio/ver-socio.component';
+import { VerInversorAdminComponent } from './Administrador/ver-inversor-admin/ver-inversor-admin.component';
+import { VerInversorComponent } from './Inversor/ver-inversor/ver-inversor.component';
+import { VerEmpresaComponent } from './Empresa/ver-empresa/ver-empresa.component';
+import { VerEmpresaAdminComponent } from './Administrador/ver-empresa-admin/ver-empresa-admin.component';
 
 @NgModule({
   declarations: [
@@ -123,7 +128,12 @@ import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.com
     ListaEmpresaComponent,
     ListaInversorComponent,
     ListaProductoComponent,
-    ListaSocioComponent
+    ListaSocioComponent,
+    VerSocioComponent,
+    VerInversorAdminComponent,
+    VerInversorComponent,
+    VerEmpresaComponent,
+    VerEmpresaAdminComponent
   ],
   imports: [
     BrowserModule,

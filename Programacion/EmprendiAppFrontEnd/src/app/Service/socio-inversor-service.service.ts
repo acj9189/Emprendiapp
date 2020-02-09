@@ -12,7 +12,11 @@ export class SocioInversorServiceService {
   private Url = 'http://localhost:8690/Socios';
 
   public getSocios(){
-    return this.http.get<SocioInversor[]>(this.Url+'/all');
+    return this.http.get<SocioInversor[]>(this.Url+'/socio/socio/all');
+  }
+
+  public getInversores(){
+    return this.http.get<SocioInversor[]>(this.Url+'/socio/inversor/all');
   }
 
   public registrarSocio(socio){

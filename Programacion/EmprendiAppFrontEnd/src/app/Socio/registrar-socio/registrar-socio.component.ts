@@ -52,12 +52,15 @@ export class RegistrarSocioComponent implements OnInit {
       usuario.perfil=perfil;
       socio.tipoSocioInversor=false;
       socio.usuario=usuario;
-      this.service.registrarSocio(socio).subscribe(data=>{
+      if(socio.usuario.nombres!=""){
+        this.service.registrarSocio(socio).subscribe(data=>{
           socio=data;
-      });
-      alert("revisar envio faslta revisar socio");
-      this.router.navigate(['listaSocio']);
-  }
+        });
+        alert("revisar envio faslta revisar socio");
+        this.router.navigate(['listaSocio']);
+      }  
+      alert("alguno debe llnear al menos el campo nombre");
+    }
 
   public LineaMas(ide){
     var node=document.createElement("input");
