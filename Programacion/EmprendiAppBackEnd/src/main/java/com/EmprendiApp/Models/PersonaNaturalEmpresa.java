@@ -31,6 +31,7 @@ public class PersonaNaturalEmpresa {
 	private String telefonoContacto;
 	private String redesSociales;
 	private String videoPitch;
+	private boolean tipo;
 
 
 	@JoinColumn(name = "productos_id", unique = true, nullable = false)
@@ -45,13 +46,19 @@ public class PersonaNaturalEmpresa {
 		
 	}
 	
-	public PersonaNaturalEmpresa(String nombre, String direccion, String telefonoContacto,
-			String redesSociales, String videoPitch) {
+	public PersonaNaturalEmpresa(Integer id, String nombre, String direccion, String telefonoContacto,
+			String redesSociales, String videoPitch, boolean tipo, List<ProductoServicio> productos,
+			List<Usuario> sonCLientes) {
+		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefonoContacto = telefonoContacto;
 		this.redesSociales = redesSociales;
 		this.videoPitch = videoPitch;
+		this.tipo = tipo;
+		this.productos = productos;
+		this.sonCLientes = sonCLientes;
 	}
 
 	public Integer getId() {
@@ -101,8 +108,29 @@ public class PersonaNaturalEmpresa {
 	public void setVideoPitch(String videoPitch) {
 		this.videoPitch = videoPitch;
 	}
-	
-	
-	
+
+	public boolean isTipo() {
+		return tipo;
+	}
+
+	public void setTipo(boolean tipo) {
+		this.tipo = tipo;
+	}
+
+	public List<ProductoServicio> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<ProductoServicio> productos) {
+		this.productos = productos;
+	}
+
+	public List<Usuario> getSonCLientes() {
+		return sonCLientes;
+	}
+
+	public void setSonCLientes(List<Usuario> sonCLientes) {
+		this.sonCLientes = sonCLientes;
+	}
 	
 }

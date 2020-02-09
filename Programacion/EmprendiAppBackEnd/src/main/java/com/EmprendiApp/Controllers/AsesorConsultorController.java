@@ -1,5 +1,6 @@
 package com.EmprendiApp.Controllers;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.EmprendiApp.Models.AsesorConsultor;
+import com.EmprendiApp.Models.PersonaNaturalEmpresa;
 import com.EmprendiApp.Respositories.AsesorRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,54 +32,78 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class AsesorConsultorController {
 	
 	@Autowired
-	private AsesorRepository AsesorRepository;
+	private AsesorRepository asesorRepository;
 	
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<AsesorConsultor> getAllAsesoresCOnsultores(){
-		return AsesorRepository.findAll();
+	public List<AsesorConsultor> getAllAsesoresConsultores(){
+		return asesorRepository.findAll();
+	}
+	
+	@GetMapping("/asesor/asesor/all")
+	@ResponseBody
+	public List<AsesorConsultor> getAllAsesores(){
+		List<AsesorConsultor> asesores = new LinkedList<>();
+		List<AsesorConsultor> asesoresConsultores = asesorRepository.findAll();
+		for(AsesorConsultor persoNatural: asesoresConsultores ) {
+			if(persoNatural.isTipoAsesorConsultor()) {
+				asesores.add(persoNatural);
+			}
+		}
+		return asesores;	
+	}
+	
+	@GetMapping("/asesor/consultor/all")
+	@ResponseBody
+	public List<AsesorConsultor> getAllConsultores(){
+		List<AsesorConsultor> consultores = new LinkedList<>();
+		List<AsesorConsultor> asesoresConsultores = asesorRepository.findAll();
+		for(AsesorConsultor consultor: asesoresConsultores ) {
+			if(!consultor.isTipoAsesorConsultor()) {
+				consultores.add(consultor);
+			}
+		}
+		return consultores;	
 	}
 	
 	@GetMapping("/asesor/{id}")
 	@ResponseBody
-	private Optional<AsesorConsultor> getAsesor(@PathVariable Integer id) {
-		return AsesorRepository.findById(id);
+	public Optional<AsesorConsultor> getAsesor(@PathVariable Integer id) {
+		return asesorRepository.findById(id);
 	}
 
 	@PostMapping("/asesor")
 	@ResponseBody
-	private AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
-		return AsesorRepository.save(asesor);
+	public AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
+		return asesorRepository.save(asesor);
 	}
 
 	@PutMapping("/asesor/{id}")
 	@ResponseBody
-	private ResponseEntity<AsesorConsultor> updateAsesor(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<AsesorConsultor> updateAsesor(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody AsesorConsultor asesor) throws ResourceNotFoundException {
-
-		AsesorConsultor usuarioBuscado = AsesorRepository.findById(Id)
+		AsesorConsultor usuarioBuscado = asesorRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el Usuario  :: " + Id));
 		usuarioBuscado.setAreasExperticia(asesor.getAreasExperticia());
 		usuarioBuscado.setAreasInteres(asesor.getAreasInteres());
 		usuarioBuscado.setConociminetoQAporta(asesor.getConociminetoQAporta());
 		usuarioBuscado.setCostoHora(asesor.getCostoHora());
-		usuarioBuscado.setTipoAsesorCOnsultor(asesor.isTipoAsesorCOnsultor());
+		usuarioBuscado.setTipoAsesorConsultor(asesor.isTipoAsesorConsultor());
 		usuarioBuscado.setUsuario(asesor.getUsuario());
-		final AsesorConsultor updateAsesor = AsesorRepository.save(usuarioBuscado);
+		final AsesorConsultor updateAsesor = asesorRepository.save(usuarioBuscado);
 		return ResponseEntity.ok(updateAsesor);
 	}
 
 	@DeleteMapping("/usuario/{id}")
 	@ResponseBody
-	private boolean deleteAsesor(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteAsesor(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
-		AsesorConsultor deleteAsesor = AsesorRepository.findById(Id).orElseThrow(
+		AsesorConsultor deleteAsesor = asesorRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el Asesor o el consultar a eliminar :: " + Id));
-		AsesorRepository.delete(deleteAsesor);
+		asesorRepository.delete(deleteAsesor);
 		response = true;
 		return response;
-		
 	}
 
 }

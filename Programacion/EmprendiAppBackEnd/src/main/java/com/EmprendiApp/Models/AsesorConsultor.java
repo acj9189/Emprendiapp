@@ -39,9 +39,8 @@ public class AsesorConsultor{
 	@Column(name = "areasInteres", nullable = true)
 	private String areasInteres;
 	
-	@Column(name = "tipoAsesorCOnsultor", nullable = false)
-	private boolean tipoAsesorCOnsultor; // Cuando la varible esta en false es Socio, cuando esta en true es Inversor
-	
+	@Column(name = "tipoAsesorConsultor", nullable = false)
+	private boolean tipoAsesorConsultor; 
 	
 	@JoinColumn(name = "usuario_id", unique = true, nullable = false)
 	@OneToOne(cascade = CascadeType.ALL)
@@ -56,7 +55,7 @@ public class AsesorConsultor{
 		this.conociminetoQAporta = conociminetoQAporta;
 		this.costoHora = costoHora;
 		this.areasInteres = areasInteres;
-		this.tipoAsesorCOnsultor = tipoAsesorCOnsultor;
+		this.tipoAsesorConsultor = tipoAsesorCOnsultor;
 		this.usuario = usuario;
 	}
 
@@ -116,13 +115,13 @@ public class AsesorConsultor{
 	}
 
 
-	public boolean isTipoAsesorCOnsultor() {
-		return tipoAsesorCOnsultor;
+	public boolean isTipoAsesorConsultor() {
+		return tipoAsesorConsultor;
 	}
 
 
-	public void setTipoAsesorCOnsultor(boolean tipoAsesorCOnsultor) {
-		this.tipoAsesorCOnsultor = tipoAsesorCOnsultor;
+	public void setTipoAsesorConsultor(boolean tipoAsesorCOnsultor) {
+		this.tipoAsesorConsultor = tipoAsesorCOnsultor;
 	}
 
 

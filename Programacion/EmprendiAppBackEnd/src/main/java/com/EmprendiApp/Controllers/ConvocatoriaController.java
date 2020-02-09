@@ -34,28 +34,26 @@ public class ConvocatoriaController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<Convocatoria> getAllConvocatoria(){
-		
+	public List<Convocatoria> getAllConvocatoria(){
 		return convocatoriaRepository.findAll();
 	}
 	
 	@GetMapping("/Convocatoria/{id}")
 	@ResponseBody
-	private Optional<Convocatoria> getConvocatoria(@PathVariable Integer id) {
+	public Optional<Convocatoria> getConvocatoria(@PathVariable Integer id) {
 		return convocatoriaRepository.findById(id);
 	}
 
 	@PostMapping("/Convocatoria")
 	@ResponseBody
-	private Convocatoria nuevoAsesor(@Valid @RequestBody Convocatoria convocatoria) {
+	public Convocatoria nuevoAsesor(@Valid @RequestBody Convocatoria convocatoria) {
 		return convocatoriaRepository.save(convocatoria);
 	}
 
 	@PutMapping("/Convocatoria/{id}")
 	@ResponseBody
-	private ResponseEntity<Convocatoria> updateConvocatoria(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<Convocatoria> updateConvocatoria(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody Convocatoria convocatoria) throws ResourceNotFoundException {
-
 		Convocatoria convocatoriaBuscada = convocatoriaRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el Usuario  :: " + Id));
 		convocatoriaBuscada.setDescripcionConvocatoria(convocatoria.getDescripcionConvocatoria());
@@ -71,14 +69,13 @@ public class ConvocatoriaController {
 
 	@DeleteMapping("/Convocatoria/{id}")
 	@ResponseBody
-	private boolean deletConvocatoria(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deletConvocatoria(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		Convocatoria deleteAsesor = convocatoriaRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el Asesor o el consultar a eliminar :: " + Id));
 		convocatoriaRepository.delete(deleteAsesor);
 		response = true;
 		return response;
-		
 	}
 
 }

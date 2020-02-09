@@ -30,19 +30,19 @@ public class NotificacionController {
 	
 	@GetMapping("/notificacion/{id}")
 	@ResponseBody
-	private Optional<Notificacion> getNotificacion(@PathVariable Integer id) {
+	public Optional<Notificacion> getNotificacion(@PathVariable Integer id) {
 		return NotificacionRepository.findById(id);
 	}
 
 	@PostMapping("/notificacion")
 	@ResponseBody
-	private Notificacion nuevaNotificacion(@Valid @RequestBody Notificacion notificacion) {
+	public Notificacion nuevaNotificacion(@Valid @RequestBody Notificacion notificacion) {
 		return NotificacionRepository.save(notificacion);
 	}
 
 	@PutMapping("/notificacion/{id}")
 	@ResponseBody
-	private ResponseEntity<Notificacion> updateNotifiacion(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<Notificacion> updateNotifiacion(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody Notificacion notificacion) throws ResourceNotFoundException {
 
 		Notificacion notificacionBuscada = NotificacionRepository.findById(Id)
@@ -57,7 +57,7 @@ public class NotificacionController {
 
 	@DeleteMapping("/notificacion/{id}")
 	@ResponseBody
-	private boolean deleteNotificacion(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteNotificacion(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 
 		Notificacion deleteNotificacion = NotificacionRepository.findById(Id).orElseThrow(

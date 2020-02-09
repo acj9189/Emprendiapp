@@ -34,13 +34,13 @@ public class SocioInversorController {
 	//@CrossOrigin(origins = "http://localhost:4200")
 		@GetMapping("/all")
 		@ResponseBody
-		private List<SocioInversor> getAllSociosInversores(){
+		public List<SocioInversor> getAllSociosInversores(){
 			return socioRepository.findAll();
 		}
 		
 		@GetMapping("/socio/socio/all")
 		@ResponseBody
-		private List<SocioInversor> getAllSocios(){
+		public List<SocioInversor> getAllSocios(){
 			List<SocioInversor> socios = new LinkedList<SocioInversor>();
 			List<SocioInversor> sociosInversores = socioRepository.findAll();
 			for(SocioInversor socio: sociosInversores ) {
@@ -53,7 +53,7 @@ public class SocioInversorController {
 		
 		@GetMapping("/socio/inversor/all")
 		@ResponseBody
-		private List<SocioInversor> getAllInversor(){
+		public List<SocioInversor> getAllInversor(){
 			List<SocioInversor> inversores = new LinkedList<SocioInversor>();
 			List<SocioInversor> sociosInversores = socioRepository.findAll();
 			for(SocioInversor inversor: sociosInversores ) {
@@ -66,13 +66,13 @@ public class SocioInversorController {
 		
 		@GetMapping("/socio/{id}")
 		@ResponseBody
-		private Optional<SocioInversor> getSocio(@PathVariable Integer id) {
+		public Optional<SocioInversor> getSocio(@PathVariable Integer id) {
 			return socioRepository.findById(id);
 		}
 
 		@PostMapping("/socio")
 		@ResponseBody
-		private SocioInversor NuevoSocio(@Valid @RequestBody SocioInversor socio) {
+		public SocioInversor NuevoSocio(@Valid @RequestBody SocioInversor socio) {
                     System.out.println(socio.getAreasExperticia());
                     System.out.println(socio.getUsuario().getNombres());
 			return socioRepository.save(socio);
@@ -80,7 +80,7 @@ public class SocioInversorController {
 
 		@PutMapping("/socio/{id}")
 		@ResponseBody
-		private ResponseEntity<SocioInversor> updateSocio(@PathVariable(value = "id") Integer Id,
+		public ResponseEntity<SocioInversor> updateSocio(@PathVariable(value = "id") Integer Id,
 				@Valid @RequestBody SocioInversor socio) throws ResourceNotFoundException {
 
 			SocioInversor socioBuscado = socioRepository.findById(Id)
@@ -96,7 +96,7 @@ public class SocioInversorController {
 
 		@DeleteMapping("/socio/{id}")
 		@ResponseBody
-		private boolean deleteUsuario(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+		public boolean deleteUsuario(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 			boolean response = false;
 
 			SocioInversor deleteSocio =socioRepository.findById(Id).orElseThrow(

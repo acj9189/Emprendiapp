@@ -1,5 +1,6 @@
 package com.EmprendiApp.Controllers;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.EmprendiApp.Models.PersonaNaturalEmpresa;
+import com.EmprendiApp.Models.SocioInversor;
 import com.EmprendiApp.Respositories.PersonaNaturalEmpresaRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,25 +35,51 @@ public class PersonaNaturalController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<PersonaNaturalEmpresa> getAllEmpresas() {
+	public List<PersonaNaturalEmpresa> getAllEmpresasPersonaNatural() {
 		return empresaRepository.findAll();
+	}
+	
+	@GetMapping("/empresa/personaNarural/all")
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getAllPersonasNaturales(){
+		List<PersonaNaturalEmpresa> personaNatural = new LinkedList<>();
+		List<PersonaNaturalEmpresa> personaNaturalEmpresas = empresaRepository.findAll();
+		for(PersonaNaturalEmpresa persoNatural: personaNaturalEmpresas ) {
+			if(persoNatural.isTipo()) {
+				personaNatural.add(persoNatural);
+			}
+		}
+		return personaNatural;	
+	}
+	
+	@GetMapping("/empresa/empresa/all")
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getAllEmpresas(){
+		List<PersonaNaturalEmpresa> empresa = new LinkedList<>();
+		List<PersonaNaturalEmpresa> personaNaturalEmpresas = empresaRepository.findAll();
+		for(PersonaNaturalEmpresa empresaT: personaNaturalEmpresas ) {
+			if(!empresaT.isTipo()) {
+				empresa.add(empresaT);
+			}
+		}
+		return empresa;	
 	}
 
 	@GetMapping("/empresa/{id}")
 	@ResponseBody
-	private Optional<PersonaNaturalEmpresa> getEmpresa(@PathVariable Integer id) {
+	public Optional<PersonaNaturalEmpresa> getEmpresa(@PathVariable Integer id) {
 		return empresaRepository.findById(id);
 	}
 
 	@PostMapping("/empresa")
 	@ResponseBody
-	private PersonaNaturalEmpresa NuevaEmpresa(@Valid @RequestBody PersonaNaturalEmpresa empresa) {
+	public PersonaNaturalEmpresa NuevaEmpresa(@Valid @RequestBody PersonaNaturalEmpresa empresa) {
 		return empresaRepository.save(empresa);
 	}
 
 	@PutMapping("/empresa/{id}")
 	@ResponseBody
-	private ResponseEntity<PersonaNaturalEmpresa> updateEmpresa(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<PersonaNaturalEmpresa> updateEmpresa(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody PersonaNaturalEmpresa empresaDitails) throws ResourceNotFoundException {
 
 		PersonaNaturalEmpresa empresa = empresaRepository.findById(Id)
@@ -67,7 +95,7 @@ public class PersonaNaturalController {
 
 	@DeleteMapping("/empresa/{id}")
 	@ResponseBody
-	private boolean deleteEmpresa(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteEmpresa(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		PersonaNaturalEmpresa deleteEmpresa = empresaRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro la empresa  o l;a persna natural a eliminar :: " + Id));

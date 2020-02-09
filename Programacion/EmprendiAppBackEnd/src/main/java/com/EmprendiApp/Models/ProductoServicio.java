@@ -19,17 +19,33 @@ public class ProductoServicio {
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
+	@Column(name = "nombre", nullable = true)
 	private String nombre;
+	
+	@Column(name = "descripcionProductoServicio", nullable = true)
 	private String descripcionProductoServicio;
+	
+	@Column(name = "costoUnidad", nullable = true)
 	private Integer costoUnidad;
+	
+	@Column(name = "descripcionProblemaQSoluciona", nullable = true)
 	private String descripcionProblemaQSoluciona;
 	
-	public ProductoServicio(String nombre, String descripcionProductoServicio, Integer costoUnidad,
-			String descripcionProblemaQSoluciona) {
+	@Column(name = "tipoProductoServicio", nullable = true)
+	private boolean tipoProductoServicio;
+	
+
+
+	public ProductoServicio(Integer id, String nombre, String descripcionProductoServicio, Integer costoUnidad,
+			String descripcionProblemaQSoluciona, boolean tipoProductoServicio) {
+		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.descripcionProductoServicio = descripcionProductoServicio;
 		this.costoUnidad = costoUnidad;
 		this.descripcionProblemaQSoluciona = descripcionProblemaQSoluciona;
+		this.tipoProductoServicio = tipoProductoServicio;
 	}
 
 	public ProductoServicio() {
@@ -74,9 +90,13 @@ public class ProductoServicio {
 	public void setDescripcionProblemaQSoluciona(String descripcionProblemaQSoluciona) {
 		this.descripcionProblemaQSoluciona = descripcionProblemaQSoluciona;
 	}
-	
-	
-	
-	
+
+	public boolean isTipoProductoServicio() {
+		return tipoProductoServicio;
+	}
+
+	public void setTipoProductoServicio(boolean tipoProductoServicio) {
+		this.tipoProductoServicio = tipoProductoServicio;
+	}
 
 }

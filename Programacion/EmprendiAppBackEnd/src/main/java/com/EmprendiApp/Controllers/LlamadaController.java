@@ -32,25 +32,25 @@ public class LlamadaController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<Llamada> getAllLlamadas(){
+	public List<Llamada> getAllLlamadas(){
 		return llamadaRepository.findAll();
 	}
 	
 	@GetMapping("/Llamada/{id}")
 	@ResponseBody
-	private Optional<Llamada> getLlamada(@PathVariable Integer id) {
+	public Optional<Llamada> getLlamada(@PathVariable Integer id) {
 		return llamadaRepository.findById(id);
 	}
 
 	@PostMapping("/Llamada")
 	@ResponseBody
-	private Llamada nuevaLlamada(@Valid @RequestBody Llamada llamada) {
+	public Llamada nuevaLlamada(@Valid @RequestBody Llamada llamada) {
 		return llamadaRepository.save(llamada);
 	}
 	
 	@DeleteMapping("/Llamada/{id}")
 	@ResponseBody
-	private boolean deleteLlamada(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteLlamada(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		Llamada deleteLlamada = llamadaRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el mensaje a eliminar :: " + Id));

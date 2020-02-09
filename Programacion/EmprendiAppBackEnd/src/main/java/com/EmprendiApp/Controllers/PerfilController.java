@@ -32,19 +32,19 @@ public class PerfilController {
 	
 	@GetMapping("/perfil/{id}")
 	@ResponseBody
-	private Optional<Perfil> getPerfil(@PathVariable Integer id) {
+	public Optional<Perfil> getPerfil(@PathVariable Integer id) {
 		return perfilRepository.findById(id);
 	}
 	
 	@PostMapping("/perfil")
 	@ResponseBody
-	private Perfil NuevoPerfil(@Valid @RequestBody Perfil perfil) {
+	public Perfil NuevoPerfil(@Valid @RequestBody Perfil perfil) {
 		return  perfilRepository.save(perfil);
 	}
 	
 	@PutMapping("/perfil/{id}")
 	@ResponseBody
-	private ResponseEntity<Perfil> updatePerfil(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<Perfil> updatePerfil(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody Perfil perfilDitails) throws ResourceNotFoundException {
 
 		Perfil perfil = perfilRepository.findById(Id)
@@ -57,7 +57,7 @@ public class PerfilController {
 
 	@DeleteMapping("/empresa/{id}")
 	@ResponseBody
-	private boolean deletePerfil(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deletePerfil(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		Perfil deletePerfil = perfilRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro la empresa  o l;a persna natural a eliminar :: " + Id));

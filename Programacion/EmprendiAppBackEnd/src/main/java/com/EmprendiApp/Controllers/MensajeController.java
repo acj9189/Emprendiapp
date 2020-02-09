@@ -34,25 +34,25 @@ public class MensajeController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<Mensaje> getAllMensajes(){
+	public List<Mensaje> getAllMensajes(){
 		return mensajeRepository.findAll();
 	}
 	
 	@GetMapping("/Mensaje/{id}")
 	@ResponseBody
-	private Optional<Mensaje> getMensaje(@PathVariable Integer id) {
+	public Optional<Mensaje> getMensaje(@PathVariable Integer id) {
 		return mensajeRepository.findById(id);
 	}
 
 	@PostMapping("/Mensaje")
 	@ResponseBody
-	private Mensaje nuevoMensaje(@Valid @RequestBody Mensaje mensaje) {
+	public Mensaje nuevoMensaje(@Valid @RequestBody Mensaje mensaje) {
 		return mensajeRepository.save(mensaje);
 	}
 
 	@PutMapping("/Mensaje/{id}")
 	@ResponseBody
-	private ResponseEntity<Mensaje> updateMensaje(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<Mensaje> updateMensaje(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody Mensaje mensaje) throws ResourceNotFoundException {
 
 		Mensaje mensajeBuscado = mensajeRepository.findById(Id)
@@ -66,7 +66,7 @@ public class MensajeController {
 
 	@DeleteMapping("/Mensaje/{id}")
 	@ResponseBody
-	private boolean deleteMensaje(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteMensaje(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		Mensaje deleteMensaje = mensajeRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el mensaje a eliminar :: " + Id));
