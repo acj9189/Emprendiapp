@@ -3,9 +3,9 @@
         <div class="card-header">
             <h3>Persoan Nautural o Empresa</h3>
         </div>
-<button (click)="mostrar()">mostrar (hay que quitarlo junto con el metodo)</button>
-<button (click)="crear()">registrar Empresa</button>
-        <div class="card-body">
+            <button (click)="mostrar()">mostrar (hay que quitarlo junto con el metodo)</button>
+            <button (click)="crear()">registrar Empresa</button>
+         <div class="card-body">
             <table class="table table-hover" border="10">
                 <thead>
                     <tr>
@@ -19,7 +19,7 @@
                     <tr *ngFor= "let personaEmpresas of personaEmpresa" class="text-center" >
                         <td>{{personaEmpresas.id}}</td>
                         <td>{{personaEmpresas.nombre}}</td>
-                        <td *ngIf="BotonMostrar()"><button>ver</button><button>editar</button><button>eliminar</button></td>
+                        <td *ngIf="BotonMostrar()"><button (click)="verEmpresa(personaEmpresas.id)">ver</button><button (click)="editarEmpresa(personaEmpresas.id)">editar</button><button (click)="eliminarEmpresa(personaEmpresas.id)">eliminar</button></td>
                         <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
                     </tr>
                 </tbody>

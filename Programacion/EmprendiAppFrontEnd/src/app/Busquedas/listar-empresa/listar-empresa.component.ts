@@ -16,7 +16,7 @@ export class ListarEmpresaComponent implements OnInit {
 
   personaEmpresa:PersonaNaturalEmpresa[]
   ngOnInit() {
-    this.service.getPersonaEmpresa().subscribe(data=>{
+    this.service.getPersonaEmpresas().subscribe(data=>{
       this.personaEmpresa=data;
     });
   }
@@ -24,11 +24,18 @@ export class ListarEmpresaComponent implements OnInit {
   public crear(){
     this.router.navigate(['regEmpresa']);
   }
-  
-  public mostrar(){
-    console.log(this.personaEmpresa);
+
+  public verEmpresa(id){
+    this.router.navigate(['verEmpresa',id]);
   }
 
+  public editarEmpresa(id){
+    this.router.navigate(['editEmpresa',id]);
+  }
+
+  public eliminarEmpresa(id){
+    this.router.navigate(['removerEmpresa',id]);
+  }
 
   public BotonMostrar(){
     if(this.tipo="1"){

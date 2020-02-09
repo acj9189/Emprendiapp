@@ -13,7 +13,8 @@ export class InfoEmpresaComponent implements OnInit {
   empresa:PersonaNaturalEmpresa;
   constructor( private router:Router,private service:EmpresaServiceService) { }
   @Input() id:number;
-  redes
+  redes:String[];
+  
   ngOnInit() {
     this.service.getInfoPersnaEmpresa(this.id).subscribe(data=>{
       this.empresa=data;

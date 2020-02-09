@@ -32,15 +32,13 @@ export class ListarSocioComponent implements OnInit {
 
   public infoSocio(id){
     //console.log(id);
-    this.router.navigate(['infoSocio',id]);
+    this.router.navigate(['verSocioAdmin',id]);
   }
 
   public actualizarSocio(id){
     this.router.navigate(['editarSocio',id]);
   }
-  public mostrar(){
-    console.log(this.socio);
-  }
+  
   public BotonMostrar(){
     if(this.tipo="1"){
       return true;
