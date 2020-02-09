@@ -35,25 +35,25 @@ public class UsuarioController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<Usuario> getAllUsuarios(){
+	public List<Usuario> getAllUsuarios(){
 		return userRepository.findAll();
 	}
 	
 	@GetMapping("/usuario/{id}")
 	@ResponseBody
-	private Optional<Usuario> getUsuario(@PathVariable Integer id) {
+	public Optional<Usuario> getUsuario(@PathVariable Integer id) {
 		return userRepository.findById(id);
 	}
 
 	@PostMapping("/usuario")
 	@ResponseBody
-	private Usuario nuevoUsuario(@Valid @RequestBody Usuario ususario) {
+	public Usuario nuevoUsuario(@Valid @RequestBody Usuario ususario) {
 		return userRepository.save(ususario);
 	}
 
 	@PutMapping("/usuario/{id}")
 	@ResponseBody
-	private ResponseEntity<Usuario> updateUsuario(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<Usuario> updateUsuario(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody Usuario usuario) throws ResourceNotFoundException {
 
 		Usuario usuarioBuscado = userRepository.findById(Id)
@@ -70,7 +70,7 @@ public class UsuarioController {
 
 	@DeleteMapping("/usuario/{id}")
 	@ResponseBody
-	private boolean deleteUsuario(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteUsuario(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		Usuario deleteUsuario = userRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el usuario a eliminar :: " + Id));

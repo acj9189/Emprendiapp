@@ -37,7 +37,7 @@ public class AsesorConsultorController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<AsesorConsultor> getAllAsesoresConsultores(){
+	public List<AsesorConsultor> getAllAsesoresConsultores(){
 		return asesorRepository.findAll();
 	}
 	
@@ -69,21 +69,20 @@ public class AsesorConsultorController {
 	
 	@GetMapping("/asesor/{id}")
 	@ResponseBody
-	private Optional<AsesorConsultor> getAsesor(@PathVariable Integer id) {
+	public Optional<AsesorConsultor> getAsesor(@PathVariable Integer id) {
 		return asesorRepository.findById(id);
 	}
 
 	@PostMapping("/asesor")
 	@ResponseBody
-	private AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
+	public AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
 		return asesorRepository.save(asesor);
 	}
 
 	@PutMapping("/asesor/{id}")
 	@ResponseBody
-	private ResponseEntity<AsesorConsultor> updateAsesor(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<AsesorConsultor> updateAsesor(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody AsesorConsultor asesor) throws ResourceNotFoundException {
-
 		AsesorConsultor usuarioBuscado = asesorRepository.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("No se encontro el Usuario  :: " + Id));
 		usuarioBuscado.setAreasExperticia(asesor.getAreasExperticia());
@@ -98,14 +97,13 @@ public class AsesorConsultorController {
 
 	@DeleteMapping("/usuario/{id}")
 	@ResponseBody
-	private boolean deleteAsesor(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteAsesor(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		AsesorConsultor deleteAsesor = asesorRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el Asesor o el consultar a eliminar :: " + Id));
 		asesorRepository.delete(deleteAsesor);
 		response = true;
 		return response;
-		
 	}
 
 }

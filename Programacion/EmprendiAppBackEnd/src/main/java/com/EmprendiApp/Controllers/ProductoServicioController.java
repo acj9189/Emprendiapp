@@ -1,5 +1,6 @@
 package com.EmprendiApp.Controllers;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,9 +35,36 @@ public class ProductoServicioController {
 
 	@GetMapping("/all")
 	@ResponseBody
-	private List<ProductoServicio> getAllProductos() {
+	public List<ProductoServicio> getAllProductos() {
 		return productoServicioRepository.findAll();
 
+	}
+	
+	@GetMapping("/producto/producto/all")
+	@ResponseBody
+	public List<ProductoServicio> getAllAsesores(){
+		List<ProductoServicio> productos = new LinkedList<>();
+		List<ProductoServicio> productosServicios = productoServicioRepository.findAll();
+		for(ProductoServicio producto: productosServicios ) {
+			if(producto.isTipoProductoServicio()) {
+				productos.add(producto);
+			}
+		}
+		return productos;	
+	}
+	
+	@GetMapping("/producto/servicio/all")
+	@ResponseBody
+	public List<ProductoServicio> getAllConsultores(){
+		List<ProductoServicio> servicios = new LinkedList<>();
+		List<ProductoServicio> productosServicios = productoServicioRepository.findAll();
+		for(ProductoServicio servicio: productosServicios ) {
+			if(!servicio.isTipoProductoServicio()) {
+				servicios.add(servicio);
+			}
+		}
+		return servicios;	
+		
 	}
 
 	@GetMapping("/producto/{id}")
@@ -48,14 +76,14 @@ public class ProductoServicioController {
 
 	@PostMapping("/producto")
 	@ResponseBody
-	private ProductoServicio NuevoProducto(@Valid @RequestBody ProductoServicio producto) {
+	public ProductoServicio NuevoProducto(@Valid @RequestBody ProductoServicio producto) {
 		return productoServicioRepository.save(producto);
 
 	}
 
 	@PutMapping("/producto/{id}")
 	@ResponseBody
-	private ResponseEntity<ProductoServicio> updateProducto(@PathVariable(value = "id") Integer Id,
+	public ResponseEntity<ProductoServicio> updateProducto(@PathVariable(value = "id") Integer Id,
 			@Valid @RequestBody ProductoServicio productoDitails) throws ResourceNotFoundException {
 
 		ProductoServicio producto = productoServicioRepository.findById(Id)
@@ -73,7 +101,7 @@ public class ProductoServicioController {
 
 	@DeleteMapping("/producto/{id}")
 	@ResponseBody
-	private boolean deleteProducto(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteProducto(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 
 		ProductoServicio deleteProduct = productoServicioRepository.findById(Id).orElseThrow(
