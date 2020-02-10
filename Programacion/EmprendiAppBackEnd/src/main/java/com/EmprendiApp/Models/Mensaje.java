@@ -1,10 +1,13 @@
 package com.EmprendiApp.Models;
 
 import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -14,11 +17,22 @@ import lombok.Data;
 public class Mensaje {
 	
 	@Id
-	@GeneratedValue
-	private int Id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = false)
+	private int id;
+	
+	@Column(name = "contenido", nullable = true)
 	private String contenido;
+	
+	@Column(name = "fechaRealizadoMensaje", nullable = true)
 	private Date fechaRealizadoMensaje;
+	
+	@Column(name = "recibido", nullable = true)
 	private byte recibido;
+	
+//	@OneToOne()
+	//@Column(name = "destinatario", nullable = true)
+	//private Usuario destinatario;
 	
 	
 	public Mensaje() {
@@ -32,11 +46,11 @@ public class Mensaje {
 	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getContenido() {
@@ -62,10 +76,6 @@ public class Mensaje {
 	public void setRecibido(byte recibido) {
 		this.recibido = recibido;
 	}
-	
-	
-	
-	
 	
 
 }

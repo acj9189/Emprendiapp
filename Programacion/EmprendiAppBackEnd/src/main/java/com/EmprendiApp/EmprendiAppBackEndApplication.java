@@ -12,9 +12,9 @@ import com.EmprendiApp.Respositories.*;
 public class EmprendiAppBackEndApplication implements CommandLineRunner {
 
 	@Autowired
-	UsuarioRepository UsuarioRepo;
+	private UsuarioRepository UsuarioRepo;
 	@Autowired
-	ProductoServicioRepository Producto;
+	private ProductoServicioRepository Producto;
 	
 	@Autowired
 	PersonaNaturalEmpresaRepository empresaRepo;

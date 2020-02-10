@@ -1,8 +1,6 @@
 package com.EmprendiApp.Models;
 
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,30 +24,47 @@ public class PersonaNaturalEmpresa {
 	@GeneratedValue
 	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+	
+	@Column(name = "nombre", nullable = true)
 	private String nombre;
+	
+	@Column(name = "direccion", nullable = true)
 	private String direccion;
+	
+	@Column(name = "telefonoContacto", nullable = true)
 	private String telefonoContacto;
+	
+	@Column(name = "redesSociales", nullable = true)
 	private String redesSociales;
+	
+	@Column(name = "videoPitch", nullable = true)
 	private String videoPitch;
+	
+	@Column(name = "tipo", nullable = true)
 	private boolean tipo;
 
-
 	@JoinColumn(name = "productos_id", unique = true, nullable = false)
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany()
 	private List<ProductoServicio> productos;
 	
-	//@JoinTable(name = "lista_enpresa", joinColumns = @JoinColumn(name = "lista_enpresas_id", nullable = false), inverseJoinColumns = @JoinColumn(name="lista_clietes_id", nullable = false) )
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Usuario> sonCLientes;
+	@ManyToMany()
+	private List<Usuario> sonClientesP;
+	
+	@ManyToMany()
+	private List<PersonaNaturalEmpresa> sonClientesE;
+	
+	@ManyToMany()
+	private List<SocioInversor> sonSocios;
+	
+	@ManyToMany()
+	private List<AsesorConsultor> sonAsesores;
+	
 	
 	public PersonaNaturalEmpresa() {
 		
 	}
 	
-	public PersonaNaturalEmpresa(Integer id, String nombre, String direccion, String telefonoContacto,
-			String redesSociales, String videoPitch, boolean tipo, List<ProductoServicio> productos,
-			List<Usuario> sonCLientes) {
-		super();
+	public PersonaNaturalEmpresa(Integer id, String nombre, String direccion, String telefonoContacto, String redesSociales, String videoPitch, boolean tipo, List<ProductoServicio> productos, List<Usuario> sonCLientes) {
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -58,7 +73,7 @@ public class PersonaNaturalEmpresa {
 		this.videoPitch = videoPitch;
 		this.tipo = tipo;
 		this.productos = productos;
-		this.sonCLientes = sonCLientes;
+		this.sonClientesP = sonCLientes;
 	}
 
 	public Integer getId() {
@@ -126,11 +141,11 @@ public class PersonaNaturalEmpresa {
 	}
 
 	public List<Usuario> getSonCLientes() {
-		return sonCLientes;
+		return sonClientesP;
 	}
 
 	public void setSonCLientes(List<Usuario> sonCLientes) {
-		this.sonCLientes = sonCLientes;
+		this.sonClientesP = sonCLientes;
 	}
 	
 }
