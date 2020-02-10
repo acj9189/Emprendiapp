@@ -20,7 +20,10 @@ export class EditarInversorComponent implements OnInit {
     this.id=this.rutaActiva.snapshot.params.id;
     this.service.infoSocio(this.id).subscribe(data=>{
       this.socio=data;
+      if(this.socio.usuario.redesSociales != "" && this.socio.usuario.redesSociales!=null){
+
       this.separaRedes(this.socio.usuario.redesSociales);
+    }
     });
   }
 

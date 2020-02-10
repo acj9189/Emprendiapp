@@ -1,23 +1,31 @@
-<p>remover-empresa works!</p>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3">nombre de la empresa</div>
-        <input type="text" class="col-8">
+<div class="container-fluid row">
+    <div class="col-3">
+        <app-menu-administrador></app-menu-administrador>
+    </div>
+    <div class="col-9">
+        <div class="col-2">Identificador</div>
+        <div class="col-9">{{empresa.id}}</div>
+
+        <div class="col-2">Nombre</div>
+        <div class="col-9">{{empresa.nombre}}</div>
+   
+        <div class="col-2">Direccion</div>
+        <div class="col-9">{{empresa.direccion}}</div>
+    
+        <div class="col-2">Telefono contacto</div>
+        <div class="col-9">{{empresa.telefonoContacto}}</div>
+   
+        <div class="col-2">Redes Soliales</div>
+        <div *ngFor="let redes1 of redes">
+            <div  class="col-9">{{redes1}}</div>
+        </div>
+  
+        <div class="col-9">vido pitch</div>
+        <div class="col-9">{{empresa.videoPitch}}</div>
+
+        <button (click)="eliminar()">eliminar</button>
     </div>
 
-    <button>buscar</button>
-    <table border="2">
-        <tr>
-            <th>Nombre empresa</th>
-            <th>Eliminar</th>
-            <th>Editar</th>
-            <th>ver</th>
-        </tr>
-        <tr>
-            <td>emprendiApp</td>
-            <td><button>Eliminar</button></td>
-            <td><button>Editar</button></td>
-            <td><button>Ver</button></td>
-        </tr>
-    </table>
 </div>
+
+

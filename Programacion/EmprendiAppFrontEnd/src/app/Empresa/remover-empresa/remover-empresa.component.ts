@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpresaServiceService } from 'src/app/Service/empresa-service.service';
+import { PersonaNaturalEmpresa } from 'src/app/Modelos/PersonaNaturalEmpresa';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-remover-empresa',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemoverEmpresaComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service:EmpresaServiceService,private router:Router) { }
+  private empresa:PersonaNaturalEmpresa;
   ngOnInit() {
   }
 
+  public eliminar(id){
+    this.service.removerPersoanEmpresa(id).subscribe(data=>{
+      this.empresa=data;
+      this.router.navigate(['listaEmpresa']);
+    });
+  }
 }

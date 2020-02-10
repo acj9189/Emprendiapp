@@ -47,8 +47,9 @@ export class RegistrarSocioComponent implements OnInit {
       socio.conociminetoQAporta=document.getElementsByTagName("input")[8].value;
       
       usuario.redesSociales=redesSocialess;
-      perfil.nombre="socio";
-      perfil.descripcion="negocios para la empresa";
+      perfil.id=5;
+      //perfil.nombre="no funciona"
+      //perfil.descripcion="esto significa que el crear o ingresar o registrar no funciona"
       usuario.perfil=perfil;
       socio.tipoSocioInversor=false;
       socio.usuario=usuario;
@@ -58,8 +59,9 @@ export class RegistrarSocioComponent implements OnInit {
         });
         alert("revisar envio faslta revisar socio");
         this.router.navigate(['listaSocio']);
-      }  
-      alert("alguno debe llnear al menos el campo nombre");
+      }  else{
+        alert("alguno debe llnear al menos el campo nombre");
+      }
     }
 
   public LineaMas(ide){

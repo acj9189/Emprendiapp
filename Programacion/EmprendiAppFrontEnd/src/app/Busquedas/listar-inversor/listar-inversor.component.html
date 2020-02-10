@@ -1,1 +1,39 @@
-<p>listar-inversor works!</p>
+<!--<div class="contanier">-->
+    <div class="card">
+        <div class="card-header">
+            <h3>Inversor</h3>
+        </div>
+<button (click)="mostrar()">mostrar</button>
+<button (click)="registrarInversor()">crear Inversor</button>
+        <div class="card-body">
+            <table class="table table-hover" border="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>tipo</th>
+                        <th>area experticia</th>
+                        <th>conocimiento</th>
+                        <th>area</th>
+                        <th>accion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor= "let Inversor of inversor" class="text-center" >
+                        <td>{{Inversor.id}}</td>
+                        <td>{{Inversor.usuario.nombres}}</td>
+                        <td>{{Inversor.usuario.apellidos}}</td>
+                        <td>{{Inversor.tipoInversorInversor}}</td>
+                        <td>{{Inversor.areasExperticia}}</td>
+                        <td>{{Inversor.conociminetoQAporta}}</td>
+                        <td>{{Inversor.areasInteres}}</td>
+                        <td *ngIf="BotonMostrar()"><button (click)="infoInversor(Inversor.id)">ver</button><button (click)="actualizarInversor(Inversor.id)">editar</button><button (click)="removerInversor(Inversor.id)">eliminar</button></td>
+                        <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!--</div>-->

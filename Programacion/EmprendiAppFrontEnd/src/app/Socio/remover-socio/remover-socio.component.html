@@ -1,10 +1,9 @@
-<div class="container-fluid">
-    <div>
-        <button (click)="retorno()">retorno</button>
+<div class="container-fluid row">
+    
+    <div class="col-3">
+        <app-menu-administrador></app-menu-administrador>
     </div>
-
-    <button (click)="mostrar()">mostrar</button>
-
+    <div class="col-8">
     <div>
         identificador: {{socio.id}}
     </div>
@@ -37,5 +36,8 @@
     </div>
     <div>
         <button (click)="eliminar()">Elminiar</button>
+        <button (click)="retorno()">retorno</button>        
+        <button (click)="mostrar()">mostrar</button>
     </div>
+</div>
 </div>

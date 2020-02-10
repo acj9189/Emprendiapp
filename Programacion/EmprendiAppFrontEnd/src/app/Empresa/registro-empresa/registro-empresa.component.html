@@ -1,29 +1,35 @@
-<div class="container-fluid">
-<button (click)="listaEmpres()">retorno</button>
-    <div class="col-3">Nombre</div>
-    <input class="col-9" type="text" #nombre>
-
-    <div class="col-3">telefono</div>
-    <input class="col-9" type="text" #telefono>
-
-  <!--  <div class="col-3">correo</div>
-    <input class="col-9" type="text">-->
-
-    <div class="col-3">direccion</div>
-    <input class="col-9" type="text" #direccion>
-
-<!--<div class="row">-->
-    <div class="col-3">redes Sociales</div>
-    <div id="redes" #redesSociales> 
-        <input class="col-8" type="text">
+<div class="container-fluid row">
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
     </div>
-    <button (click)="LineaMas(redesSociales)">+</button>
-<!--</div>-->
+    <div class="col-10">
+        <div class="col-3">Nombre</div>
+        <input class="col-9" type="text" #nombre>
 
-    <div class="col-3">video pitch</div>
-    <input type="file" class="col-8" #videoPitch>
-    <button (click)="registrar(nombre,telefono,direccion,redesSociales,videoPitch)">registrar</button>
+        <div class="col-3">telefono</div>
+        <input class="col-9" type="text" #telefono>
 
+    <!--  <div class="col-3">correo</div>
+        <input class="col-9" type="text">-->
+
+        <div class="col-3">direccion</div>
+        <input class="col-9" type="text" #direccion>
+
+    <!--<div class="row">-->
+        <div class="col-3">redes Sociales</div>
+        <div id="redes" #redesSociales> 
+            <input class="col-8" type="text">
+        </div>
+        <button (click)="LineaMas(redesSociales)">+</button>
+    <!--</div>-->
+
+        <div class="col-3">video pitch</div>
+        <input type="file" class="col-8" #videoPitch>
+
+        <button (click)="listaEmpres()">retorno</button>
+        <button (click)="registrar(nombre,telefono,direccion,redesSociales,videoPitch)">registrar</button>
+
+    </div>
 <!--
     <div class="col-3">Socios</div>
     <div id="socios" #Socios>
@@ -49,4 +55,6 @@
     </div>
     <button (click)="LineaMas(Empresa)">+</button>
 -->
+
+
 </div>

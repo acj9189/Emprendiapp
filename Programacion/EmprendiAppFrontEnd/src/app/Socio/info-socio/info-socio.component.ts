@@ -18,10 +18,12 @@ export class InfoSocioComponent implements OnInit {
 
   ngOnInit() {
     //this.id=this.rutaActiva.snapshot.params.id;
+    if(this.id>-1){
     this.service.infoSocio(this.id).subscribe(data=>{
       this.socio=data;
       this.separaRedes(this.socio.usuario.redesSociales);
     });
+  }
   }
 
   private separaRedes(redes:String){
@@ -30,6 +32,7 @@ export class InfoSocioComponent implements OnInit {
   
   public mostrar(){
     console.log(this.socio);
+    console.log(this.id);
   }
 
   public retorno(){

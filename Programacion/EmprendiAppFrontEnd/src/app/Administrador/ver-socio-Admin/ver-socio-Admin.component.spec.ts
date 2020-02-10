@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerSocioAdminComponent } from './ver-socio-Admin.component';
+import { VerSocioAdminComponent } from './ver-socio-admin.component';
 
-describe('VerSocioComponent', () => {
+describe('VerSocioAdminComponent', () => {
   let component: VerSocioAdminComponent;
   let fixture: ComponentFixture<VerSocioAdminComponent>;
 

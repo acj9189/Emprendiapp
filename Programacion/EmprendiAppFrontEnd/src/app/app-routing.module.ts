@@ -43,12 +43,11 @@ import { ListaInversorComponent } from './Administrador/lista-inversor/lista-inv
 import { ListaProductoComponent } from './Administrador/lista-producto/lista-producto.component';
 import { ListaSocioComponent } from './Administrador/lista-socio/lista-socio.component';
 import { VerSocioComponent } from './Socio/ver-socio/ver-socio.component';
-import { VerSocioAdminComponent } from './Administrador/ver-socio-Admin/ver-socio-Admin.component';
 import { VerInversorComponent } from './Inversor/ver-inversor/ver-inversor.component';
 import { VerInversorAdminComponent } from './Administrador/ver-inversor-admin/ver-inversor-admin.component';
 import { VerEmpresaAdminComponent } from './Administrador/ver-empresa-admin/ver-empresa-admin.component';
 import { VerEmpresaComponent } from './Empresa/ver-empresa/ver-empresa.component';
-
+import { VerSocioAdminComponent } from './Administrador/ver-socio-admin/ver-socio-admin.component';
 const routes: Routes = [
   {path: 'verEmpresa/:id',component:VerEmpresaComponent},
   {path: 'verEmpresaAdmin/:id',component:VerEmpresaAdminComponent},
@@ -92,8 +91,8 @@ const routes: Routes = [
   {path: 'infoEmpresa/:id',component: InfoEmpresaComponent},
   {path: 'infoSocio/:id' , component: InfoSocioComponent},
   {path: 'infoInversor', component: InfoInversorComponent},
-  {path: 'editarInversor',component: EditarInversorComponent},
-  {path: 'removerInversor',component: RemoverInversorComponent},
+  {path: 'editarInversor/:id',component: EditarInversorComponent},
+  {path: 'removerInversor/:id',component: RemoverInversorComponent},
   {path: 'infoConsultor', component: InfoConsultorComponent},
   {path: 'infoAsesor', component: InfoAsesorComponent},
   {path: 'regEmpresa', component: RegistroEmpresaComponent},
