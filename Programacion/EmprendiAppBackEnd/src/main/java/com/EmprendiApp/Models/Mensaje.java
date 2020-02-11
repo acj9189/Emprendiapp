@@ -30,21 +30,33 @@ public class Mensaje {
 	@Column(name = "recibido", nullable = true)
 	private byte recibido;
 	
-//	@OneToOne()
-	//@Column(name = "destinatario", nullable = true)
-	//private Usuario destinatario;
+	@Column(name = "nombreOrigen", nullable = true)
+	private String nombreOrigen;
 	
+	@Column(name = "correosDestino", nullable = true)
+	private String correosDestino;
+	
+	@Column(name = "asunto", nullable = true)
+	private String asunto;
+	
+
 	
 	public Mensaje() {
 		
 	}
-
-	public Mensaje( String contenido, Date fechaRealizadoMensaje, byte recibido) {
+	
+	public Mensaje(int id, String contenido, Date fechaRealizadoMensaje, byte recibido, String nombreOrigen,
+			String correosDestino, String asunto) {
+		super();
+		this.id = id;
 		this.contenido = contenido;
 		this.fechaRealizadoMensaje = fechaRealizadoMensaje;
 		this.recibido = recibido;
+		this.nombreOrigen = nombreOrigen;
+		this.correosDestino = correosDestino;
+		this.asunto = asunto;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -76,6 +88,33 @@ public class Mensaje {
 	public void setRecibido(byte recibido) {
 		this.recibido = recibido;
 	}
+
+	public String getNombreOrigen() {
+		return nombreOrigen;
+	}
+
+	public void setNombreOrigen(String nombreOrigen) {
+		this.nombreOrigen = nombreOrigen;
+	}
+
+	public String getCorreosDestino() {
+		return correosDestino;
+	}
+
+	public void setCorreosDestino(String correoDestino) {
+		this.correosDestino = correoDestino;
+	}
+
+	public String getAsunto() {
+		return asunto;
+	}
+
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
+	}
+
+
+	
 	
 
 }

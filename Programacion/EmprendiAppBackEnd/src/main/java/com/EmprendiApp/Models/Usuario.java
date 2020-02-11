@@ -153,4 +153,38 @@ public class Usuario {
 		this.redesSociales = redesSociales;
 	}
 
+	public List<Mensaje> getMensajesRealizados() {
+		return mensajesRealizados;
+	}
+
+	public void setMensajesRealizados(List<Mensaje> mensajesRealizados) {
+		this.mensajesRealizados = mensajesRealizados;
+	}
+
+	public List<Llamada> getLlamadRealizadas() {
+		return llamadRealizadas;
+	}
+
+	public void setLlamadRealizadas(List<Llamada> llamadRealizadas) {
+		this.llamadRealizadas = llamadRealizadas;
+	}
+
+	public List<Convocatoria> getConvocatoriasInterez() {
+		return convocatoriasInterez;
+	}
+
+	public void setConvocatoriasInterez(List<Convocatoria> convocatoriasInterez) {
+		this.convocatoriasInterez = convocatoriasInterez;
+	}
+
+	public List<PersonaNaturalEmpresa> getEsCLiente() {
+		return esCLiente;
+	}
+
+	public void setEsCLiente(List<PersonaNaturalEmpresa> esCLiente) {
+		this.esCLiente = esCLiente;
+	}
+	
+	
+
 }

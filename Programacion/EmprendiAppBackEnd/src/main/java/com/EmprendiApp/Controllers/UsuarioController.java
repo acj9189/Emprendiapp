@@ -1,6 +1,10 @@
 package com.EmprendiApp.Controllers;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -18,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.EmprendiApp.Models.Mensaje;
 import com.EmprendiApp.Models.Usuario;
 import com.EmprendiApp.Respositories.UsuarioRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -78,4 +84,30 @@ public class UsuarioController {
 		response = true;
 		return response;
 	}
+	
+	@PostMapping("/usuario/enviar/Mensaje/{id}")
+	@ResponseBody
+	public boolean enviarMensaje(@Valid @PathVariable Integer id, @Valid @RequestBody Mensaje mensaje) {
+		//Falta enviar al correo
+		boolean response = false;
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		if(usuario.getMensajesRealizados() != null) {
+			usuario.getMensajesRealizados().add(mensaje);
+			response = true;
+		}
+		else {
+			usuario.setMensajesRealizados(new LinkedList<Mensaje>());
+			usuario.getMensajesRealizados().add(mensaje);
+			response = true;
+		}
+		return response;
+	}
+	
+	@PostMapping("/usuario/{id}/ver/Mensajes/")
+	@ResponseBody
+	public List<Mensaje> getAllMensajes(@Valid @PathVariable Integer id){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		return usuario.getMensajesRealizados();
+	}
+	
 }

@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.EmprendiApp.Models.PersonaNaturalEmpresa;
-import com.EmprendiApp.Models.SocioInversor;
 import com.EmprendiApp.Respositories.PersonaNaturalEmpresaRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
