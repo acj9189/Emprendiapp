@@ -13,11 +13,6 @@ private asesor:AsesorConultor;
 public redesSociale:String[];
   ngOnInit() {
     
-
-
-
-
-
   }
 
   public actualizarAsesor(){

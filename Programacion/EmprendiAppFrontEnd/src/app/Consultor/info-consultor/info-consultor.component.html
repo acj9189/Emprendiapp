@@ -1,50 +1,43 @@
 <div class="container-fluid">
 
 <div>Informacion del consultor</div>
-<table border="0">
-    <tr>
-        <th>Nombre</th>
-        <th>{{consultor.nombres}}</th>
-    </tr>
-    <tr>
-        <th>Apellido</th>
-        <th>{{consultor.apellidos}}</th>
-    </tr>
-    <tr>
-        <th>Correo</th>
-        <th>{{consultor.correo}}</th>
-    </tr>
-    <tr>
-        <th>areas en la que se especialisa</th>
-        <th>{{consultor.areaExperticia}}</th>
-    </tr>
-    <th>
-        <tr>Costo Hora</tr>
-        <tr>{{consultor.CostotHora}}</tr>
-    </th>
-    <tr>
-        <th>Direccion</th>
-        <th>{{consultor.direccion}}</th>
-    </tr>
-    <tr>
-        <th>Telefono contacto</th>
-        <th>{{consultor.telefono}}</th>
-    </tr>
-    <tr>
-        <th>Redes Soliales</th>
-        <th>{{consultor.redesSociales}}</th>
-    </tr>
-    <tr>
-        <th>areas en la que se especialisa</th>
-        <th></th>
-    </tr>
-    <tr >
-        <th>Emprsas a las que realiza consultoria</th>
-        <th *ngFor='let Empresa of consultor.EmpresasTrbajo'>
-            {{Empresa.nombre}}
-        </th>
-    </tr>
-</table>
+    <div>
+        <div>Nombre</div>
+        <div>{{consultor.nombres}}</div>
+    </div>
+    <div>
+        <div>Apellido</div>
+        <div>{{consultor.apellidos}}</div>
+    </div>
+    <div>
+        <div>Correo</div>
+        <div>{{consultor.correo}}</div>
+    </div>
+    <div>
+        <div>areas en la que se especialisa</div>
+        <div>{{consultor.areaExperticia}}</div>
+    </div>
+    <div>
+        <div>Costo Hora</div>
+        <div>{{consultor.Costodivora}}</div>
+    </div>
+    <div>
+        <div>Direccion</div>
+        <div>{{consultor.direccion}}</div>
+    </div>
+    <div>
+        <div>Telefono contacto</div>
+        <div>{{consultor.telefono}}</div>
+    </div>
+    <div>
+        <div>Redes Soliales</div>
+        <div>{{consultor.redesSociales}}</div>
+    </div>
+    <div>
+        <div>areas en la que se especialisa</div>
+        <div></div>
+    </div>
+ 
 <!--a completar-->
 <button>consultar empresa</button>
 <button>enviar mensaje</button>

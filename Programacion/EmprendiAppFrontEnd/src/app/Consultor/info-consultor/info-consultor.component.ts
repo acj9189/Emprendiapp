@@ -9,11 +9,11 @@ import { AsesorConultor } from 'src/app/Modelos/AsesorConsultor';
 })
 export class InfoConsultorComponent implements OnInit {
 
-  Consultor:AsesorConultor;
+  private consultor:AsesorConultor;
   constructor(private router:Router) { }
 
   ngOnInit() {
-
+    alert("terminar ts");
   }
 
 }
