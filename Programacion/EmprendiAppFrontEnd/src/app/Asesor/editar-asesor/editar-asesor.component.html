@@ -1,1 +1,44 @@
-<p>editar-asesor works!</p>
+<div class="container-flow row">
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
+    </div>
+    <div class="col-10">
+        <div>identificador {{asesor.id}}</div>
+
+        <div>nombres</div>
+        <div>{{asesor.ususario.nombres}}</div>
+
+        <div>apellidos</div>
+        <div>{{asesor.ususario.apellidos}}</div>
+
+        <div>telefono</div>
+        <div>{{asesor.ususario.telefono}}</div>
+
+        <div>direccion Contacto</div>
+        <div>{{asesor.ususario.direccionContacto}}</div>
+
+        <div>correo</div>
+        <div>{{asesor.ususario.email}}</div>
+
+        <div>areas experticia</div>
+        <div>{{asesor.areasExperticia}}</div>
+
+        <div>areas Interes</div>
+        <div>{{this.asesor.areasInteres}}</div>
+
+        <div>descripcion de los intereses</div>
+        <div>{{asesor.ususario.descripcionIntereses}}</div>
+
+        <div>costo hora</div>
+        <div>{{asesor.costoHora}}</div>
+
+        <div>redes Sociales</div>
+        <div class="col-3">Redes sociales</div>
+        <div *ngFor="let redes of redesSociale" #rede2 id="redes2">
+           <div class="col-10">{{redes1}} <input type="text" value="" class="col-10"></div> 
+        </div>
+        <button (click)="LineaMas()">+</button>
+
+        </div>
+    </div>
+</div>

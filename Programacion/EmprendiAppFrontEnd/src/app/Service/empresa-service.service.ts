@@ -11,9 +11,15 @@ export class EmpresaServiceService {
   empresaPersoan:PersonaNaturalEmpresa[];
   private Url = 'http://localhost:8690/empresas';
 
-  public getPersonaEmpresas(){
-    return this.http.get<PersonaNaturalEmpresa[]>(this.Url+'/all');
+  public getPersonaNatural(){
+    return this.http.get<PersonaNaturalEmpresa[]>(this.Url+'/empresa/personaNarural/all');
   }
+
+
+  public getEmpresa(){
+    return this.http.get<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/all');
+  }
+
 
   public getInfoPersnaEmpresa(id){
     return this.http.get<PersonaNaturalEmpresa>(this.Url+'/empresa/'+id);

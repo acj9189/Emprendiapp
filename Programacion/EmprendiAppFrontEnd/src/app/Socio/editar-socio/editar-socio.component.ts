@@ -37,15 +37,17 @@ export class EditarSocioComponent implements OnInit {
   public actualizar(){
     let i = document.getElementsByTagName("input").length;
     let j = 9;
+
     let redesSocialess=this.socio.usuario.redesSociales;
+
     if(document.getElementsByTagName("input")[j].value!=""){
-      redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+      redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
     }
       
     while (j<i-2){
       j++;
       if(document.getElementsByTagName("input")[j].value!=""){
-      redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
+        redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
       }
     }
     if(document.getElementsByTagName("input")[0].value!=""){
