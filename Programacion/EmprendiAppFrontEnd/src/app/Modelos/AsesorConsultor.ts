@@ -9,5 +9,5 @@ export class AsesorConultor {
     areasInteres:String;
     tipoAsesorConsultor:boolean;
     //EmpresasTrbajo:PersonaNaturalEmpresa[];
-    ususario:Usuario;
-}
+    usuario:Usuario; 
+} 

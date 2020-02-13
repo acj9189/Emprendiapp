@@ -1,44 +1,77 @@
 <div class="container-fluid">
 
-<div>Informacion del consultor</div>
-    <div>
-        <div>Nombre</div>
-        <div>{{consultor.nombres}}</div>
+    <div>Informacion del Consultor</div>
+        <div>
+            <div>Identificador</div>
+            <div>{{asesor.usuario.id}}</div>
+        </div>
+        <div>
+            <div>Nombre</div>
+            <div>{{asesor.usuario.nombres}</div>
+        </div>
+    
+        <div>
+            <div>Apellido</div>
+            <div>{{asesor.usuario.apellidos}}</div>
+        </div>
+    
+        <div>
+            <div>Telefono contacto</div>
+            <div>{{asesor.usuario.telefono}}</div>
+        </div>
+    
+        <div>
+            <div>Correo</div>
+            <div>{{asesor.usuario.correo}}</div>
+        </div>
+    
+        <div>
+            <div>areas en la que se especialisa</div>
+            <div>{{asesor.areaExperticia}}</div>
+        </div>
+    
+        <div>
+            <div>Costo Hora</div>
+            <div>{{asesor.Costodivora}}</div>
+        </div>   
+        
+        <div>
+            <div>Direccion</div>
+            <div>{{asesor.usuario.direccion}}</div>
+        </div>
+         
+        <div>
+            <div>Emprsas a las que asesora</div>
+            <div *ngFor='let Empresa of asesor.Empresasdivbajo'>
+                {{Empresa.nombre}}
+            </div>
+        </div>
+    
+        <div>
+            <div>mensajes realizados</div>
+            <div>por ver mensajes</div>
+        </div>
+    
+        <div>
+            <div>llamada realizados</div>
+            <div>por ver llamada</div>
+        </div>
+    
+        <div>
+            <div>convocatorias </div>
+            <div>por ve convocatorias</div>
+        </div>
+    
+        <div>
+            <div>trabaja con:</div>
+            <div>por realizar</div>
+        </div>
+    
+        <div>
+            <div>Redes Soliales</div>
+            <div *ngFor="let redes of redesSociale" #rede2 id="redes2">
+                <div >{{redes}}</div> 
+            </div>    
+        </div>
+    <!--falta referencia a rutas-->
     </div>
-    <div>
-        <div>Apellido</div>
-        <div>{{consultor.apellidos}}</div>
-    </div>
-    <div>
-        <div>Correo</div>
-        <div>{{consultor.correo}}</div>
-    </div>
-    <div>
-        <div>areas en la que se especialisa</div>
-        <div>{{consultor.areaExperticia}}</div>
-    </div>
-    <div>
-        <div>Costo Hora</div>
-        <div>{{consultor.Costodivora}}</div>
-    </div>
-    <div>
-        <div>Direccion</div>
-        <div>{{consultor.direccion}}</div>
-    </div>
-    <div>
-        <div>Telefono contacto</div>
-        <div>{{consultor.telefono}}</div>
-    </div>
-    <div>
-        <div>Redes Soliales</div>
-        <div>{{consultor.redesSociales}}</div>
-    </div>
-    <div>
-        <div>areas en la que se especialisa</div>
-        <div></div>
-    </div>
- 
-<!--a completar-->
-<button>consultar empresa</button>
-<button>enviar mensaje</button>
-</div>

@@ -5,9 +5,9 @@ export class SocioInversor {
     id:number;
     areasExperticia:String;
     conociminetoQAporta:String;
-    tipoSocioInversor:boolean;
     cantidadHorasDispuestoTrabajar:String;
     areasInteres:String;
+    tipoSocioInversor:boolean;
     //EmpresaTrabajo:PersonaNaturalEmpresa[];
     usuario:Usuario;
 }
