@@ -61,7 +61,6 @@ public class Usuario {
 	@ManyToMany()
 	private List<Convocatoria> convocatoriasInterez;
 	
-
 	//@JoinTable(name = "lista_enpresas", joinColumns = @JoinColumn(name = "lista_enpresas_id", nullable = false), inverseJoinColumns = @JoinColumn(name="lista_clietes_id", nullable = false) )
 	@ManyToMany()
 	private List<PersonaNaturalEmpresa> esCLiente;

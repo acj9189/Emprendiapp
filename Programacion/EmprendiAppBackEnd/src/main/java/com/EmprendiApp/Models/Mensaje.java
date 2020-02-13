@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+//import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -33,30 +33,33 @@ public class Mensaje {
 	@Column(name = "nombreOrigen", nullable = true)
 	private String nombreOrigen;
 	
-	@Column(name = "correosDestino", nullable = true)
-	private String correosDestino;
+	@Column(name = "correoOrigen", nullable = true)
+	private String correoOrigen;
+	
+	@Column(name = "correoDestino", nullable = true)
+	private String correoDestino;
 	
 	@Column(name = "asunto", nullable = true)
 	private String asunto;
 	
-
 	
 	public Mensaje() {
 		
 	}
 	
 	public Mensaje(int id, String contenido, Date fechaRealizadoMensaje, byte recibido, String nombreOrigen,
-			String correosDestino, String asunto) {
+			String correoOrigen, String correosDestino, String asunto) {
 		super();
 		this.id = id;
 		this.contenido = contenido;
 		this.fechaRealizadoMensaje = fechaRealizadoMensaje;
 		this.recibido = recibido;
 		this.nombreOrigen = nombreOrigen;
-		this.correosDestino = correosDestino;
+		this.correoOrigen = correoOrigen;
+		this.correoDestino = correosDestino;
 		this.asunto = asunto;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -97,12 +100,12 @@ public class Mensaje {
 		this.nombreOrigen = nombreOrigen;
 	}
 
-	public String getCorreosDestino() {
-		return correosDestino;
+	public String getCorreoDestino() {
+		return correoDestino;
 	}
 
-	public void setCorreosDestino(String correoDestino) {
-		this.correosDestino = correoDestino;
+	public void setCorreoDestino(String correoDestino) {
+		this.correoDestino = correoDestino;
 	}
 
 	public String getAsunto() {
@@ -113,8 +116,12 @@ public class Mensaje {
 		this.asunto = asunto;
 	}
 
+	public String getCorreoOrigen() {
+		return correoOrigen;
+	}
 
-	
-	
+	public void setCorreoOrigen(String correoOrigen) {
+		this.correoOrigen = correoOrigen;
+	}
 
 }

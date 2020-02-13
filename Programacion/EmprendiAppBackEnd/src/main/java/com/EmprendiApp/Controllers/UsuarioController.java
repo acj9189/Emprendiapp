@@ -1,14 +1,10 @@
 package com.EmprendiApp.Controllers;
 
-import java.util.Collection;
-import java.util.Iterator;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +34,6 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository userRepository;
 	
-
 	@GetMapping("/all")
 	@ResponseBody
 	public List<Usuario> getAllUsuarios(){
@@ -108,6 +103,73 @@ public class UsuarioController {
 	public List<Mensaje> getAllMensajes(@Valid @PathVariable Integer id){
 		Usuario usuario = userRepository.findById(id).orElseThrow();
 		return usuario.getMensajesRealizados();
+	}
+	
+	@PostMapping("usuario/{id}/ver/Mensaje/{contenido}")
+	@ResponseBody
+	public List<Mensaje> getMensajeEspecifico(@Valid @PathVariable Integer id, @Valid @PathVariable String contenido){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		for(Mensaje mensaje : listMensajeContenido){
+			if (mensaje.getContenido().contains(contenido)){
+				listMensajeContenidoBuscado.add(mensaje);
+			}
+		}
+		return listMensajeContenidoBuscado;
+	}
+	
+	@PostMapping("usuario/{id}/ver/Mensaje/{destinatario}")
+	@ResponseBody
+	public List<Mensaje> getMensajeEspecificoDestinatario(@Valid @PathVariable Integer id, @Valid @PathVariable String destinatario){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		for(Mensaje mensaje : listMensajeContenido){
+			if (mensaje.getCorreoDestino().contentEquals(destinatario)){
+				listMensajeContenidoBuscado.add(mensaje);
+			}
+		}
+		return listMensajeContenidoBuscado;
+	}
+	
+	@PostMapping("usuario/{nombre}")
+	@ResponseBody
+	public List<Usuario> getUsuarioNombre(@Valid @PathVariable String nombre){
+		List<Usuario> usuarios = userRepository.findAll();
+		List<Usuario> usuariosBuscdos = new LinkedList<>();
+		for(Usuario usuario: usuarios ) {
+			if(usuario.getNombres().contains(nombre)) {
+				usuariosBuscdos.add(usuario);
+			}
+		}
+		return usuariosBuscdos;
+	}
+	
+	@PostMapping("usuario/{direccion}")
+	@ResponseBody
+	public List<Usuario> getUsuarioDireccion(@Valid @PathVariable String direccion){
+		List<Usuario> usuarios = userRepository.findAll();
+		List<Usuario> usuariosBuscdos = new LinkedList<>();
+		for(Usuario usuario: usuarios ) {
+			if(usuario.getDireccionContacto().contains(direccion)) {
+				usuariosBuscdos.add(usuario);
+			}
+		}
+		return usuariosBuscdos;
+	}
+	
+	@PostMapping("usuario/{apellido}")
+	@ResponseBody
+	public List<Usuario> getUsuarioApellido(@Valid @PathVariable String apellido){
+		List<Usuario> usuarios = userRepository.findAll();
+		List<Usuario> usuariosBuscdos = new LinkedList<>();
+		for(Usuario usuario: usuarios ) {
+			if(usuario.getApellidos().contains(apellido)) {
+				usuariosBuscdos.add(usuario);
+			}
+		}
+		return usuariosBuscdos;
 	}
 	
 }

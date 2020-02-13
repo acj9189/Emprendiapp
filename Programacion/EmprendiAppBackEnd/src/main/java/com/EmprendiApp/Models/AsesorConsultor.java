@@ -4,7 +4,6 @@ package com.EmprendiApp.Models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +41,7 @@ public class AsesorConsultor{
 	@Column(name = "tipoAsesorConsultor", nullable = false)
 	private boolean tipoAsesorConsultor; 
 	
-	@JoinColumn(name = "usuario_id", unique = true, nullable = false)
+	@JoinColumn(name = "usuario_id", unique = true, nullable = false) // true asesor // flase consultor
 	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 
