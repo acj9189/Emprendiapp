@@ -85,7 +85,9 @@ public class UsuarioController {
 	public boolean enviarMensaje(@Valid @PathVariable Integer id, @Valid @RequestBody Mensaje mensaje) {
 		//Falta enviar al correo
 		boolean response = false;
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
+                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                });
 		if(usuario.getMensajesRealizados() != null) {
 			usuario.getMensajesRealizados().add(mensaje);
 			response = true;
@@ -101,7 +103,9 @@ public class UsuarioController {
 	@PostMapping("/usuario/{id}/ver/Mensajes/")
 	@ResponseBody
 	public List<Mensaje> getAllMensajes(@Valid @PathVariable Integer id){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
+                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                });
 		return usuario.getMensajesRealizados();
 	}
 	

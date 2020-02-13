@@ -13,6 +13,10 @@ export class RegitroConsultorComponent implements OnInit {
   ngOnInit() {
   }
 
+  public registrar(){
+    alert("aun en realizacion");
+  }
+
   public LineaMas(ide){
     var node=document.createElement("input");
     node.setAttribute('class','col-8');

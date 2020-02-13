@@ -11,8 +11,12 @@ export class ProductoServicioService {
 
   private Url = 'http://localhost:8690/empresas';
 
-  public getProductosServicios(){
-    return this.http.get<ProductoServicio[]>(this.Url+'/all');
+  public getProductos(){
+    return this.http.get<ProductoServicio[]>(this.Url+'/producto/producto/all');
+  }
+
+  public getServicios(){
+    return this.http.get<ProductoServicio[]>(this.Url+'/producto/servicio/all');
   }
 
   public getProductoServicio(id){

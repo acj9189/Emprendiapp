@@ -3,42 +3,47 @@
         <app-menu-administrador></app-menu-administrador>
     </div>
     <div class="col-10">
+        <div>Asesor:</div>
         <div>identificador {{asesor.id}}</div>
 
-        <div>nombres</div>
-        <div>{{asesor.ususario.nombres}}</div>
+        <div>nombres: {{asesor.ususario.nombres}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>apellidos</div>
-        <div>{{asesor.ususario.apellidos}}</div>
+        <div>apellidos: {{asesor.ususario.apellidos}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>telefono</div>
-        <div>{{asesor.ususario.telefono}}</div>
+        <div>telefono: {{asesor.ususario.telefono}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>direccion Contacto</div>
-        <div>{{asesor.ususario.direccionContacto}}</div>
+        <div>correo: {{asesor.ususario.email}}</div>
+        <div><input type="text" value=""></div>      
+       
+        <div>direccion Contacto: {{asesor.ususario.direccionContacto}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>correo</div>
-        <div>{{asesor.ususario.email}}</div>
+        
+        <div>areas experticia: {{asesor.areasExperticia}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>areas experticia</div>
-        <div>{{asesor.areasExperticia}}</div>
+        <div>areas Interes: {{this.asesor.areasInteres}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>areas Interes</div>
-        <div>{{this.asesor.areasInteres}}</div>
+        <div>descripcion de los intereses: {{asesor.ususario.descripcionIntereses}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>descripcion de los intereses</div>
-        <div>{{asesor.ususario.descripcionIntereses}}</div>
+        <div>costo hora: {{asesor.costoHora}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>costo hora</div>
-        <div>{{asesor.costoHora}}</div>
+        <div>conocimiento que aporta: {{asesor.conociminetoQAporta}}</div>
+        <div><input type="text" value=""></div>
 
-        <div>redes Sociales</div>
-        <div class="col-3">Redes sociales</div>
+        <div >Redes sociales</div>
         <div *ngFor="let redes of redesSociale" #rede2 id="redes2">
-           <div class="col-10">{{redes1}} <input type="text" value="" class="col-10"></div> 
+           <div >{{redes}} <input type="text" value="" ></div> 
         </div>
         <button (click)="LineaMas()">+</button>
 
         </div>
+        <button (click)="actualizarAsesor()"> actualizar </button>
     </div>
 </div>

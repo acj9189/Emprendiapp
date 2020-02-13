@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid row">
 
     <div class="col-3">Nombre</div>
     <input class="col-9" type="text">
@@ -14,6 +14,19 @@
 
     <div class="col-3">direccion</div>
     <input class="col-9" type="text">
+
+    <div class="col-3">Area experticia</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">costo Hora</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">area interes</div>
+    <input class="col-9" type="text">
+
+    <div class="col-3">descripcion intereses   </div>
+    <input class="col-9" type="text">
+
 <!--<div class="row">-->
     <div class="col-3">redes Sociales</div>
     <div id="redes" #redesSociales> 
@@ -21,16 +34,7 @@
     </div>
     <button (click)="LineaMas(redesSociales)">+</button>
 <!--</div>-->
-
-    <div class="col-3">habildades y conocimeintos</div>
-    <div id="empresas" #habilidades>
-        <input class="col-8" type="text">
+    <div>
+        <button (click)="registrar()">registrar</button>
     </div>
-    <button (click)="LineaMas(habilidades)">+</button>
-    
-    <div class="col-3">Empresas co las que esta realizando consultorias</div>
-    <div id="empresas" #Empresa>
-        <input class="col-8" type="text">
-    </div>
-    <button (click)="LineaMas(Empresa)">+</button>
 </div>

@@ -1,1 +1,49 @@
-<p>editar-consultor works!</p>
+<div class="container-flow row">
+    <div class="col-2">
+        <app-menu-administrador></app-menu-administrador>
+    </div>
+    <div class="col-10">
+        <div>Consultor:</div>
+        <div>identificador {{Consultor.id}}</div>
+
+        <div>nombres: {{Consultor.ususario.nombres}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>apellidos: {{Consultor.ususario.apellidos}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>telefono: {{Consultor.ususario.telefono}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>correo: {{Consultor.ususario.email}}</div>
+        <div><input type="text" value=""></div>      
+       
+        <div>direccion Contacto: {{Consultor.ususario.direccionContacto}}</div>
+        <div><input type="text" value=""></div>
+
+        
+        <div>areas experticia: {{Consultor.areasExperticia}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>areas Interes: {{this.Consultor.areasInteres}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>descripcion de los intereses: {{Consultor.ususario.descripcionIntereses}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>costo hora: {{Consultor.costoHora}}</div>
+        <div><input type="text" value=""></div>
+
+        <div>conocimiento que aporta: {{Consultor.conociminetoQAporta}}</div>
+        <div><input type="text" value=""></div>
+
+        <div >Redes sociales</div>
+        <div *ngFor="let redes of redesSociale" #rede2 id="redes2">
+           <div >{{redes}} <input type="text" value="" ></div> 
+        </div>
+        <button (click)="LineaMas()">+</button>
+
+        </div>
+        <button (click)="actualizarConsultor()"> actualizar </button>
+    </div>
+</div>

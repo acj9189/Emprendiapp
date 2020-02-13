@@ -4,4 +4,5 @@ export class ProductoServicio{
 	descripcionProductoServicio: String ;
 	costoUnidad: number ;
 	descripcionProblemaQSoluciona: String ;
+	tipoProductoServicio : boolean;
 }
