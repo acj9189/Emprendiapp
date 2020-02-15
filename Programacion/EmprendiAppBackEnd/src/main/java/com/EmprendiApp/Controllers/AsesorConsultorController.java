@@ -55,7 +55,9 @@ public class AsesorConsultorController {
 	@PostMapping("/asesor/asesor/{id}/ver/{areas}")	
 	@ResponseBody
 	public AsesorConsultor getAsesorSegunAreas(@Valid @PathVariable Integer id, @Valid @PathVariable String areas){
-		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow();
+		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(() -> {
+                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                });
 		if(asesor.isTipoAsesorConsultor()) 
 			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
 		return null;
@@ -106,7 +108,9 @@ public class AsesorConsultorController {
 	@PostMapping("/asesor/consultor/{id}/ver/{areas}")	
 	@ResponseBody
 	public AsesorConsultor getConsultorSegunAreas(@Valid @PathVariable Integer id, @Valid @PathVariable String areas){
-		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow();
+		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(() -> {
+                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                });
 		if(!asesor.isTipoAsesorConsultor()) 
 			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
 		return null;
