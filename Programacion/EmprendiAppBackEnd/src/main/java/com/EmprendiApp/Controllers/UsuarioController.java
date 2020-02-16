@@ -112,9 +112,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{contenido}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecifico(@Valid @PathVariable Integer id, @Valid @PathVariable String contenido){
-		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
-                    return null; //To change body of generated lambdas, choose Tools | Templates.
-                });
+		Usuario usuario = userRepository.findById(id).orElseThrow();
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
@@ -128,9 +126,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{destinatario}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoDestinatario(@Valid @PathVariable Integer id, @Valid @PathVariable String destinatario){
-		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
-                    return null; //To change body of generated lambdas, choose Tools | Templates.
-                });
+		Usuario usuario = userRepository.findById(id).orElseThrow();
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
