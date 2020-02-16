@@ -17,8 +17,8 @@ export class AsesorConsultorServieService {
     return this.http.get<AsesorConultor[]>(this.Url+'/asesor/consultor/all');
   }
 
-  public getAsesorOConsultor(id){
-    return this.http.get<AsesorConultor>(this.Url+'/asesor/'+id);
+  public getAsesorOConsultor(id){ 
+    return this.http.post<AsesorConultor>(this.Url+'/asesor/'+id,null);
   }
 
   public nuevoAsesorConsultor(asesorConsultor){

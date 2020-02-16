@@ -176,6 +176,9 @@ public class AsesorConsultorController {
 	@PostMapping("/asesor")
 	@ResponseBody
 	public AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
+            System.out.println("--------------------------");
+            System.out.println(asesor.getUsuario().getApellidos()+"----");
+            System.out.println("----------------------------");
 		return asesorRepository.save(asesor);
 	}
 

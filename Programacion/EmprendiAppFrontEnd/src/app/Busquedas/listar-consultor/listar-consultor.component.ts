@@ -4,9 +4,9 @@ import { AsesorConsultorServieService } from 'src/app/Service/asesor-consultor-s
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-listar-asesor',
-  templateUrl: './listar-asesor.component.html',
-  styleUrls: ['./listar-asesor.component.css']
+  selector: 'app-listar-consultor',
+  templateUrl: './listar-consultor.component.html',
+  styleUrls: ['./listar-consultor.component.css']
 })
 export class ListarConsultorComponent implements OnInit {
 

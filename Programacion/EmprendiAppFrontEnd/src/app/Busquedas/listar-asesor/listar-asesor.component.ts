@@ -18,7 +18,7 @@ export class ListarAsesorComponent implements OnInit {
   ngOnInit() {
     this.service.getAsesores().subscribe(data=>{
       this.asesor=data;
-    }); 
+    });  
   }
 
   public registrarAsesor(){
@@ -31,12 +31,32 @@ export class ListarAsesorComponent implements OnInit {
   }
 
   public infoAsesor(id){
-    //console.log(id);
+    console.log("buscando info de "+id);
     this.router.navigate(['verAsesorAdmin',id]);
   }
 
   public actualizarAsesor(id){
     this.router.navigate(['editarAsesor',id]);
+  }
+
+  public buscar(){
+
+  }
+  private horaMayor:boolean;
+  public cambiHoraMayor(){
+    this.horaMayor=true;
+  }
+
+  public cambiarHoraMenor(){
+    this.horaMayor=false;
+  }
+
+  public buscarPorArea(){
+
+  }
+
+  public buscarPorHora(){
+
   }
   
   public BotonMostrar(){
@@ -46,4 +66,7 @@ export class ListarAsesorComponent implements OnInit {
     return false;
   }
 
+  public mostrar(){
+    console.log(this.asesor);
+  }
 }

@@ -3,7 +3,25 @@
         <div class="card-header">
             <h3>Asesor</h3>
         </div>
-<button (click)="registrarAsesor()">crear Asesor</button>
+        
+        <!-- busqueda asesor-->
+        <div>
+            areas especializa
+            <input type="text" class="col-12" id="areas">
+
+            costo hora
+            <input type="text" class="col-6" id="CostoHora">
+
+            hora mayor
+            <input type="checkbox" class="3" (click)="cambiHoraMayor()">
+
+            hora menor
+            <input type="checkbox" class="3" (click)="cambiarHoraMenor()">
+            
+            <button (click)="buscar()">Buscar</button>
+        </div>
+        <button (click)="mostrar()">Mostrar</button>
+        <button (click)="registrarAsesor()">crear Asesor</button>
         <div class="card-body">
             <table class="table table-hover" border="10">
                 <thead>
