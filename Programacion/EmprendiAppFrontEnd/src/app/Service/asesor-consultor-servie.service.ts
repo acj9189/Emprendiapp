@@ -32,4 +32,21 @@ export class AsesorConsultorServieService {
   public deleteAsesorConcultor(id){
     return this.http.delete<AsesorConultor>(this.Url+'/usuario/'+id);
   }
+
+
+  public getAsesoresPorAreas(areas){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/'+0+'/verAreas/'+areas,null);
+  }
+
+  public getAsesorHora(hora){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/'+0+'/verHoras/'+hora,null);
+  }
+
+  public getAsesorHoraMenor(hora){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/'+0+'/ver/menor/'+hora,null);
+  }
+
+  public getAsesorHoraMayor(hora){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/'+0+'/ver/mayor/'+hora,null)
+  }
 }

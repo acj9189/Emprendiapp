@@ -7,10 +7,10 @@
         <!-- busqueda asesor-->
         <div>
             areas especializa
-            <input type="text" class="col-12" id="areas">
+            <input type="text" class="col-12" id="areas"  #areas>
 
             costo hora
-            <input type="text" class="col-6" id="CostoHora">
+            <input type="text" class="col-6" id="CostoHora"  #horas>
 
             hora mayor
             <input type="checkbox" class="3" (click)="cambiHoraMayor()">
@@ -18,7 +18,7 @@
             hora menor
             <input type="checkbox" class="3" (click)="cambiarHoraMenor()">
             
-            <button (click)="buscar()">Buscar</button>
+            <button (click)="buscar(areas,horas)">Buscar</button>
         </div>
         <button (click)="mostrar()">Mostrar</button>
         <button (click)="registrarAsesor()">crear Asesor</button>
