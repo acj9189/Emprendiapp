@@ -1,6 +1,7 @@
 package com.EmprendiApp.Controllers;
 
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -86,7 +87,7 @@ public class UsuarioController {
 		//Falta enviar al correo
 		boolean response = false;
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
-                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                    return null;
                 });
 		if(usuario.getMensajesRealizados() != null) {
 			usuario.getMensajesRealizados().add(mensaje);
@@ -104,7 +105,7 @@ public class UsuarioController {
 	@ResponseBody
 	public List<Mensaje> getAllMensajes(@Valid @PathVariable Integer id){
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
-                    return null; //To change body of generated lambdas, choose Tools | Templates.
+                    return null; 
                 });
 		return usuario.getMensajesRealizados();
 	}
@@ -131,6 +132,21 @@ public class UsuarioController {
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
 			if (mensaje.getCorreoDestino().contentEquals(destinatario)){
+				listMensajeContenidoBuscado.add(mensaje);
+			}
+		}
+		return listMensajeContenidoBuscado;
+	}
+	
+	@PostMapping("usuario/{id}/ver/Mensaje/{fecha}")
+	@ResponseBody
+	public List<Mensaje> getMensajeEspecificoFecha(@Valid @PathVariable Integer id, @Valid @PathVariable String fechas){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		for(Mensaje mensaje : listMensajeContenido){
+			Date fecha = new Date(fechas);
+			if (mensaje.getFechaRealizadoMensaje().equals(fecha)){
 				listMensajeContenidoBuscado.add(mensaje);
 			}
 		}

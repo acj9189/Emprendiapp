@@ -128,7 +128,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/{id}/ver/mayor/{horas}")	
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorrSegunCostoHoraMayor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
+	public List<AsesorConsultor> getConsultorSegunCostoHoraMayor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
 		List<AsesorConsultor> consultoresT = asesorRepository.findAll();
 		List<AsesorConsultor>consultoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor consultor: consultoresT ) {
@@ -142,7 +142,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/{id}/ver/menor/{horas}")	
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorrSegunCostoHoraMenor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
+	public List<AsesorConsultor> getConsultorSegunCostoHoraMenor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
 		List<AsesorConsultor> consultoresT = asesorRepository.findAll();
 		List<AsesorConsultor>consultoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor consultor: consultoresT ) {
