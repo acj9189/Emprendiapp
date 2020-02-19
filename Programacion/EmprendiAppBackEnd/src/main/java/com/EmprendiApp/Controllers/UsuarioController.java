@@ -115,7 +115,7 @@ public class UsuarioController {
 	public List<Mensaje> getMensajeEspecifico(@Valid @PathVariable Integer id, @Valid @PathVariable String contenido){
 		Usuario usuario = userRepository.findById(id).orElseThrow();
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
-		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();     
 		for(Mensaje mensaje : listMensajeContenido){
 			if (mensaje.getContenido().contains(contenido)){
 				listMensajeContenidoBuscado.add(mensaje);
@@ -147,6 +147,34 @@ public class UsuarioController {
 		for(Mensaje mensaje : listMensajeContenido){
 			Date fecha = new Date(fechas);
 			if (mensaje.getFechaRealizadoMensaje().equals(fecha)){
+				listMensajeContenidoBuscado.add(mensaje);
+			}
+		}
+		return listMensajeContenidoBuscado;
+	}
+	
+	@PostMapping("usuario/{id}/ver/Mensaje/{asunto}")
+	@ResponseBody
+	public List<Mensaje> getMensajeEspecificoAsunto(@Valid @PathVariable Integer id, @Valid @PathVariable String asunto){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		for(Mensaje mensaje : listMensajeContenido){
+			if (mensaje.getAsunto().contains(asunto)){
+				listMensajeContenidoBuscado.add(mensaje);
+			}
+		}
+		return listMensajeContenidoBuscado;
+	}
+	
+	@PostMapping("usuario/{id}/ver/Mensaje/{palabra}")
+	@ResponseBody
+	public List<Mensaje> getMensajeEspecificoPalabra(@Valid @PathVariable Integer id, @Valid @PathVariable String palabra){
+		Usuario usuario = userRepository.findById(id).orElseThrow();
+		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
+		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
+		for(Mensaje mensaje : listMensajeContenido){
+			if (mensaje.getContenido().contains(palabra)){
 				listMensajeContenidoBuscado.add(mensaje);
 			}
 		}

@@ -61,9 +61,9 @@ public class AsesorConsultorController {
 		return null;
 	}
 	
-	@PostMapping("/asesor/asesor/{id}/ver/{horas}")	
+	@PostMapping("/asesor/asesor/ver/{horas}")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHora(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHora(@Valid @PathVariable int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
@@ -75,29 +75,27 @@ public class AsesorConsultorController {
 		return asesoresBusqueda;
 	}
 	
-	@PostMapping("/asesor/asesor/{id}/ver/mayor/{horas}")	
+	@PostMapping("/asesor/asesor/ver/mayor/{horas}")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHoraMayor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHoraMayor(@Valid @PathVariable int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
 			if((asesor.isTipoAsesorConsultor()) && (asesor.getCostoHora() > horas)) {
 				asesoresBusqueda.add(asesor);
-				return asesoresBusqueda;	
 			}
 		}
 		return asesoresBusqueda;
 	}
 	
-	@PostMapping("/asesor/asesor/{id}/ver/menor/{horas}")	
+	@PostMapping("/asesor/asesor/ver/menor/{horas}")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHoraMenor(@Valid @PathVariable Integer id, @Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHoraMenor(@Valid @PathVariable int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
 			if((asesor.isTipoAsesorConsultor()) && (asesor.getCostoHora() < horas)) {
 				asesoresBusqueda.add(asesor);
-				return asesoresBusqueda;	
 			}
 		}
 		return asesoresBusqueda;
@@ -120,7 +118,6 @@ public class AsesorConsultorController {
 		for(AsesorConsultor consultor: consultoresT ) {
 			if((!consultor.isTipoAsesorConsultor()) && (consultor.getCostoHora() == horas)) {
 				consultoresBusqueda.add(consultor);
-				return consultoresBusqueda;	
 			}
 		}
 		return consultoresBusqueda;
@@ -134,7 +131,6 @@ public class AsesorConsultorController {
 		for(AsesorConsultor consultor: consultoresT ) {
 			if((!consultor.isTipoAsesorConsultor()) && (consultor.getCostoHora() > horas)) {
 				consultoresBusqueda.add(consultor);
-				return consultoresBusqueda;	
 			}
 		}
 		return consultoresBusqueda;
@@ -148,7 +144,6 @@ public class AsesorConsultorController {
 		for(AsesorConsultor consultor: consultoresT ) {
 			if((!consultor.isTipoAsesorConsultor()) && (consultor.getCostoHora() < horas)) {
 				consultoresBusqueda.add(consultor);
-				return consultoresBusqueda;	
 			}
 		}
 		return consultoresBusqueda;

@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.EmprendiApp.Models.AsesorConsultor;
 import com.EmprendiApp.Models.PersonaNaturalEmpresa;
+import com.EmprendiApp.Models.ProductoServicio;
 import com.EmprendiApp.Respositories.PersonaNaturalEmpresaRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -101,6 +104,92 @@ public class PersonaNaturalController {
 		empresaRepository.delete(deleteEmpresa);
 		response = true;
 		return response;
+	}
+	
+	@PostMapping("/empresa/personaNarural/ver/nombre/{nombre}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getPersonaNaturaLNombre(@Valid @PathVariable String nombre){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if((persona.isTipo()) && (persona.getNombre().contains(nombre))) {
+				personaNaturalBuscada.add(persona);
+			}
+		}
+		return personaNaturalBuscada;
+	}
+	
+	@PostMapping("/empresa/empresa/ver/nombre/{nombre}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getEmpresaLNombre(@Valid @PathVariable String nombre){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if((!persona.isTipo()) && (persona.getNombre().contains(nombre))) {
+				personaNaturalBuscada.add(persona);
+			}
+		}
+		return personaNaturalBuscada;
+	}
+	
+	@PostMapping("/empresa/empresa/ver/nombre/{direccion}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getEmpresaDireccion(@Valid @PathVariable String direccion){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if((persona.isTipo()) && (persona.getDireccion().contentEquals(direccion))) {
+				personaNaturalBuscada.add(persona);
+			}
+		}
+		return personaNaturalBuscada;
+	}
+	
+	@PostMapping("/empresa/personaNarural/ver/nombre/{direccion}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getpersonaNaruralDireccion(@Valid @PathVariable String direccion){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if((!persona.isTipo()) && (persona.getDireccion().contentEquals(direccion))) {
+				personaNaturalBuscada.add(persona);
+			}
+		}
+		return personaNaturalBuscada;
+	}
+	
+	@PostMapping("/empresa/personaNarural/ver/nombre/{producto}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getpersonaNaruralProducto(@Valid @PathVariable String productoS){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if(!persona.isTipo()) {
+				for(ProductoServicio producto: persona.getProductos()) {
+					if(producto.getNombre().contains(productoS)) {
+						personaNaturalBuscada.add(persona);
+					}
+				}
+			}
+		}
+		return personaNaturalBuscada;
+	}
+	
+	@PostMapping("/empresa/EMPRESA/ver/nombre/{producto}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @PathVariable String productoS){
+		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
+			if(persona.isTipo()) {
+				for(ProductoServicio producto: persona.getProductos()) {
+					if(producto.getNombre().contains(productoS)) {
+						personaNaturalBuscada.add(persona);
+					}
+				}
+			}
+		}
+		return personaNaturalBuscada;
 	}
 
 
