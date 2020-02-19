@@ -48,7 +48,7 @@ public class Usuario {
 	@Column(name = "redesSociales", nullable = true)
 	private String redesSociales;
 	
-	@JoinColumn(name = "perfil_id", unique = true, nullable = true)
+	@JoinColumn(name = "perfil_id", unique = false, nullable = true)
 	@OneToOne()
 	private Perfil perfil;
 	

@@ -26,9 +26,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping("/Asesores")
 @RestController
-@JsonIgnoreProperties(ignoreUnknown = true) 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AsesorConsultorController {
-	
+
 	@Autowired
 	private AsesorRepository asesorRepository;
 	
@@ -205,5 +205,6 @@ public class AsesorConsultorController {
 		response = true;
 		return response;
 	}
+
 
 }

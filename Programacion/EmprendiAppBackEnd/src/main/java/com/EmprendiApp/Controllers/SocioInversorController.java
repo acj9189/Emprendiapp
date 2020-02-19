@@ -73,8 +73,7 @@ public class SocioInversorController {
 		@PostMapping("/socio")
 		@ResponseBody
 		public SocioInversor NuevoSocio(@Valid @RequestBody SocioInversor socio) {
-                    System.out.println(socio.getAreasExperticia());
-                    System.out.println(socio.getUsuario().getNombres());
+                    System.out.println(socio.getUsuario().getNombres()+"----------------");
 			return socioRepository.save(socio);
 		}
 

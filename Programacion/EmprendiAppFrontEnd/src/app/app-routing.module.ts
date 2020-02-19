@@ -48,7 +48,10 @@ import { VerInversorAdminComponent } from './Administrador/ver-inversor-admin/ve
 import { VerEmpresaAdminComponent } from './Administrador/ver-empresa-admin/ver-empresa-admin.component';
 import { VerEmpresaComponent } from './Empresa/ver-empresa/ver-empresa.component';
 import { VerSocioAdminComponent } from './Administrador/ver-socio-admin/ver-socio-admin.component';
+import { VerAsesorAdminComponent } from './Administrador/ver-asesor-admin/ver-asesor-admin.component';
+
 const routes: Routes = [
+  {path: 'verAsesorAdmin/:id',component:VerAsesorAdminComponent},
   {path: 'verEmpresa/:id',component:VerEmpresaComponent},
   {path: 'verEmpresaAdmin/:id',component:VerEmpresaAdminComponent},
   {path: 'verInversorAdmin/:id',component:VerInversorAdminComponent},
@@ -77,7 +80,7 @@ const routes: Routes = [
   {path: 'registroConsultor',component:RegitroConsultorComponent},
   {path: 'editarConsultor/:id',component:EditarConsultorComponent},
   {path: 'remverConsultor/:id',component:RemoverConsultorComponent},
-  {path: 'registroAsesor/:id',component:RegistroAesorComponent},
+  {path: 'registroAsesor',component:RegistroAesorComponent},
   {path: 'editarAsesor/:id',component:EditarAsesorComponent},
   {path: 'removerAsesor/:id',component:RemoverAsesorComponent},
   {path: 'removerEmpresa/:id', component:RemoverEmpresaComponent},

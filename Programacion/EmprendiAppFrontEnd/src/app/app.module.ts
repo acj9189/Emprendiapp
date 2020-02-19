@@ -69,6 +69,7 @@ import { VerInversorComponent } from './Inversor/ver-inversor/ver-inversor.compo
 import { VerEmpresaComponent } from './Empresa/ver-empresa/ver-empresa.component';
 import { VerEmpresaAdminComponent } from './Administrador/ver-empresa-admin/ver-empresa-admin.component';
 import { VerSocioAdminComponent } from './Administrador/ver-socio-admin/ver-socio-admin.component';
+import { VerAsesorAdminComponent } from './Administrador/ver-asesor-admin/ver-asesor-admin.component';
 
 @NgModule({
   declarations: [
@@ -135,7 +136,8 @@ import { VerSocioAdminComponent } from './Administrador/ver-socio-admin/ver-soci
     VerInversorComponent,
     VerEmpresaComponent,
     VerEmpresaAdminComponent,
-    VerSocioAdminComponent
+    VerSocioAdminComponent,
+    VerAsesorAdminComponent,
   ],
   imports: [
     BrowserModule,

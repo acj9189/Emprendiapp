@@ -15,8 +15,9 @@ export class ListarEmpresaComponent implements OnInit {
   }
 
   personaEmpresa:PersonaNaturalEmpresa[]
+
   ngOnInit() {
-    this.service.getPersonaEmpresas().subscribe(data=>{
+    this.service.getEmpresa().subscribe(data=>{
       this.personaEmpresa=data;
     });
   }
