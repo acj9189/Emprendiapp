@@ -39,6 +39,13 @@ export class ListarAsesorComponent implements OnInit {
     this.router.navigate(['editarAsesor',id]);
   }
 
+  public BotonMostrar(){
+    if(this.tipo="1"){
+      return true;
+    }
+    return false;
+  }
+  
   public buscar(areas,horas){
     this.asesor.length=0;
     console.log(areas.value);
@@ -129,12 +136,7 @@ export class ListarAsesorComponent implements OnInit {
     }
   }
   
-  public BotonMostrar(){
-    if(this.tipo="1"){
-      return true;
-    }
-    return false;
-  }
+  
 
   public mostrar(){
     console.log(this.asesor);

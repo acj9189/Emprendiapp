@@ -37,4 +37,31 @@ export class EmpresaServiceService {
     return this.http.post<PersonaNaturalEmpresa>(this.Url+'/empresa',personaEmpresa);
   }
 
+  //filtros:
+  //nombre
+  public getPersonalNaturalPorNombre(nombre){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/personaNarural/ver/nombre/'+nombre,null);
+  }
+
+  public getEmpresaPorNombre(nombre){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/'+nombre,null);
+  }
+
+  //direccion
+  public getEmpresaPorDireccion(direccion){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/'+direccion,null);
+  }
+
+  public getPersonaNaturalPorDireccion(direccion){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/personaNarural/ver/nombre/'+direccion,null);
+  }
+
+  //producto
+  public getPersonaNaturalPorProducto(ProductoServicio){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/personaNarural/ver/nombre/'+ProductoServicio,null);
+  }
+
+  public getEmpresaPorProducto(ProductoServicio){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/EMPRESA/ver/nombre/'+ProductoServicio,null);
+  }
 }

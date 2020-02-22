@@ -15,7 +15,7 @@ export class NotificacionServiceService {
     return this.http.get<Notificacion>(this.Url+'/notificacion/'+id);
   }
 
-  public nuevaConsvocatoria(Notificacion){
+  public nuevaNotificacion(Notificacion){
     return this.http.post<Notificacion>(this.Url+'/notificacion',Notificacion);
   }
 

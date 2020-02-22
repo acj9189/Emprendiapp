@@ -27,7 +27,7 @@ export class MensajeServiceService {
     return this.http.put<Mensaje>(this.Url+'/Mensaje/'+id,mensaje);
   }
 
-  public remiverMensaje(id){
+  public removerMensaje(id){
     return this.http.delete<Mensaje>(this.Url+'/Mensaje/'+id);
   }
 }
