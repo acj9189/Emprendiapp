@@ -54,7 +54,6 @@ import { VerConsultorComponent } from './Consultor/ver-consultor/ver-consultor.c
 import { VerProductoComponent } from './Producto/ver-producto/ver-producto.component';
 import { VerConsultorAdminComponent } from './Administrador/ver-consultor-admin/ver-consultor-admin.component';
 import { VerProductoAdminComponent } from './Administrador/ver-producto-admin/ver-producto-admin.component';
-
 const routes: Routes = [
   {path: 'verProductoAdmin/:id',component:VerProductoAdminComponent},
   {path: 'verConsultorAdmin/:id',component:VerConsultorAdminComponent},
