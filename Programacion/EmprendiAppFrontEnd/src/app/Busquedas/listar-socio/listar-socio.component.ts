@@ -30,9 +30,14 @@ export class ListarSocioComponent implements OnInit {
     this.router.navigate(['removerSocio',id]);
   }
 
-  public infoSocio(id){
+  public infoSocioAdmin(id){
     //console.log(id);
     this.router.navigate(['verSocioAdmin',id]);
+  }
+
+  public infoSocio(id){
+    //console.log(id);
+    this.router.navigate(['verSocio',id]);
   }
 
   public actualizarSocio(id){

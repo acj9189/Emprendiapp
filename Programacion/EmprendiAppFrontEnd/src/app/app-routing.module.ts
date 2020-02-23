@@ -49,8 +49,18 @@ import { VerEmpresaAdminComponent } from './Administrador/ver-empresa-admin/ver-
 import { VerEmpresaComponent } from './Empresa/ver-empresa/ver-empresa.component';
 import { VerSocioAdminComponent } from './Administrador/ver-socio-admin/ver-socio-admin.component';
 import { VerAsesorAdminComponent } from './Administrador/ver-asesor-admin/ver-asesor-admin.component';
+import { VerAsesorComponent } from './Asesor/ver-asesor/ver-asesor.component'
+import { VerConsultorComponent } from './Consultor/ver-consultor/ver-consultor.component';
+import { VerProductoComponent } from './Producto/ver-producto/ver-producto.component';
+import { VerConsultorAdminComponent } from './Administrador/ver-consultor-admin/ver-consultor-admin.component';
+import { VerProductoAdminComponent } from './Administrador/ver-producto-admin/ver-producto-admin.component';
 
 const routes: Routes = [
+  {path: 'verProductoAdmin/:id',component:VerProductoAdminComponent},
+  {path: 'verConsultorAdmin/:id',component:VerConsultorAdminComponent},
+  {path: 'verProducto/:id',component:VerProductoComponent},
+  {path: 'verConsultor/:id',component:VerConsultorComponent},
+  {path: 'verAsesor/:id',component:VerAsesorComponent},
   {path: 'verAsesorAdmin/:id',component:VerAsesorAdminComponent},
   {path: 'verEmpresa/:id',component:VerEmpresaComponent},
   {path: 'verEmpresaAdmin/:id',component:VerEmpresaAdminComponent},
