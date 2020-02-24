@@ -26,6 +26,10 @@ export class ListarEmpresaComponent implements OnInit {
     this.router.navigate(['regEmpresa']);
   }
 
+  public verEmpresaAdmin(id){
+    this.router.navigate(['verEmpresaAdmin',id]);
+  }
+
   public verEmpresa(id){
     this.router.navigate(['verEmpresa',id]);
   }
@@ -43,5 +47,57 @@ export class ListarEmpresaComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  public buscar(nombre,direccion,producto,palabra){
+    this.personaEmpresa.length=0;
+    if(nombre.value!="" && nombre.value!=null){
+      this.buscarNombre(nombre.value);
+    }
+    if(direccion.value!="" && direccion.value!=null){
+      this.buscarDireccion(direccion);  
+    }
+    if(producto.value!="" && producto.value!=null){
+      this.buscarProducto(producto);
+    }
+    if(palabra.value!="" && producto.value!=null){
+      alert("sin realizar la bbusqueda en back end");  
+    }
+  }
+
+  private buscarProducto(producto: any) {
+    let empresaAux;
+    this.service.getEmpresaPorProducto(producto).subscribe(data => {
+      empresaAux = data;
+      empresaAux.array.forEach(element => {
+        if (!this.personaEmpresa.find(element.id)) {
+          this.personaEmpresa.push(element);
+        }
+      });
+    });
+  }
+
+  private buscarDireccion(direccion: any) {
+    let empresaAux;
+    this.service.getEmpresaPorDireccion(direccion).subscribe(data => {
+      empresaAux = data;
+      empresaAux.array.forEach(element => {
+        if (!this.personaEmpresa.find(element.id)) {
+          this.personaEmpresa.push(element);
+        }
+      });
+    });
+  }
+
+  private buscarNombre(nombre: any) {
+    let empresaAux;
+    this.service.getEmpresaPorNombre(nombre).subscribe(data => {
+      empresaAux = data;
+      empresaAux.array.forEach(element => {
+        if (!this.personaEmpresa.find(element.id)) {
+          this.personaEmpresa.push(element);
+        }
+      });
+    });
   }
 }

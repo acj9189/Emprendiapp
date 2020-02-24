@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AsesorConultor } from 'src/app/Modelos/AsesorConsultor'
 import { AsesorConsultorServieService } from 'src/app/Service/asesor-consultor-servie.service';
 import { Router } from '@angular/router'
-
+import { ServiceService } from 'src/app/Service/userService';
 @Component({
   selector: 'app-listar-consultor',
   templateUrl: './listar-consultor.component.html',
@@ -13,7 +13,7 @@ export class ListarConsultorComponent implements OnInit {
   @Input() private tipo:String;
   private consultor:AsesorConultor[];
 
-  constructor(private service:AsesorConsultorServieService,private router:Router) { 
+  constructor(private service:AsesorConsultorServieService,private router:Router,private userService:ServiceService) { 
   }
 
   ngOnInit() {
@@ -31,9 +31,13 @@ export class ListarConsultorComponent implements OnInit {
     this.router.navigate(['removerConsultor',id]);
   }
 
-  public infoConsultor(id){
+  public infoConsultorAdmin(id){
     //console.log(id);
     this.router.navigate(['veConsultorAdmin',id]);
+  }
+
+  public infoConsultor(id){
+    this.router.navigate(['verConsultor',id]);
   }
 
   public actualizarConsultor(id){
@@ -47,16 +51,75 @@ export class ListarConsultorComponent implements OnInit {
     return false;
   }
 
-  
-  public buscar(areas,horas){
+  public buscar(nombre,apellido,direccion,areas,horas){
     this.consultor.length=0;
-    console.log(areas.value);
+    if(nombre.value!="" && nombre.value!=null){
+      this.buscarNombre(nombre.value);
+    }
+    if(apellido.value!="" && apellido.value!=null){
+      this.buscarApellido(apellido.value);
+    }
+    if(direccion.value!="" && direccion.value!=null){
+      this.buscarDireccion(direccion.value);
+    }
     if(areas.value!="" && areas.value!=null){
       this.buscarPorArea(areas.value);
     }
     if(horas.value!="" && horas.value!=null){
       this.buscarPorHora(horas.value);
     }
+  }
+
+  public buscarDireccion(direccion){
+    alert("como buscar el nombre");
+    let usuario;
+    this.userService.getUsuarioDireccion(direccion).subscribe(data=>{
+      usuario=data;
+      if(this.consultor.length>0){
+        usuario.array.forEach(element => {
+          console.log(element);
+          console.log(element.id);
+          if(!this.consultor.find(element.id)){
+            this.consultor.push(element);
+          }
+        });
+      }
+      console.log(this.consultor);
+    })
+  }
+  public buscarApellido(apellido){
+    alert("como hacerlo?? "+apellido);
+    let usuario;
+    this.userService.getUsuarioApellido(apellido).subscribe(data=>{
+      usuario=data;
+      if(this.consultor.length>0){
+        usuario.array.forEach(element => {
+          console.log(element);
+          console.log(element.id);
+          if(!this.consultor.find(element.id)){
+            this.consultor.push(element);
+          }
+        });
+      }
+      console.log(this.consultor);
+    })
+  }
+  public buscarNombre(nombre){
+    alert("como hacer la busqueda por nombre de "+nombre);
+    let usuario;
+    this.userService.getUsuarioNombre(nombre).subscribe(data=>{
+      usuario=data;
+      if(this.consultor.length>0){
+        usuario.array.forEach(element => {
+          console.log(element);
+          console.log(element.id);
+          if(!this.consultor.find(element.id)){
+            this.consultor.push(element);
+          }
+        });
+      }
+      console.log(this.consultor);
+    })
   }
 
   private horaMayor:number=0;
@@ -141,6 +204,5 @@ export class ListarConsultorComponent implements OnInit {
   public mostrar(){
     console.log(this.consultor);
   }
-
 }
 

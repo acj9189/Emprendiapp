@@ -30,9 +30,14 @@ export class ListarProductoComponent implements OnInit {
     this.router.navigate(['removerProducto',id]);
   }
 
-  public infoProducto(id){
+  public infoProductoAdmin(id){
     //console.log(id);
     this.router.navigate(['verProductoAdmin',id]);
+  }
+
+  public infoProducto(id){
+    //console.log(id);
+    this.router.navigate(['verProducto',id]);
   }
 
   public actualizarProducto(id){

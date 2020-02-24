@@ -19,8 +19,8 @@
                         <td>{{Producto.id}}</td>
                         <td>{{Producto.usuario.nombres}}</td>
                         <td>{{Producto.usuario.apellidos}}</td>
-                        <td *ngIf="BotonMostrar()"><button (click)="infoProducto(Producto.id)">ver</button><button (click)="actualizarProducto(Producto.id)">editar</button><button (click)="removerProducto(Producto.id)">eliminar</button></td>
-                        <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
+                        <td *ngIf="BotonMostrar()"><button (click)="infoProductoAdmin(Producto.id)">ver</button><button (click)="actualizarProducto(Producto.id)">editar</button><button (click)="removerProducto(Producto.id)">eliminar</button></td>
+                        <td *ngIf="!BotonMostrar()"><button (click)="infoProducto(Producto.id)">ver</button></td>
                     </tr>
                 </tbody>
             </table>

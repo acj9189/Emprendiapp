@@ -16,8 +16,14 @@ export class ListarAdminEditComponent implements OnInit {
    }
 
   ngOnInit() {
+    let user;
     this.service.getUsuarios().subscribe(data=>{
-      this.usuarios = data;
+      user = data;
+      user.array.forEach(element => {
+        if(element.perfil==1){
+          this.usuarios.push(element);
+        }
+      });
     });
   }
 

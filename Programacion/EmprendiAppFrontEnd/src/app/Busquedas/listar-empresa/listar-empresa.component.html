@@ -3,8 +3,19 @@
         <div class="card-header">
             <h3>Persoan Nautural o Empresa</h3>
         </div>
-            <button (click)="mostrar()">mostrar (hay que quitarlo junto con el metodo)</button>
-            <button (click)="crear()">registrar Empresa</button>
+        <div class="row">
+            nombre:
+            <input type="text" id="nombre" #nombre>
+            dirccion:
+            <input type="text" id="direccion" #direccion>
+            producto:
+            <input type="text" id="producto" #producto>
+            palabra cualquiera:
+            <input type="text" id="palabra" #palabra>
+            <button (click)="buscar(nombre,direccion,producto,palabra)">buscar</button>
+        </div>
+        <button (click)="mostrar()">mostrar (hay que quitarlo junto con el metodo)</button>
+        <button (click)="crear()">registrar Empresa</button>
          <div class="card-body">
             <table class="table table-hover" border="10">
                 <thead>
@@ -19,8 +30,8 @@
                     <tr *ngFor= "let personaEmpresas of personaEmpresa" class="text-center" >
                         <td>{{personaEmpresas.id}}</td>
                         <td>{{personaEmpresas.nombre}}</td>
-                        <td *ngIf="BotonMostrar()"><button (click)="verEmpresa(personaEmpresas.id)">ver</button><button (click)="editarEmpresa(personaEmpresas.id)">editar</button><button (click)="eliminarEmpresa(personaEmpresas.id)">eliminar</button></td>
-                        <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
+                        <td *ngIf="BotonMostrar()"><button (click)="verEmpresaAdmin(personaEmpresas.id)">ver</button><button (click)="editarEmpresa(personaEmpresas.id)">editar</button><button (click)="eliminarEmpresa(personaEmpresas.id)">eliminar</button></td>
+                        <td *ngIf="!BotonMostrar()"><button (click)="verEmpresa(personaEmpresas.id)"></button> </td>
                     </tr>
                 </tbody>
             </table>

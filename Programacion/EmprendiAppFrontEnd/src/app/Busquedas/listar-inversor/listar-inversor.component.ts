@@ -30,9 +30,13 @@ export class ListarInversorComponent implements OnInit {
     this.router.navigate(['removerInversor',id]);
   }
  
-  public infoInversor(id){
+  public infoInversorAdmin(id){
     //console.log(id);
     this.router.navigate(['verInversorAdmin',id]);
+  }
+
+  public infoInversor(id){
+    this.router.navigate(['verInversor',id]);
   }
 
   public actualizarInversor(id){
@@ -46,4 +50,19 @@ export class ListarInversorComponent implements OnInit {
     return false;
   }
 
+  public buscar(areaExperticia,nombre,apellido,direccion){
+    if(areaExperticia.value!="" && areaExperticia.value!=null){
+      let inversorAux;
+      alert("no se ha echo");
+    }
+    if(nombre.value!="" && nombre.value!=null){
+      alert("no se ha echo");
+    }
+    if(apellido.value!="" && apellido.value!=null){
+      alert("no se ha echo");
+    }
+    if(direccion.value!="" && direccion.value!=null){
+      alert("no se ha echo");
+    }
+  }
 }

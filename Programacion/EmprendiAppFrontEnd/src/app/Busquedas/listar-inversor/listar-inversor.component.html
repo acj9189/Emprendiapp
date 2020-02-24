@@ -3,6 +3,19 @@
         <div class="card-header">
             <h3>Inversor</h3>
         </div>
+        <div class="row">
+            Area experticia:
+            <input class="col-12" type="text" id="areaExperticia" #areaExperticia>
+            nombre:
+            <input class="col-12" type="text" id="nombre" #nombre>
+            apellido:
+            <input class="col-12" type="text" id="apellido" #apellido>
+            direccion contacto:
+            <input class="col-12" type="text" id="direccion" #direccion>
+            email:
+            <input class="col-12" type="text" id="email" #email>
+            <button (click)="buscar(areaExperticia,nombre,apellido,direccion)">busar</button>
+        </div>
 <button (click)="mostrar()">mostrar</button>
 <button (click)="registrarInversor()">crear Inversor</button>
         <div class="card-body">
@@ -29,8 +42,8 @@
                         <td>{{Inversor.areasExperticia}}</td>
                         <td>{{Inversor.conociminetoQAporta}}</td>
                         <td>{{Inversor.areasInteres}}</td>
-                        <td *ngIf="BotonMostrar()"><button (click)="infoInversor(Inversor.id)">ver</button><button (click)="actualizarInversor(Inversor.id)">editar</button><button (click)="removerInversor(Inversor.id)">eliminar</button></td>
-                        <td *ngIf="!BotonMostrar()"> solo el de mostrar</td>
+                        <td *ngIf="BotonMostrar()"><button (click)="infoInversorAdmin(Inversor.id)">ver</button><button (click)="actualizarInversor(Inversor.id)">editar</button><button (click)="removerInversor(Inversor.id)">eliminar</button></td>
+                        <td *ngIf="!BotonMostrar()"><button (click)="infoInversor(Inversor.id)">ver</button></td>
                     </tr>
                 </tbody>
             </table>
