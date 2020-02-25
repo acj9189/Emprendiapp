@@ -110,7 +110,7 @@ public class UsuarioController {
 		return usuario.getMensajesRealizados();
 	}
 	
-	@PostMapping("usuario/{id}/ver/Mensaje/{contenido}")
+	@PostMapping("usuario/{id}/ver/Mensaje/contenido/{contenido}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecifico(@Valid @PathVariable Integer id, @Valid @PathVariable String contenido){
 		Usuario usuario = userRepository.findById(id).orElseThrow(null);
@@ -124,7 +124,7 @@ public class UsuarioController {
 		return listMensajeContenidoBuscado;
 	}
 	
-	@PostMapping("usuario/{id}/ver/Mensaje/{destinatario}")
+	@PostMapping("usuario/{id}/ver/Mensaje/destinatario/{destinatario}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoDestinatario(@Valid @PathVariable Integer id, @Valid @PathVariable String destinatario){
 		Usuario usuario = userRepository.findById(id).orElseThrow(null);
@@ -138,7 +138,7 @@ public class UsuarioController {
 		return listMensajeContenidoBuscado;
 	}
 	
-	@PostMapping("usuario/{id}/ver/Mensaje/{fecha}")
+	@PostMapping("usuario/{id}/ver/Mensaje/fecha/{fecha}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoFecha(@Valid @PathVariable Integer id, @Valid @PathVariable String fechas){
 		Usuario usuario = userRepository.findById(id).orElseThrow(null);
@@ -153,7 +153,7 @@ public class UsuarioController {
 		return listMensajeContenidoBuscado;
 	}
 	
-	@PostMapping("usuario/{id}/ver/Mensaje/{asunto}")
+	@PostMapping("usuario/{id}/ver/Mensaje/asunto/{asunto}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoAsunto(@Valid @PathVariable Integer id, @Valid @PathVariable String asunto){
 		Usuario usuario = userRepository.findById(id).orElseThrow(null);
@@ -167,7 +167,7 @@ public class UsuarioController {
 		return listMensajeContenidoBuscado;
 	}
 	
-	@PostMapping("usuario/{id}/ver/Mensaje/{palabra}")
+	@PostMapping("usuario/{id}/ver/Mensaje/palabra/{palabra}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoPalabra(@Valid @PathVariable Integer id, @Valid @PathVariable String palabra){
 		Usuario usuario = userRepository.findById(id).orElseThrow(null);
@@ -181,7 +181,7 @@ public class UsuarioController {
 		return listMensajeContenidoBuscado;
 	}
 	
-	@PostMapping("usuario/{nombre}")
+	@PostMapping("usuario/buscar/nombre/{nombre}")
 	@ResponseBody
 	public List<Usuario> getUsuarioNombre(@Valid @PathVariable String nombre){
 		List<Usuario> usuarios = userRepository.findAll();
@@ -194,7 +194,7 @@ public class UsuarioController {
 		return usuariosBuscdos;
 	}
 	
-	@PostMapping("usuario/{direccion}")
+	@PostMapping("usuario/buscar/direccion/{direccion}")
 	@ResponseBody
 	public List<Usuario> getUsuarioDireccion(@Valid @PathVariable String direccion){
 		List<Usuario> usuarios = userRepository.findAll();
@@ -219,5 +219,20 @@ public class UsuarioController {
 		}
 		return usuariosBuscdos;
 	}
+	
+	
+	@PostMapping("usuario/{apellido}")
+	@ResponseBody
+	public List<Usuario> getUsuarioApellido(@Valid @PathVariable String apellido){
+		List<Usuario> usuarios = userRepository.findAll();
+		List<Usuario> usuariosBuscdos = new LinkedList<>();
+		for(Usuario usuario: usuarios ) {
+			if(usuario.getApellidos().contains(apellido)) {
+				usuariosBuscdos.add(usuario);
+			}
+		}
+		return usuariosBuscdos;
+	}
+	
 	
 }

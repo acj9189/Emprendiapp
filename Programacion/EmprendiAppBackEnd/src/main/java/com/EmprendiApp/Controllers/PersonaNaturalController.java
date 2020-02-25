@@ -173,7 +173,7 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/EMPRESA/ver/nombre/{producto}")	
+	@PostMapping("/empresa/empresa/ver/nombre/{producto}")	
 	@ResponseBody
 	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @PathVariable String productoS){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
@@ -189,6 +189,37 @@ public class PersonaNaturalController {
 		}
 		return personaNaturalBuscada;
 	}
-
-
+	
+	@PostMapping("/empresa/empresa/ver/redes/{redes}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getEmpresaRedesSocialers(@Valid @PathVariable String redes){
+		List<PersonaNaturalEmpresa> EmpresaST = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> EmpresasBuscadas = new LinkedList<>();
+		for(PersonaNaturalEmpresa empresa: EmpresaST ) {
+			if(empresa.isTipo()) {
+				if(empresa.getRedesSociales().contains("redes")) {
+					EmpresasBuscadas.add(empresa);
+					
+					}
+				}
+			}
+		return EmpresasBuscadas;
+	}
+	
+	@PostMapping("/empresa/personaNarural/ver/redes/{redes}")	
+	@ResponseBody
+	public List<PersonaNaturalEmpresa> getPersonaNaturalRedesSocialers(@Valid @PathVariable String redes){
+		List<PersonaNaturalEmpresa> personaNatural = empresaRepository.findAll();
+		List<PersonaNaturalEmpresa> personaNaturlaBuscada = new LinkedList<>();
+		for(PersonaNaturalEmpresa persona: personaNatural ) {
+			if(!persona.isTipo()) {
+				if(persona.getRedesSociales().contains("redes")) {
+					personaNaturlaBuscada.add(persona);
+					
+					}
+				}
+			}
+		return personaNaturlaBuscada;
+	}
+	
 }
