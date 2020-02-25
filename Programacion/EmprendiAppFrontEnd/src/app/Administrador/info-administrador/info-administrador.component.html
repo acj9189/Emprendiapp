@@ -2,7 +2,57 @@
     <div class="col-4">
         <app-menu-administrador></app-menu-administrador>
     </div>
-    <div>
-        <p>info-administrador works!</p>
+    <div class="card"> 
+        <h3>Administrador</h3>
+
+                <div class="div">
+                    identificador: {{Administardo.id}}
+                </div> 
+                <div class="div">
+                    nombre: {{Administardo.nombres}}
+                </div>
+                <div class="div">
+                    apellidos: {{Administardo.apellidos}}
+                </div>
+                <div class="div">
+                    telefono: {{Administardo.telefono}}
+                </div>
+                <div class="div">
+                    direccion: {{Administardo.direccionContacto}}
+                </div>
+                <div class="div">
+                    correo: {{Administardo.email}}
+                </div>
+                <div class="div">
+                    mensajes realizados: 
+                        <table border="3">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Asunto</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mensajes of Administrador.mensajesRealizados"> 
+                                    <th>{{mensajes.Id}}</th>
+                                    <th>{{mensajes.asunto}}</th>
+                                    <th><button (click)="verMensaje(mensajes.Id)">ver</button></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="div">
+                    redes sociales: 
+                    <div *ngFor="let redes1 of redes">
+                        <div>{{redes1}}</div>
+                    </div>
+                </div>
+                <div class="div">
+                    <button (click)="retorno()">retorno</button>
+                    <button (click)="mostrar()">mostrar</button>
+                </div>
+           
+          
     </div>
 </div>

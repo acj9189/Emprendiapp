@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div>
+        <app-menu-consultor></app-menu-consultor>
+    </div>
+    <div class="card">
+        <h3 class="card-header">hay que enviarle el nombre del ususario</h3>
+        <button >enviar mensaje</button>
+        <div class="card-body">
+            <table class="table table-hover" border="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>destinatario</th>
+                        <th>asunto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor= "let mensaje of mensaje" class="text-center" >
+                        <td>{{mensaje.id}}</td>
+                        <td>{{mensaje.correoDestino}}</td>
+                        <td>{{mensaje.asunto}}</td>
+                        <td><button (click)="infoMensaje(mensaje.id)">ver</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

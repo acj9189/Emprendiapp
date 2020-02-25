@@ -5,7 +5,7 @@
         </div>
         
         <!-- busqueda asesor-->
-        <div class="row">
+        <!--<div class="row card">-->
             nombre:
             <input type="text" class="col-12" id="nombre" #nombre>
 
@@ -19,16 +19,16 @@
             <input type="text" class="col-12" id="areas"  #areas>
 
             costo hora
-            <input type="text" class="col-6" id="CostoHora"  #horas>
+            <input type="text" class="col-12" id="CostoHora"  #horas>
 
             hora mayor
-            <input type="checkbox" class="col-3" (click)="cambiHoraMayor()">
+            <input type="checkbox" class="col-3" (click)="cambiHoraMayor(horaMayor,horaMenor)" #horaMayor>
 
             hora menor
-            <input type="checkbox" class="col-3" (click)="cambiarHoraMenor()">
+            <input type="checkbox" class="col-3" (click)="cambiarHoraMenor(horaMenor,horaMayor)" #horaMenor>
             
             <button (click)="buscar(nombre,apellido,direccion,areas,horas)">Buscar</button>
-        </div>
+        <!--</div>-->
         <button (click)="mostrar()">Mostrar</button>
         <button (click)="registrarAsesor()">crear Asesor</button>
         <div class="card-body">
@@ -38,6 +38,8 @@
                         <th>ID</th>
                         <th>nombre</th>
                         <th>apellido</th>
+                        <th>costo hora</th>
+                        <th>Experticia</th>
                         <th>accion</th>
                     </tr>
                 </thead>
@@ -47,6 +49,8 @@
                         <td>{{asesor.id}}</td>
                         <td>{{asesor.usuario.nombres}}</td>
                         <td>{{asesor.usuario.apellidos}}</td>
+                        <td>{{asesor.costoHora}}</td>
+                        <td>{{asesor.areasExperticia}}</td>
                         <td *ngIf="BotonMostrar()"><button (click)="infoAsesorAdmin(asesor.id)">ver</button><button (click)="actualizarAsesor(asesor.id)">editar</button><button (click)="removerAsesor(asesor.id)">eliminar</button></td>
                         <td *ngIf="!BotonMostrar()"><button (click)="infoAsesor(asesor.id)">ver</button></td>
                     </tr>

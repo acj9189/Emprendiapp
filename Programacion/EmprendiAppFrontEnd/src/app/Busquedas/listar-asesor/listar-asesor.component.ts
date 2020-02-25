@@ -76,15 +76,12 @@ export class ListarAsesorComponent implements OnInit {
     let usuario;
     this.userService.getUsuarioDireccion(direccion).subscribe(data=>{
       usuario=data;
-      if(this.asesor.length>0){
         usuario.array.forEach(element => {
-          console.log(element);
-          console.log(element.id);
-          if(!this.asesor.find(element.id)){
+          if(!this.asesor.includes(element)){
             this.asesor.push(element);
           }
         });
-      }
+      
       console.log(this.asesor);
     })
   }
@@ -93,15 +90,12 @@ export class ListarAsesorComponent implements OnInit {
     let usuario;
     this.userService.getUsuarioApellido(apellido).subscribe(data=>{
       usuario=data;
-      if(this.asesor.length>0){
         usuario.array.forEach(element => {
-          console.log(element);
-          console.log(element.id);
-          if(!this.asesor.find(element.id)){
+          if(!this.asesor.includes(element)){
             this.asesor.push(element);
           }
         });
-      }
+      
       console.log(this.asesor);
     })
   }
@@ -110,35 +104,39 @@ export class ListarAsesorComponent implements OnInit {
     let usuario;
     this.userService.getUsuarioNombre(nombre).subscribe(data=>{
       usuario=data;
-      if(this.asesor.length>0){
         usuario.array.forEach(element => {
-          console.log(element);
-          console.log(element.id);
-          if(!this.asesor.find(element.id)){
+          if(!this.asesor.includes(element)){
             this.asesor.push(element);
           }
         });
-      }
+      
       console.log(this.asesor);
     })
   }
 
   private horaMayor:number=0;
 
-  public cambiHoraMayor(){
-    if(this.horaMayor==0 || this.horaMayor==2){
+  public cambiHoraMayor(horaMayor,horaMenor){
+    console.log(horaMayor.checked);
+    if(horaMayor.checked){
+      horaMenor.disabled=true;
       this.horaMayor=1;
     }else{
+      horaMenor.disabled=false;
       this.horaMayor=0;
     }
+    console.log(this.horaMayor);
   }
 
-  public cambiarHoraMenor(){
-    if(this.horaMayor==0 || this.horaMayor==1){
+  public cambiarHoraMenor(horaMenor,horaMayor){
+    if(horaMenor.checked){
+      horaMayor.disabled=true;
       this.horaMayor=2;
     }else{
+      horaMayor.disabled=false;
       this.horaMayor=0;
     }
+    console.log(this.horaMayor);
   }
 
   public buscarPorArea(areas){
@@ -146,15 +144,11 @@ export class ListarAsesorComponent implements OnInit {
     this.service.getAsesoresPorAreas(areas).subscribe(data=>{
       usuasrio=data;
       console.log(usuasrio);
-      if(this.asesor.length>0){
         usuasrio.forEach(element => {
-          if(!this.asesor.find(element.ususario.id)){
+          if(!this.asesor.includes(element)){
             this.asesor.push(element);
           }
       });
-      }else{
-        this.asesor.push(usuasrio[0]);
-      }
     });
   } 
 
@@ -163,41 +157,31 @@ export class ListarAsesorComponent implements OnInit {
     if(this.horaMayor==1){
       this.service.getAsesorHoraMayor(hora).subscribe(data=>{
         usuasrio=data;
-        if(this.asesor.length>0){
           usuasrio.forEach(element => {
-            if(!this.asesor.find(element.usuasrio.id)){
+            console.log(element.id);
+            if(!this.asesor.includes(element.id)){
               this.asesor.push(element);          
             }
           });
-        }else{
-          this.asesor.push(usuasrio[0]);
-        }
       });
     }else if(this.horaMayor==2){
       this.service.getAsesorHoraMenor(hora).subscribe(data=>{
         usuasrio=data;
-        if(this.asesor.length>0){
           usuasrio.forEach(element => {
-            if(!this.asesor.find(element.usuasrio.id)){
+            if(!this.asesor.includes(element)){
               this.asesor.push(element);          
             }
           });
-        }else{
-          this.asesor.push(usuasrio[0]);
-        }
       })
     }else{
       this.service.getAsesorHora(hora).subscribe(data=>{
         usuasrio=data;
-        if(this.asesor.length>0){
           usuasrio.forEach(element => {
-            if(!this.asesor.find(element.usuasrio.id)){
+            console.log(element.id);
+            if(!this.asesor.includes(element.id)){
               this.asesor.push(element);          
             }
           });
-        }else{
-          this.asesor.push(usuasrio[0]);
-        }
       })
     }
   }
