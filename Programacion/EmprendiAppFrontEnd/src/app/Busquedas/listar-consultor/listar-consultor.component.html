@@ -3,7 +3,6 @@
         <div class="card-header">
             <h3>Consultor</h3>
         </div>
-            <div class="row">
                 nombre:
                 <input type="text" class="col-12" id="nombre" #nombre>
     
@@ -17,7 +16,7 @@
                 <input type="text" class="col-12" id="areas"  #areas>
     
                 costo hora
-                <input type="text" class="col-6" id="CostoHora"  #horas>
+                <input type="text" class="col-12" id="CostoHora"  #horas>
     
                 hora mayor
                 <input type="checkbox" class="col-3" (click)="cambiHoraMayor()">
@@ -26,10 +25,7 @@
                 <input type="checkbox" class="col-3" (click)="cambiarHoraMenor()">
                 
                 <button (click)="buscar(nombre,apellido,direccion,areas,horas)">Buscar</button>
-            </div>
        
-
-        <button (click)="mostrar()">Mostrar</button>
         <button (click)="registrarConsultor()">crear Consultor</button>
         
         <div class="card-body">

@@ -1,23 +1,18 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">correo:</div>
-        <input class="col-9" type="text" #correo>
+        <input class="col-12" type="text" #correo>
     </div>
 
     <div class="row">
         <div class="col-3">asunto</div>
-        <input class="col-9" type="text" #asunto>
+        <input class="col-12" type="text" #asunto>
     </div>
 
     <div class="row">
         <div class="col-3">mensaje:</div>
-        <textarea class="col-9" name="mensaje" rows="15" cols="15" #mensaje></textarea>
+        <textarea class="col-12" name="mensaje" rows="15" cols="15" #mensaje></textarea>
     </div>
-    <!--<div>
-        <div> Agregar Archivo</div>
-        <div>
-            <input type="file" name="archivo" id="archivo">
-        </div>
-    </div>-->
+    
     <button (click)="enviar(correo,asunto,mensaje)">Enviar</button>
 </div>

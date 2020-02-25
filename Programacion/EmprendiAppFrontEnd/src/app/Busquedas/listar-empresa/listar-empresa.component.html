@@ -3,7 +3,7 @@
         <div class="card-header">
             <h3>Persoan Nautural o Empresa</h3>
         </div>
-        <div class="row">
+        
             nombre:
             <input type="text" id="nombre" #nombre>
             dirccion:
@@ -13,8 +13,7 @@
             palabra cualquiera:
             <input type="text" id="palabra" #palabra>
             <button (click)="buscar(nombre,direccion,producto,palabra)">buscar</button>
-        </div>
-        <button (click)="mostrar()">mostrar (hay que quitarlo junto con el metodo)</button>
+        
         <button (click)="crear()">registrar Empresa</button>
          <div class="card-body">
             <table class="table table-hover" border="10">

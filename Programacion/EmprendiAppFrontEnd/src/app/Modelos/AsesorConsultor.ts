@@ -8,6 +8,5 @@ export class AsesorConultor {
     costoHora:String;
     areasInteres:String;
     tipoAsesorConsultor:boolean;
-    //EmpresasTrbajo:PersonaNaturalEmpresa[];
     usuario:Usuario; 
 } 

@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public ingresarSalir(){
-    
     if(this.ingreso){
       this.ingreso=false;
     }else{
@@ -30,4 +29,8 @@ export class HeaderComponent implements OnInit {
     }
     this.sendMessage();
   } 
+
+  public miCuenta(){
+    alert("esta pendiente");
+  }
 }
