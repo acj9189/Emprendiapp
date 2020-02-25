@@ -113,7 +113,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{contenido}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecifico(@Valid @PathVariable Integer id, @Valid @PathVariable String contenido){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(null);
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();     
 		for(Mensaje mensaje : listMensajeContenido){
@@ -127,7 +127,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{destinatario}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoDestinatario(@Valid @PathVariable Integer id, @Valid @PathVariable String destinatario){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(null);
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
@@ -141,7 +141,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{fecha}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoFecha(@Valid @PathVariable Integer id, @Valid @PathVariable String fechas){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(null);
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
@@ -156,7 +156,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{asunto}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoAsunto(@Valid @PathVariable Integer id, @Valid @PathVariable String asunto){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(null);
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
@@ -170,7 +170,7 @@ public class UsuarioController {
 	@PostMapping("usuario/{id}/ver/Mensaje/{palabra}")
 	@ResponseBody
 	public List<Mensaje> getMensajeEspecificoPalabra(@Valid @PathVariable Integer id, @Valid @PathVariable String palabra){
-		Usuario usuario = userRepository.findById(id).orElseThrow();
+		Usuario usuario = userRepository.findById(id).orElseThrow(null);
 		List<Mensaje> listMensajeContenido = usuario.getMensajesRealizados();
 		List<Mensaje> listMensajeContenidoBuscado = new LinkedList<>();
 		for(Mensaje mensaje : listMensajeContenido){
