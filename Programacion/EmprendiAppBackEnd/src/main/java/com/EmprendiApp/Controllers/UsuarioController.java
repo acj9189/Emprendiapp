@@ -221,7 +221,7 @@ public class UsuarioController {
 	}
 	
 	
-	@PostMapping("usuario/{apellido}")
+	/*@PostMapping("usuario/{apellido}")
 	@ResponseBody
 	public List<Usuario> getUsuarioApellido(@Valid @PathVariable String apellido){
 		List<Usuario> usuarios = userRepository.findAll();
@@ -232,7 +232,7 @@ public class UsuarioController {
 			}
 		}
 		return usuariosBuscdos;
-	}
+	}*/
 	
 	
 }
