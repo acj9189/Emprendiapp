@@ -17,10 +17,12 @@ export class AsesorConsultorServieService {
     return this.http.get<AsesorConultor[]>(this.Url+'/asesor/consultor/all');
   }
 
-  public getAsesorOConsultor(id){ 
-    return this.http.post<AsesorConultor>(this.Url+'/asesor/'+id,null);
-  }
-
+  //public getAsesorOConsultor(id){ 
+    //return this.http.post<AsesorConultor>(this.Url+'/asesor/'+id,null);
+//  }
+public getAsesorOConsultor(id){ 
+  return this.http.post<AsesorConultor>(this.Url+'/asesor/P',id);
+}
   public nuevoAsesorConsultor(asesorConsultor){
     return this.http.post<AsesorConultor>(this.Url+'/asesor',asesorConsultor);
   }
