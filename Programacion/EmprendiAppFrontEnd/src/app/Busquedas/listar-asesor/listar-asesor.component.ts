@@ -4,7 +4,6 @@ import { AsesorConsultorServieService } from 'src/app/Service/asesor-consultor-s
 import { Router } from '@angular/router'
 import { element } from 'protractor';
 import { ServiceService } from 'src/app/Service/userService';
-import { Usuario } from 'src/app/Modelos/Usuario';
 @Component({
   selector: 'app-listar-asesor',
   templateUrl: './listar-asesor.component.html',
@@ -72,46 +71,38 @@ export class ListarAsesorComponent implements OnInit {
   }
 
   public buscarDireccion(direccion){
-    alert("como buscar el nombre");
     let usuario;
-    this.userService.getUsuarioDireccion(direccion).subscribe(data=>{
+    this.service.getAsesorPorDireccion(direccion).subscribe(data=>{
       usuario=data;
-        usuario.array.forEach(element => {
-          if(!this.asesor.includes(element)){
-            this.asesor.push(element);
-          }
-        });
-      
-      console.log(this.asesor);
-    })
+      usuario.forEach(element => {
+        if(!this.asesor.includes(element)){
+          this.asesor.push(element);
+        }
+      });
+    });
   }
+
   public buscarApellido(apellido){
-    alert("como hacerlo?? "+apellido);
     let usuario;
-    this.userService.getUsuarioApellido(apellido).subscribe(data=>{
+    this.service.getAsesorPorApellido(apellido).subscribe(data=>{
       usuario=data;
-        usuario.array.forEach(element => {
-          if(!this.asesor.includes(element)){
-            this.asesor.push(element);
-          }
-        });
-      
-      console.log(this.asesor);
-    })
+      usuario.forEach(element => {
+        if(!this.asesor.includes(element)){
+          this.asesor.push(element);
+        }
+      });
+    });
   }
   public buscarNombre(nombre){
-    alert("como hacer la busqueda por nombre de "+nombre);
     let usuario;
-    this.userService.getUsuarioNombre(nombre).subscribe(data=>{
+    this.service.getAsesorPorNombre(nombre).subscribe(data=>{
       usuario=data;
-        usuario.array.forEach(element => {
-          if(!this.asesor.includes(element)){
-            this.asesor.push(element);
-          }
-        });
-      
-      console.log(this.asesor);
-    })
+      usuario.forEach(element => {
+        if(!this.asesor.includes(element)){
+          this.asesor.push(element);
+        }
+      });
+    });
   }
 
   private horaMayor:number=0;
@@ -143,7 +134,6 @@ export class ListarAsesorComponent implements OnInit {
     let usuasrio;
     this.service.getAsesoresPorAreas(areas).subscribe(data=>{
       usuasrio=data;
-      console.log(usuasrio);
         usuasrio.forEach(element => {
           if(!this.asesor.includes(element)){
             this.asesor.push(element);
@@ -158,7 +148,6 @@ export class ListarAsesorComponent implements OnInit {
       this.service.getAsesorHoraMayor(hora).subscribe(data=>{
         usuasrio=data;
           usuasrio.forEach(element => {
-            console.log(element.id);
             if(!this.asesor.includes(element.id)){
               this.asesor.push(element);          
             }
@@ -177,7 +166,6 @@ export class ListarAsesorComponent implements OnInit {
       this.service.getAsesorHora(hora).subscribe(data=>{
         usuasrio=data;
           usuasrio.forEach(element => {
-            console.log(element.id);
             if(!this.asesor.includes(element.id)){
               this.asesor.push(element);          
             }

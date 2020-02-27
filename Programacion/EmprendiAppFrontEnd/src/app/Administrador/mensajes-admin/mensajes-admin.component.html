@@ -4,6 +4,19 @@
     </div>
     <div>
         hay que enviarle el nombre del ususario
-        <app-enviar-mensaje></app-enviar-mensaje>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>asunto</th>
+                    <th>accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mensaje of mensajes">
+                    <th>{{mensaje}}</th>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
