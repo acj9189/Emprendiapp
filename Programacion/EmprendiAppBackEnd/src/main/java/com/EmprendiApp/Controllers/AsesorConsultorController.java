@@ -55,7 +55,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/ver/areas")	
 	@ResponseBody
-	public AsesorConsultor getAsesorSegunAreas(@Valid @PathVariable Integer id, @Valid @PathVariable String areas){
+	public AsesorConsultor getAsesorSegunAreas(@Valid @RequestBody Integer id, @Valid @RequestBody String areas){
 		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(null);
 		if(asesor.isTipoAsesorConsultor()) 
 			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
@@ -64,7 +64,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/ver/horas")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHora(@Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHora(@Valid @RequestBody int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
@@ -78,7 +78,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/ver/hora/mayor")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHoraMayor(@Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHoraMayor(@Valid @RequestBody int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
@@ -91,7 +91,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/ver/hora/menor/")	
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorSegunCostoHoraMenor(@Valid @PathVariable int horas){
+	public List<AsesorConsultor> getAsesorSegunCostoHoraMenor(@Valid @RequestBody int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
@@ -104,7 +104,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/ver/areas/")	
 	@ResponseBody
-	public AsesorConsultor getConsultorSegunAreas(@Valid @PathVariable Integer id, @Valid @PathVariable String areas){
+	public AsesorConsultor getConsultorSegunAreas(@Valid @RequestBody Integer id, @Valid @PathVariable String areas){
 		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(null);
 		if(!asesor.isTipoAsesorConsultor()) 
 			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
@@ -113,7 +113,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/ver/hora")	
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorrSegunCostoHora(@Valid int id, @Valid int horas){
+	public List<AsesorConsultor> getConsultorrSegunCostoHora(@Valid @RequestBody int id, @Valid @RequestBody int horas){
 		List<AsesorConsultor> consultoresT = asesorRepository.findAll();
 		List<AsesorConsultor>consultoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor consultor: consultoresT ) {
@@ -126,7 +126,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/ver/mayor")	
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorSegunCostoHoraMayor(@Valid int id, @Valid  int horas){
+	public List<AsesorConsultor> getConsultorSegunCostoHoraMayor(@Valid @RequestBody int id, @Valid @RequestBody int horas){
 		List<AsesorConsultor> consultoresT = asesorRepository.findAll();
 		List<AsesorConsultor>consultoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor consultor: consultoresT ) {
@@ -139,7 +139,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/ver/menor")	
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorSegunCostoHoraMenor(@Valid int id, @Valid int horas){
+	public List<AsesorConsultor> getConsultorSegunCostoHoraMenor(@Valid @RequestBody int id, @Valid @RequestBody int horas){
 		List<AsesorConsultor> consultoresT = asesorRepository.findAll();
 		List<AsesorConsultor>consultoresBusqueda = new LinkedList<>();
 		for(AsesorConsultor consultor: consultoresT ) {
@@ -169,15 +169,9 @@ public class AsesorConsultorController {
 		return asesorRepository.findById(id);
 	}
 	
-	@PostMapping("/asesor/P")
-	@ResponseBody
-	public Optional<AsesorConsultor> getAsesor2(@Valid Integer id) {
-		return asesorRepository.findById(id);
-	}
-
 	@PostMapping("/asesor")
 	@ResponseBody
-	public AsesorConsultor nuevoAsesor(@Valid AsesorConsultor asesor) {
+	public AsesorConsultor nuevoAsesor(@Valid @RequestBody AsesorConsultor asesor) {
 		return asesorRepository.save(asesor);
 	}
 
@@ -199,7 +193,7 @@ public class AsesorConsultorController {
 
 	@DeleteMapping("/asesor/{id}")
 	@ResponseBody
-	public boolean deleteAsesor(@PathVariable(value = "id") Integer Id) throws ResourceNotFoundException {
+	public boolean deleteAsesor(@PathVariable(value = "id") @RequestBody Integer Id) throws ResourceNotFoundException {
 		boolean response = false;
 		AsesorConsultor deleteAsesor = asesorRepository.findById(Id).orElseThrow(
 				() -> new ResourceNotFoundException("No se encontro el Asesor o el consultar a eliminar :: " + Id));
@@ -208,9 +202,9 @@ public class AsesorConsultorController {
 		return response;
 	}
 	
-	@PostMapping("/asesor/asesor/buscar/nombre/{nombre}")
+	@PostMapping("/asesor/asesor/buscar/nombre")
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorNombre(@Valid String nombre){
+	public List<AsesorConsultor> getAsesorNombre(@Valid @RequestBody String nombre){
 		List<AsesorConsultor> asesor = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
 		for(AsesorConsultor usuario: asesor ) {
@@ -225,7 +219,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/buscar/apellido")
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorApellido(@Valid String apellido){
+	public List<AsesorConsultor> getAsesorApellido(@Valid @RequestBody String apellido){
 		List<AsesorConsultor> asesor = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
 		for(AsesorConsultor usuario: asesor ) {
@@ -240,7 +234,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/buscar/direccion")
 	@ResponseBody
-	public List<AsesorConsultor> getAsesorDireccion(@Valid String direccion){
+	public List<AsesorConsultor> getAsesorDireccion(@Valid @RequestBody String direccion){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {
@@ -255,7 +249,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/buscar/nombre")
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorNombre(@Valid String nombre){
+	public List<AsesorConsultor> getConsultorNombre(@Valid @RequestBody String nombre){
 		List<AsesorConsultor> consultor = asesorRepository.findAll();
 		List<AsesorConsultor> consultoresBuscados = new LinkedList<>();
 		for(AsesorConsultor usuario: consultor ) {
@@ -270,7 +264,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/buscar/direccion")
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorDireccion(@Valid String direccion){
+	public List<AsesorConsultor> getConsultorDireccion(@Valid @RequestBody String direccion){
 		List<AsesorConsultor> consultorT = asesorRepository.findAll();
 		List<AsesorConsultor> consultoresBuscados = new LinkedList<>();
 		for(AsesorConsultor consultor: consultorT ) {
@@ -285,7 +279,7 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/consultor/buscar/apellido")
 	@ResponseBody
-	public List<AsesorConsultor> getConsultorApellido(@Valid String apellido){
+	public List<AsesorConsultor> getConsultorApellido(@Valid @RequestBody String apellido){
 		List<AsesorConsultor> asesor = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
 		for(AsesorConsultor usuario: asesor ) {

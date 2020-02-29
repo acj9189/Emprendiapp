@@ -117,9 +117,9 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/empresa/ver/nombre/{nombre}")	
+	@PostMapping("/empresa/empresa/ver/nombre")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getEmpresaLNombre(@Valid @PathVariable String nombre){
+	public List<PersonaNaturalEmpresa> getEmpresaLNombre(@Valid @RequestBody String nombre){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
@@ -130,9 +130,9 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/empresa/ver/nombre/{direccion}")	
+	@PostMapping("/empresa/empresa/ver/direccion")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getEmpresaDireccion(@Valid @PathVariable String direccion){
+	public List<PersonaNaturalEmpresa> getEmpresaDireccion(@Valid @RequestBody String direccion){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
@@ -143,9 +143,9 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/personaNarural/ver/nombre/{direccion}")	
+	@PostMapping("/empresa/personaNarural/ver/direccion")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getpersonaNaruralDireccion(@Valid @PathVariable String direccion){
+	public List<PersonaNaturalEmpresa> getpersonaNaruralDireccion(@Valid @RequestBody String direccion){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
@@ -156,15 +156,15 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/personaNarural/ver/nombre/{producto}")	
+	@PostMapping("/empresa/personaNarural/ver/nombre/producto")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getpersonaNaruralProducto(@Valid @PathVariable String productoS){
+	public List<PersonaNaturalEmpresa> getpersonaNaruralProducto(@Valid @RequestBody String producto){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
 			if(!persona.isTipo()) {
-				for(ProductoServicio producto: persona.getProductos()) {
-					if(producto.getNombre().contains(productoS)) {
+				for(ProductoServicio productos: persona.getProductos()) {
+					if(productos.getNombre().contains(producto)) {
 						personaNaturalBuscada.add(persona);
 					}
 				}
@@ -173,15 +173,15 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/empresa/ver/nombre/{producto}")	
+	@PostMapping("/empresa/empresa/ver/nombre/producto")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @PathVariable String productoS){
+	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @PathVariable String producto){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
 			if(persona.isTipo()) {
-				for(ProductoServicio producto: persona.getProductos()) {
-					if(producto.getNombre().contains(productoS)) {
+				for(ProductoServicio productos: persona.getProductos()) {
+					if(productos.getNombre().contains(producto)) {
 						personaNaturalBuscada.add(persona);
 					}
 				}
@@ -190,7 +190,7 @@ public class PersonaNaturalController {
 		return personaNaturalBuscada;
 	}
 	
-	@PostMapping("/empresa/empresa/ver/redes/{redes}")	
+	@PostMapping("/empresa/empresa/ver/redes")	
 	@ResponseBody
 	public List<PersonaNaturalEmpresa> getEmpresaRedesSocialers(@Valid @PathVariable String redes){
 		List<PersonaNaturalEmpresa> EmpresaST = empresaRepository.findAll();
@@ -206,7 +206,7 @@ public class PersonaNaturalController {
 		return EmpresasBuscadas;
 	}
 	
-	@PostMapping("/empresa/personaNarural/ver/redes/{redes}")	
+	@PostMapping("/empresa/personaNarural/ver/redes")	
 	@ResponseBody
 	public List<PersonaNaturalEmpresa> getPersonaNaturalRedesSocialers(@Valid @PathVariable String redes){
 		List<PersonaNaturalEmpresa> personaNatural = empresaRepository.findAll();
