@@ -54,7 +54,9 @@ import { VerConsultorComponent } from './Consultor/ver-consultor/ver-consultor.c
 import { VerProductoComponent } from './Producto/ver-producto/ver-producto.component';
 import { VerConsultorAdminComponent } from './Administrador/ver-consultor-admin/ver-consultor-admin.component';
 import { VerProductoAdminComponent } from './Administrador/ver-producto-admin/ver-producto-admin.component';
+import { MensajesAdminComponent } from 'src/app/Administrador/mensajes-admin/mensajes-admin.component';
 const routes: Routes = [
+  {path: 'verMensajeAdmin:/mensajes',component:MensajesAdminComponent},
   {path: 'verProductoAdmin/:id',component:VerProductoAdminComponent},
   {path: 'verConsultorAdmin/:id',component:VerConsultorAdminComponent},
   {path: 'verProducto/:id',component:VerProductoComponent},
@@ -99,7 +101,7 @@ const routes: Routes = [
   {path: 'edit', component: EditComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'buscarFiltro', component: BuscarFiltroComponent},
-  {path: 'enviarMensaje', component: EnviarMensajeComponent},
+  {path: 'enviarMensaje/:mensaje', component: EnviarMensajeComponent},
   {path: 'infoEmpresa/:id',component: InfoEmpresaComponent},
   {path: 'infoSocio/:id' , component: InfoSocioComponent},
   {path: 'infoInversor', component: InfoInversorComponent},

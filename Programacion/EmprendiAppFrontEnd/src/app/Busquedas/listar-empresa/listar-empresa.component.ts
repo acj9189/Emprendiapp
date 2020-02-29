@@ -61,8 +61,20 @@ export class ListarEmpresaComponent implements OnInit {
       this.buscarProducto(producto);
     }
     if(palabra.value!="" && producto.value!=null){
-      alert("sin realizar la bbusqueda en back end");  
+      this.buscarPorRedes(palabra.value);  
     }
+  }
+
+  public buscarPorRedes(redes){
+    let empresaAux;
+    this.service.getEmpresaRedesSocialers(redes).subscribe(data => {
+      empresaAux = data;
+      empresaAux.array.forEach(element => {
+        if (!this.personaEmpresa.find(element.id)) {
+          this.personaEmpresa.push(element);
+        }
+      });
+    });
   }
 
   private buscarProducto(producto: any) {

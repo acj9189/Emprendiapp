@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Mensaje } from 'src/app/Modelos/Mensaje';
 @Component({
   selector: 'app-menu-administrador',
   templateUrl: './menu-administrador.component.html',
@@ -86,6 +86,13 @@ export class MenuAdministradorComponent implements OnInit {
 //se debe mirara mas
   public buscarFiltro(){
     this.router.navigate(['buscarFiltro']);
+  }
+
+
+  public mensajes(){
+    let mensajes=new Mensaje();
+    mensajes.asunto="hola";
+    this.router.navigate(['verMensajeAdmin',mensajes]);
   }
 
   public enviarMensaje(){

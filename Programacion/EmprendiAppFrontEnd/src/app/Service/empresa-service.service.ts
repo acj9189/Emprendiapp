@@ -45,7 +45,7 @@ export class EmpresaServiceService {
 
   public getEmpresaPorNombre(nombre){
     return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/'+nombre,null);
-  }
+  } 
 
   //direccion
   public getEmpresaPorDireccion(direccion){
@@ -63,5 +63,9 @@ export class EmpresaServiceService {
 
   public getEmpresaPorProducto(ProductoServicio){
     return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/EMPRESA/ver/nombre/'+ProductoServicio,null);
+  }
+
+  public getEmpresaRedesSocialers(redes){
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/redes/'+redes,null);
   }
 }
