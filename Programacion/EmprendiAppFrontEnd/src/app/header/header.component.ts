@@ -1,5 +1,5 @@
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
-
+import { LoginServiceService } from '../Service/login-service.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<boolean>();
 
-  constructor() { 
+  constructor(private service:LoginServiceService) { 
     this.ingreso=false;
   }
 
@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
       this.ingreso=true;
     }
     this.sendMessage();
+    return this.ingreso;
   } 
 
   public miCuenta(){

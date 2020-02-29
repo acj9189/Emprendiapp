@@ -12,6 +12,7 @@
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>telefono</th>
+                        <th>accion</th>
                     </tr>
                 </thead>
 
@@ -21,6 +22,7 @@
                         <td>{{usuario.nombres}}</td>
                         <td>{{usuario.apellidos}}</td>
                         <td>{{usuario.telefono}}</td>
+                        <th><button (click)="ver(usuario.id)">ver</button><button (click)="eliminar(usuario.id)">eliminar</button></th>
                     </tr>
                        
 

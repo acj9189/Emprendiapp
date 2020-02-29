@@ -19,50 +19,43 @@ export class RegistroAesorComponent implements OnInit {
   ngOnInit() {
   }
 
-  public registrar(){
+  public registrar(nombre,apellido,telefono,correo,direccioin,experticia,costoHora,
+    areaInteres,descripcionInteres,conocimientoAporta,redesSociales){
     alert("en puebas");
     let asesor= new AsesorConultor();
     let usuario = new Usuario();
     let perfil = new Perfil();
+    let redesSocialess=redesSociales.childNodes;
+    let redes="";
 
-    let i = document.getElementsByTagName("input").length;
-    let j = 10;
-    let redesSocialess="";
-    redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
-      
-    while (j<i-2){
-      j++;
-      redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
+    let i:number;
+    i=1;
+    redes=redesSocialess[0];
+    while(redesSocialess.length>i){
+      redes=";"+redesSocialess[i].value;
+      i++;
     }
-      
-      usuario.nombres=document.getElementsByTagName("input")[0].value;
-      usuario.apellidos=document.getElementsByTagName("input")[1].value;
-      usuario.telefono=document.getElementsByTagName("input")[2].value;
-      usuario.email=document.getElementsByTagName("input")[3].value;
-      usuario.direccionContacto=document.getElementsByTagName("input")[4].value;
-      asesor.areasExperticia=document.getElementsByTagName("input")[5].value;
-      asesor.costoHora=document.getElementsByTagName("input")[6].value
 
-      asesor.areasInteres=document.getElementsByTagName("input")[7].value;
-      usuario.descripcionIntereses=document.getElementsByTagName("input")[8].value;
+    usuario.nombres=nombre.value;
+    usuario.apellidos=apellido.value;
+    usuario.telefono=telefono.value;
+    usuario.email=correo.value;
+    usuario.direccionContacto=direccioin.value;
+    perfil.id=3;
+    usuario.perfil=perfil;
+    usuario.descripcionIntereses=descripcionInteres.value;
+    usuario.redesSociales=redes;
 
-      asesor.conociminetoQAporta=document.getElementsByTagName("input")[9].value;
-      
-      usuario.redesSociales=redesSocialess;
-      perfil.id=3;
-      //perfil.nombre="no funciona"
-      //perfil.descripcion="esto significa que el crear o ingresar o registrar no funciona"
-      usuario.perfil=perfil;
-      asesor.tipoAsesorConsultor=true;
-      asesor.usuario=usuario;
-      if(asesor.usuario.nombres!="" && asesor.usuario.apellidos!=""){
-        this.service.nuevoAsesorConsultor(asesor).subscribe(data=>{
-          asesor=data;
-        });
-        this.router.navigate(['listaSocio']);
-      }  else{
-        alert(" debe llnear al menos el campo nombre y apellidos");
-      }
+    asesor.areasInteres=areaInteres.value;
+    asesor.areasExperticia=experticia.value;
+    asesor.costoHora=costoHora.value;
+    asesor.conociminetoQAporta=conocimientoAporta.value;
+    asesor.usuario=usuario;
+
+    this.service.nuevoAsesorConsultor(asesor).subscribe(data=>{
+      asesor=data;
+      this.router.navigate(['listarAsesor']);
+    });
   }
 
   public LineaMas(ide){

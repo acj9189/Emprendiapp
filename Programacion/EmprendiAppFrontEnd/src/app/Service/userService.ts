@@ -19,7 +19,7 @@ export class ServiceService {
   }
 
   public getUsusario(id){
-    return this.http.get<Usuario>(this.Url+'/usuario/{id}');
+    return this.http.get<Usuario>(this.Url+'/usuario/'+id);
   }
  
   public nuevoUsuario(usuario){
@@ -30,7 +30,7 @@ export class ServiceService {
     return this.http.put<Usuario>(this.Url+'/usuario/'+id,usuario);
   }
 
-  public deleteUsuario(id,usuario){
+  public deleteUsuario(id){
     return this.http.delete<Usuario>(this.Url+'/usuario/'+id);
   }
 

@@ -6,44 +6,46 @@
 
     <div class="col-9 row">
         <div class="col-3">Nombre:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #nombre>
 
             <div class="col-3">apellido:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #apellido>
 
             <div class="col-3">telefono:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #telefono>
 
             <div class="col-3">correo:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #correo>
 
             <div class="col-3">direccion:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #direccioin>
 
             <div class="col-3">Area experticia:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #experticia>
 
             <div class="col-3">costo Hora:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #costoHora>
 
             <div class="col-3">area interes:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #areaInteres>
 
             <div class="col-3">descripcion intereses:</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #descripcionInteres>
 
             <div class="col-3">conocimiento que aporta</div>
-            <input class="col-9" type="text">
+            <input class="col-9" type="text" #conocimientoAporta>
 
             <!--<div class="row">-->
             <div class="col-3">redes Sociales:</div>
             <div id="redes" #redesSociales class="col-9 row"> 
                 <input class="col-12" type="text">
             </div>
-
             <div>
                 <button (click)="LineaMas(redesSociales)">+</button>    
-                <button (click)="registrar()">registrar</button>
+            </div>
+            <div>
+                <button (click)="registrar(nombre,apellido,telefono,correo,direccioin,experticia,costoHora,
+                areaInteres,descripcionInteres,conocimientoAporta,redesSociales)">registrar</button>
             </div>
     </div>  
 </div>
