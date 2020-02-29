@@ -178,8 +178,8 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/{id}")
 	@ResponseBody
-	public Optional<AsesorConsultor> getAsesor(Integer id) {
-		return asesorRepository.findById(id);
+	public AsesorConsultor getAsesor(@Valid @RequestBody Integer id) {
+		return asesorRepository.findById(id).orElseGet(null);
 	}
 	
 	@PostMapping("/asesor")
