@@ -55,11 +55,18 @@ public class AsesorConsultorController {
 	
 	@PostMapping("/asesor/asesor/ver/areas")	
 	@ResponseBody
-	public AsesorConsultor getAsesorSegunAreas(@Valid @RequestBody Integer id, @Valid @RequestBody String areas){
-		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(null);
-		if(asesor.isTipoAsesorConsultor()) 
-			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
-		return null;
+	public List<AsesorConsultor> getAsesoresSegunAreas(@Valid @RequestBody String areas){
+		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
+		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
+		for(AsesorConsultor asesorP: asesoresT ){
+			if(asesorP.isTipoAsesorConsultor()){
+				if(asesorP.getAreasExperticia().contains(areas)){
+					asesoresBuscados.add(asesorP);
+				}
+			}
+			
+		}
+	return asesoresBuscados;
 	}
 	
 	@PostMapping("/asesor/asesor/ver/horas")	
@@ -70,7 +77,6 @@ public class AsesorConsultorController {
 		for(AsesorConsultor asesor: asesoresT ) {
 			if((asesor.isTipoAsesorConsultor()) && (asesor.getCostoHora() == horas)) {
 				asesoresBusqueda.add(asesor);
-				return asesoresBusqueda;	
 			}
 		}
 		return asesoresBusqueda;
@@ -89,7 +95,7 @@ public class AsesorConsultorController {
 		return asesoresBusqueda;
 	}
 	
-	@PostMapping("/asesor/asesor/ver/hora/menor/")	
+	@PostMapping("/asesor/asesor/ver/hora/menor")	
 	@ResponseBody
 	public List<AsesorConsultor> getAsesorSegunCostoHoraMenor(@Valid @RequestBody int horas){
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
@@ -102,13 +108,20 @@ public class AsesorConsultorController {
 		return asesoresBusqueda;
 	}
 	
-	@PostMapping("/asesor/consultor/ver/areas/")	
+	@PostMapping("/asesor/consultor/ver/areas")	
 	@ResponseBody
-	public AsesorConsultor getConsultorSegunAreas(@Valid @RequestBody Integer id, @Valid @PathVariable String areas){
-		AsesorConsultor asesor = asesorRepository.findById(id).orElseThrow(null);
-		if(!asesor.isTipoAsesorConsultor()) 
-			return (asesor.getAreasExperticia().contains(areas))?asesor :null;
-		return null;
+	public List<AsesorConsultor> getConsultoresSegunAreas(@Valid @RequestBody String areas){
+		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
+		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
+		for(AsesorConsultor asesorP: asesoresT ){
+			if(!asesorP.isTipoAsesorConsultor()){
+				if(asesorP.getAreasExperticia().contains(areas)){
+					asesoresBuscados.add(asesorP);
+				}
+			}
+			
+		}
+	return asesoresBuscados;
 	}
 	
 	@PostMapping("/asesor/consultor/ver/hora")	
