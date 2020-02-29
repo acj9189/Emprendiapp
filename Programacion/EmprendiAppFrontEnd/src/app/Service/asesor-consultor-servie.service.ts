@@ -39,54 +39,58 @@ export class AsesorConsultorServieService {
 
 
   public getAsesoresPorAreas(areas){
-    alert("hay problemas en el backend");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/'+0+'/ver/'+areas,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/areas',areas);
   }
 
   public getAsesorHora(hora){
-    alert("hablar sobre el return");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/horas',hora);
   }
 
   public getAsesorHoraMenor(hora){
-    alert("creo que actualmente funciona");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/menor/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/menor',hora);
   }
 
   public getAsesorHoraMayor(hora){
-    alert("creo que actualmente funciona");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/mayor/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/mayor',hora);
   }
 
   public getAsesorPorNombre(nombre){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/nombre/'+nombre,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/nombre',nombre);
   }
 
   public getAsesorPorApellido(apellido){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/apellido/'+apellido,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/apellido',apellido);
   }
 
   public getAsesorPorDireccion(direccion){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/direccion/'+direccion,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/direccion',direccion);
   }
 
   public getConsultoresPorAreas(areas){
-    alert("el backend no funciona");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/'+0+'/ver/'+areas,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/areas/',areas);
   }
 
   public getConsultoresPorHoras(hora){
-    alert("funciona creo");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/'+0+'/ver/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/hora',hora);
   }
 
   public getConsultorPorHoraMayor(hora){
-    alert("creo que actualmente funciona");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/'+0+'/ver/mayor/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/mayor',hora);
   }
 
   public getConsultorPorHoraMenor(hora){
-    alert("creo que actualmente funciona");
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/'+0+'/ver/menor/'+hora,null);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/menor',hora);
+  }
+
+  public getConsultorPorNombre(nombre){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/buscar/nombre',nombre);
+  }
+
+  public getConsultorPorDireccion(direccion){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/buscar/direccion',direccion);
+  }
+
+  public getConsultorPorApellido(apellido){
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/buscar/apellido',apellido);
   }
 }
