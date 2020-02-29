@@ -18,4 +18,21 @@ export class ListarComponent implements OnInit {
       this.usuarios = data;
     });
   }
+
+  public eliminar(id){
+    let user:Usuario;
+    this.service.deleteUsuario(id).subscribe(data=>{
+      user=data;
+    })
+  }
+
+  public ver(id){
+    let usuario;
+    this.service.getUsusario(Number(id)).subscribe(data=>{
+      usuario=data;
+      console.log(usuario);
+    })
+  }
+
+
 }

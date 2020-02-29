@@ -9,8 +9,8 @@ export class Usuario{
     apellidos:String;
     telefono:String;
     email:String;
-    direccionContacto:String;
     descripcionIntereses:String;
+    direccionContacto:String;
     redesSociales:String;
     perfil:Perfil;
     mensajesRealizados:Mensaje[];

@@ -25,6 +25,7 @@ export class AsesorConsultorServieService {
   //return this.http.post<AsesorConultor>(this.Url+'/asesor/P',id);
 //}
   public nuevoAsesorConsultor(asesorConsultor){
+    console.log(asesorConsultor);
     return this.http.post<AsesorConultor>(this.Url+'/asesor',asesorConsultor);
   } 
 
