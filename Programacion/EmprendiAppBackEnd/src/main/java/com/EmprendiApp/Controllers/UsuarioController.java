@@ -39,6 +39,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository userRepository;
 	
+	@Autowired
+	private EnvioEmail servicesEmail;
+	
 	@GetMapping("/all")
 	@ResponseBody
 	public List<Usuario> getAllUsuarios(){
@@ -91,7 +94,7 @@ public class UsuarioController {
 		//Falta enviar al correo
                 System.out.println(mensaje.getContenido());
 		boolean response = false;
-		EnvioEmail servicesEmail = new EnvioEmail();
+	
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
                     return null;
                 });
