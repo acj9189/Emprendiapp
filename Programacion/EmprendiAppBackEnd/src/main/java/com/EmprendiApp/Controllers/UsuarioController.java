@@ -20,9 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.EmprendiApp.Models.AsesorConsultor;
 import com.EmprendiApp.Models.Mensaje;
+import com.EmprendiApp.Models.SocioInversor;
 import com.EmprendiApp.Models.Usuario;
+import com.EmprendiApp.Respositories.AsesorRepository;
 import com.EmprendiApp.Respositories.UsuarioRepository;
+import com.EmprendiApp.Services.EnvioEmail;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -86,19 +90,21 @@ public class UsuarioController {
 	public boolean enviarMensaje(@Valid @RequestBody Integer  id, @Valid @RequestBody Mensaje mensaje) {
 		//Falta enviar al correo
 		boolean response = false;
+		EnvioEmail servicesEmail = new EnvioEmail();
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
                     return null;
                 });
 		if(usuario.getMensajesRealizados() != null) {
 			usuario.getMensajesRealizados().add(mensaje);
 			response = true;
+			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
+			
 		}
 		else {
 			usuario.setMensajesRealizados(new LinkedList<Mensaje>());
 			usuario.getMensajesRealizados().add(mensaje);
-			response = true;
+			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
 		}
-		return response;
 	}
 	
 	@PostMapping("/usuario/ver/Mensajes/")
@@ -233,6 +239,8 @@ public class UsuarioController {
 		}
 		return usuariosBuscdos;
 	}*/
+	
+	
 	
 	
 }

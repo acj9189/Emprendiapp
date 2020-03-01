@@ -41,20 +41,27 @@ public class AsesorConsultor{
 	@Column(name = "tipoAsesorConsultor", nullable = false)
 	private boolean tipoAsesorConsultor; 
 	
+	@Column(name = "nombreAsesorConsultor", nullable = false)
+	private String nombreAsesorConsultor; 
+	
 	@JoinColumn(name = "usuario_id", unique = true, nullable = false) // true asesor // flase consultor
 	@OneToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 
 
+	
+
+
 	public AsesorConsultor(Integer id, String areasExperticia, String conociminetoQAporta, int costoHora,
-			String areasInteres, boolean tipoAsesorCOnsultor, Usuario usuario) {
+			String areasInteres, boolean tipoAsesorConsultor, String nombreAsesorConsultor, Usuario usuario) {
 		super();
 		this.id = id;
 		this.areasExperticia = areasExperticia;
 		this.conociminetoQAporta = conociminetoQAporta;
 		this.costoHora = costoHora;
 		this.areasInteres = areasInteres;
-		this.tipoAsesorConsultor = tipoAsesorCOnsultor;
+		this.tipoAsesorConsultor = tipoAsesorConsultor;
+		this.nombreAsesorConsultor = nombreAsesorConsultor;
 		this.usuario = usuario;
 	}
 
@@ -121,6 +128,18 @@ public class AsesorConsultor{
 
 	public void setTipoAsesorConsultor(boolean tipoAsesorCOnsultor) {
 		this.tipoAsesorConsultor = tipoAsesorCOnsultor;
+	}
+	
+	
+
+
+	public String getNombreAsesorConsultor() {
+		return nombreAsesorConsultor;
+	}
+
+
+	public void setNombreAsesorConsultor(String nombreAsesorConsultor) {
+		this.nombreAsesorConsultor = nombreAsesorConsultor;
 	}
 
 

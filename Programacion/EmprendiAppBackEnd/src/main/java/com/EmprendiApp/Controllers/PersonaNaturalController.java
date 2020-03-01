@@ -175,7 +175,7 @@ public class PersonaNaturalController {
 	
 	@PostMapping("/empresa/empresa/ver/nombre/producto")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @PathVariable String producto){
+	public List<PersonaNaturalEmpresa> getEmpresaProducto(@Valid @RequestBody String producto){
 		List<PersonaNaturalEmpresa> personaNaturalT = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturalBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNaturalT ) {
@@ -192,7 +192,7 @@ public class PersonaNaturalController {
 	
 	@PostMapping("/empresa/empresa/ver/redes")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getEmpresaRedesSocialers(@Valid @PathVariable String redes){
+	public List<PersonaNaturalEmpresa> getEmpresaRedesSocialers(@Valid @RequestBody String redes){
 		List<PersonaNaturalEmpresa> EmpresaST = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> EmpresasBuscadas = new LinkedList<>();
 		for(PersonaNaturalEmpresa empresa: EmpresaST ) {
@@ -208,7 +208,7 @@ public class PersonaNaturalController {
 	
 	@PostMapping("/empresa/personaNarural/ver/redes")	
 	@ResponseBody
-	public List<PersonaNaturalEmpresa> getPersonaNaturalRedesSocialers(@Valid @PathVariable String redes){
+	public List<PersonaNaturalEmpresa> getPersonaNaturalRedesSocialers(@Valid @RequestBody String redes){
 		List<PersonaNaturalEmpresa> personaNatural = empresaRepository.findAll();
 		List<PersonaNaturalEmpresa> personaNaturlaBuscada = new LinkedList<>();
 		for(PersonaNaturalEmpresa persona: personaNatural ) {
