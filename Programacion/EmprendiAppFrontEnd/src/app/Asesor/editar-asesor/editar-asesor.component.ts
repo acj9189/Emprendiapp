@@ -3,6 +3,8 @@ import { AsesorConultor } from 'src/app/Modelos/AsesorConsultor';
 import { AsesorConsultorServieService } from 'src/app/Service/asesor-consultor-servie.service';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from 'src/app/Modelos/Usuario';
+import { Perfil } from 'src/app/Modelos/Perfil';
 
 @Component({
   selector: 'app-editar-asesor',
@@ -29,7 +31,7 @@ export class EditarAsesorComponent implements OnInit {
   }
 
   public actualizarAsesor(){
-    let i = document.getElementsByTagName("input").length;
+    /*let i = document.getElementsByTagName("input").length;
     let j = 10;
 
     let redesSocialess=this.asesor.usuario.redesSociales;
@@ -80,10 +82,24 @@ export class EditarAsesorComponent implements OnInit {
     this.asesor.tipoAsesorConsultor=false;
     if(redesSocialess!=""){
       this.asesor.usuario.redesSociales=redesSocialess;
-    }
+    }*/
 
+    let usuario = new Usuario();
+    let perfil = new Perfil();
+
+    usuario.nombres="Sandra";
+    console.log(usuario.nombres);
+    usuario.apellidos="Victoria" 
+    console.log(usuario.apellidos);
+    perfil.id=5;
+    usuario.perfil=perfil;
+
+    this.asesor.costoHora="50000";
+    this.asesor.usuario=usuario;
+    this.asesor.tipoAsesorConsultor=true;
     alert("revisar envio faslta revisar asesor");
-    this.service.actualizarAsesorConsultor(this.id,this.asesor).subscribe(data=>{
+    console.log(this.asesor);
+      this.service.actualizarAsesorConsultor(Number(this.id),this.asesor).subscribe(data=>{
       this.asesor=data;
     });
   }

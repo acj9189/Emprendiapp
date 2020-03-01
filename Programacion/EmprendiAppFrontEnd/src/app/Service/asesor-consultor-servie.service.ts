@@ -19,11 +19,8 @@ export class AsesorConsultorServieService {
 
   public getAsesorOConsultor(id){ 
     console.log(id);
-    return this.http.post<AsesorConultor>(this.Url+'/asesor/'+id,null);
+    return this.http.post<AsesorConultor>(this.Url+'/asesor/'+id,Number(id));
   }
-//public getAsesorOConsultor(id){ 
-  //return this.http.post<AsesorConultor>(this.Url+'/asesor/P',id);
-//}
   public nuevoAsesorConsultor(asesorConsultor){
     console.log(asesorConsultor);
     return this.http.post<AsesorConultor>(this.Url+'/asesor',asesorConsultor);
@@ -47,11 +44,11 @@ export class AsesorConsultorServieService {
   }
 
   public getAsesorHoraMenor(hora){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/menor',hora);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/menor',Number(hora));
   }
 
   public getAsesorHoraMayor(hora){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/mayor',hora);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/ver/hora/mayor',Number(hora));
   }
 
   public getAsesorPorNombre(nombre){
@@ -63,13 +60,14 @@ export class AsesorConsultorServieService {
   }
 
   public getAsesorPorDireccion(direccion){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/direccion',direccion);
+    console.log(direccion);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/asesor/buscar/direccion',String(direccion));
   }
 
   public getConsultoresPorAreas(areas){
-    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/areas/',areas);
+    return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/areas',areas);
   }
-
+ 
   public getConsultoresPorHoras(hora){
     return this.http.post<AsesorConultor[]>(this.Url+'/asesor/consultor/ver/hora',hora);
   }

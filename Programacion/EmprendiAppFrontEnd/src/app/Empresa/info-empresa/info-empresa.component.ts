@@ -10,7 +10,7 @@ import { EmpresaServiceService } from 'src/app/Service/empresa-service.service';
 })
 export class InfoEmpresaComponent implements OnInit {
 
-  empresa:PersonaNaturalEmpresa;
+  empresa= new PersonaNaturalEmpresa();
   constructor( private router:Router,private service:EmpresaServiceService) { }
   @Input() id:number;
   redes:String[];

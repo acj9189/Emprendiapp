@@ -14,30 +14,32 @@ export class RegistroEmpresaComponent implements OnInit {
   constructor(private service:EmpresaServiceService, private router:Router) { }
 
   ngOnInit() {
-  }
+  } 
 
-  public registrar(){
+  public registrar(nombre,telefono,direccion,redesSociales,videoPitch){
     let personaEmpresa= new PersonaNaturalEmpresa();
 
-    let i = document.getElementsByTagName("input").length;
-    let j = 3;
+    let i = redesSociales.childNodes;
+    console.log(i);
+    console.log(i.length);
+    let j = 0;
     let redesSocialess="";
-    redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
-    while (j<i-2){
+    while (i.length>j){
+      redesSocialess=redesSocialess+";"+i[j].value;
       j++;
-      redesSocialess=redesSocialess+document.getElementsByTagName("input")[j].value;
-      console.log(redesSocialess);
+
     }
     
-    personaEmpresa.nombre=document.getElementsByTagName("input")[0].value;
-    personaEmpresa.telefonoContacto=document.getElementsByTagName("input")[1].value;
-    personaEmpresa.direccion=document.getElementsByTagName("input")[2].value;
+    personaEmpresa.nombre=nombre.value;
+    personaEmpresa.telefonoContacto=telefono.value;
+    personaEmpresa.direccion=direccion.value;
     personaEmpresa.redesSociales=redesSocialess;
     //personaEmpresa.videoPitch=document.getElementsByTagName("input")[
       //document.getElementsByTagName("input").length
     //].value;
-    console.log(personaEmpresa.redesSociales);
-    alert("revisar envio de video Pitch");
+    this.service.crearPersonaEmpresa(personaEmpresa).subscribe(data=>{
+      this.router.navigate(['listaEmpresa']);
+    })
   }
 
   public listaEmpres(){

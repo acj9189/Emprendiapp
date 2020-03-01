@@ -248,6 +248,7 @@ public class AsesorConsultorController {
 	@PostMapping("/asesor/asesor/buscar/direccion")
 	@ResponseBody
 	public List<AsesorConsultor> getAsesorDireccion(@Valid @RequestBody String direccion){
+            System.out.println(direccion);
 		List<AsesorConsultor> asesoresT = asesorRepository.findAll();
 		List<AsesorConsultor> asesoresBuscados = new LinkedList<>();
 		for(AsesorConsultor asesor: asesoresT ) {

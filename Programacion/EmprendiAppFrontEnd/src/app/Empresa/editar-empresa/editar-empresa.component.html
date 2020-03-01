@@ -6,16 +6,16 @@
     <div class="col-9">
         <div>Informacion de la empresa</div>
             <div>
-                <div>Nombre</div>
-                <input type="text" #empresaNombre>
+                <div>Nombre: {{empresa.nombre}}</div>
+                <input type="text" class="col-12" #empresaNombre>
             </div>
             <div>
-                <div>Direccion</div>
-                <input type="text" #empresaDireccion>
+                <div>Direccion: {{empresa.direccion}}</div>
+                <input type="text"  class="col-12" #empresaDireccion>
             </div>
             <div>
-                <div>Telefono contacto</div>
-                <input type="text" #empresaTelefonoContacto>
+                <div>Telefono contacto: {{empresa.telefonoContacto}}</div>
+                <input type="text" class="col-12" #empresaTelefonoContacto>
             </div>
             <div>
                 <div>
@@ -25,12 +25,12 @@
             </div>
             <div>
                 <div>Redes Soliales</div>
-                <div id="redesSociales" *ngFor="let redes of ">
-                    <input type="text" #empresaRedesSociales>
+                <div id="redesSociales"  #empresaRedesSociales >
+                    <input type="text" value="" class="col-12">
                 </div>
                 <button (click)="LineaMas()">+</button>
             </div>
         
-        <button>Actualizar</button>
+        <button (click)="actualizar(empresaNombre,empresaDireccion,empresaTelefonoContacto,empresaVideoPitch,empresaRedesSociales)">Actualizar</button>
     </div>
 </div>

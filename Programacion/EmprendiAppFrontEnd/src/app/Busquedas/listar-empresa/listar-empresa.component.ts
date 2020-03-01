@@ -14,7 +14,7 @@ export class ListarEmpresaComponent implements OnInit {
   constructor(private service:EmpresaServiceService, private router:Router) { 
   }
 
-  personaEmpresa:PersonaNaturalEmpresa[]
+  personaEmpresa:PersonaNaturalEmpresa[];
 
   ngOnInit() {
     this.service.getEmpresa().subscribe(data=>{
@@ -105,11 +105,15 @@ export class ListarEmpresaComponent implements OnInit {
     let empresaAux;
     this.service.getEmpresaPorNombre(nombre).subscribe(data => {
       empresaAux = data;
-      empresaAux.array.forEach(element => {
-        if (!this.personaEmpresa.find(element.id)) {
-          this.personaEmpresa.push(element);
-        }
-      });
+      if(empresaAux.length>1){
+        empresaAux.array.forEach(element => {
+          if (!this.personaEmpresa.find(element.id)) {
+            this.personaEmpresa.push(element);
+          }
+        });
+      }else{
+        this.personaEmpresa.push(empresaAux[0]);
+      }
     });
   }
 }

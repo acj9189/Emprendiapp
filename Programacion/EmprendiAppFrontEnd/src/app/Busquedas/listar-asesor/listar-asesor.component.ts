@@ -4,6 +4,7 @@ import { AsesorConsultorServieService } from 'src/app/Service/asesor-consultor-s
 import { Router } from '@angular/router'
 import { element } from 'protractor';
 import { ServiceService } from 'src/app/Service/userService';
+import { Usuario } from 'src/app/Modelos/Usuario';
 @Component({
   selector: 'app-listar-asesor',
   templateUrl: './listar-asesor.component.html',
@@ -72,6 +73,7 @@ export class ListarAsesorComponent implements OnInit {
 
   public buscarDireccion(direccion){
     let usuario;
+    console.log("direccion: "+direccion);
     this.service.getAsesorPorDireccion(direccion).subscribe(data=>{
       usuario=data;
       usuario.forEach(element => {

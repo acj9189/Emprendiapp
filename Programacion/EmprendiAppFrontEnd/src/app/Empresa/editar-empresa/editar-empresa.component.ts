@@ -13,7 +13,7 @@ export class EditarEmpresaComponent implements OnInit {
  
   constructor(private service:EmpresaServiceService,private router:Router,private rutaActiva:ActivatedRoute) { }
   private id:number;
-  private empresa:PersonaNaturalEmpresa;
+  private empresa= new PersonaNaturalEmpresa();
   private redes:String[];
 
   ngOnInit() {
@@ -21,64 +21,58 @@ export class EditarEmpresaComponent implements OnInit {
     this.service.getInfoPersnaEmpresa(this.id).subscribe(data=>{
       this.empresa=data;
       if(this.empresa.redesSociales!='' && this.empresa.redesSociales!=null){
+        console.log(this.empresa.redesSociales);
         this.separaRedes(this.empresa.redesSociales);
       }
     });
   }
 
   public retorno(){
-    this.router.navigate(['lstaEmpresa']);
+    this.router.navigate(['listaEmpresa']);
   }
 
   private separaRedes(redes:String){
     this.redes=redes.split(";")
   }
 
-  public actualizar(){
-    let i = document.getElementsByTagName("input").length;
-    let j = 4;
-
-    let redesSocialess=this.empresa.redesSociales;
-    if(document.getElementsByTagName("input")[j].value!=""){
-      redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
+  public actualizar(empresaNombre,empresaDireccion,empresaTelefonoContacto,empresaVideoPitch,empresaRedesSociales){
+    
+    if(empresaNombre.value!="" && empresaNombre.value!=null){
+      this.empresa.nombre=empresaNombre.value;
     }
+    if(empresaDireccion.value!="" && empresaDireccion.value!=null){
+      this.empresa.direccion=empresaDireccion.value;
+    }
+    if(empresaTelefonoContacto.value!="" && empresaTelefonoContacto.value!=null){
+      this.empresa.telefonoContacto=empresaTelefonoContacto.value;
+    }
+    if(empresaVideoPitch.value!="" && empresaVideoPitch.value!=null){
+      this.empresa.videoPitch=empresaVideoPitch.value;
+    } 
       
-    while (j<i-2){
-      j++;
-      if(document.getElementsByTagName("input")[j].value!=""){
-        redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
+    let i = empresaRedesSociales.childNodes;
+    if(i.length>1 || (i[0].value!=null && i[0].value!="")){
+      let j = 0;
+      let redes:String="";
+      while (i.length>j){
+        redes=redes+";"+i[j].value;
+        j++;
       }
-    }
-    if(document.getElementsByTagName("input")[0].value!=""){
-      this.empresa.nombre=document.getElementsByTagName("input")[0].value;
-    }
-    if(document.getElementsByTagName("input")[1].value!=""){
-      this.empresa.direccion=document.getElementsByTagName("input")[1].value;
-    }
-    if(document.getElementsByTagName("input")[2].value!=""){
-      this.empresa.telefonoContacto=document.getElementsByTagName("input")[2].value;
-    }
-    if(document.getElementsByTagName("input")[3].value!=""){
-      this.empresa.videoPitch=document.getElementsByTagName("input")[3].value;
+      this.empresa.redesSociales=redes;
     }
 
-    if(redesSocialess!="" ){
-      this.empresa.redesSociales=redesSocialess;
-    }
-
+    console.log(this.empresa);
     alert("revisar envio faslta revisar socio");
     this.service.updatePersonaEmpresa(this.id,this.empresa).subscribe(data=>{
       this.empresa=data;
       this.retorno();
     });
-    //return this.socio;
   }
 
   public LineaMas(){
     var node=document.createElement("input");
-    //node.setAttribute('class','col-8');
     node.setAttribute('type','text');
+    node.setAttribute('class','col-12');
     document.getElementById("redesSociales").appendChild(node);
-    //ide.appendChild(node);
   }
 }

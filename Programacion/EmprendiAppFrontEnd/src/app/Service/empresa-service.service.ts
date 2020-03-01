@@ -27,7 +27,7 @@ export class EmpresaServiceService {
 
   public updatePersonaEmpresa(id,personaEmpresa){
     return this.http.put<PersonaNaturalEmpresa>(this.Url+'/empresa/'+id,personaEmpresa);
-  }
+  } 
 
   public removerPersoanEmpresa(id){
     return this.http.delete<PersonaNaturalEmpresa>(this.Url+'/empresa/'+id)
@@ -44,12 +44,12 @@ export class EmpresaServiceService {
   }
 
   public getEmpresaPorNombre(nombre){
-    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/'+nombre,null);
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre',nombre);
   } 
 
   //direccion
   public getEmpresaPorDireccion(direccion){
-    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/'+direccion,null);
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/direccion',direccion);
   }
 
   public getPersonaNaturalPorDireccion(direccion){
@@ -62,10 +62,11 @@ export class EmpresaServiceService {
   }
 
   public getEmpresaPorProducto(ProductoServicio){
-    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/EMPRESA/ver/nombre/'+ProductoServicio,null);
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/nombre/producto',ProductoServicio);
   }
 
   public getEmpresaRedesSocialers(redes){
-    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/redes/'+redes,null);
-  }
+    console.log(redes);
+    return this.http.post<PersonaNaturalEmpresa[]>(this.Url+'/empresa/empresa/ver/redes',String(redes));
+    }
 }
