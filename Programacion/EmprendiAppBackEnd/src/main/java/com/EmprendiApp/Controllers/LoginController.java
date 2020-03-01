@@ -17,7 +17,7 @@ import com.EmprendiApp.Respositories.LoginRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-@RequestMapping("/loging")
+@RequestMapping("/login")
 @RestController
 @JsonIgnoreProperties(ignoreUnknown = true) 
 public class LoginController {
