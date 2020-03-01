@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MensajeServiceService } from 'src/app/Service/mensaje-service.service';
 import { Mensaje } from 'src/app/Modelos/Mensaje';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/Modelos/Usuario';
+import { ServiceService } from 'src/app/Service/userService';
 
 @Component({
   selector: 'app-enviar-mensaje',
@@ -10,9 +12,15 @@ import { Router } from '@angular/router';
 })
 export class EnviarMensajeComponent implements OnInit {
 
-  constructor(private service:MensajeServiceService,private router:Router) { }
-
+  constructor(private service:MensajeServiceService,private router:Router,private userService:ServiceService) { }
+  @Input() id:number;
+  private usuario= new Usuario();
   ngOnInit() {
+    console.log(this.id);
+    this.userService.getUsusario(this.id).subscribe(data=>{
+      this.usuario=data;
+      console.log(this.usuario);
+    })
   }
 
   public enviar(correo,asunto,mensaje){
@@ -23,9 +31,14 @@ export class EnviarMensajeComponent implements OnInit {
     mensajer.correoDestino=correo.value;
     mensajer.asunto=asunto.value;
     mensajer.contenido=mensaje.value;
-    this.service.nuevoMensaje(mensajer).subscribe(data=>{
-      mensajer=data;
-    });
+    mensajer.nombreOrigen=this.usuario.nombres;
+    let useraux;
+    console.log(this.id);
+    console.log(mensajer);
+    
+    this.userService.enviarMensaje(this.id,mensajer).subscribe(data=>{
+      useraux=data;
+    })
   }
 
 }

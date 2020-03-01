@@ -90,12 +90,10 @@ export class MenuAdministradorComponent implements OnInit {
 
 
   public mensajes(){
-    let mensajes=new Mensaje();
-    mensajes.asunto="hola";
-    this.router.navigate(['verMensajeAdmin',mensajes]);
+    this.router.navigate(['verMensajeAdmin',5]);
   }
 
   public enviarMensaje(){
     this.router.navigate(['enviarMensaje']);
-  }
+  } 
 }

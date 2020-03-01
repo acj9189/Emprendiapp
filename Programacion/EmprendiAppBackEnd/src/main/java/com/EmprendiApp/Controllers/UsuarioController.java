@@ -85,26 +85,34 @@ public class UsuarioController {
 		return response;
 	}
 	
-	@PostMapping("/usuario/enviar/Mensaje/")
+	@PostMapping("/usuario/enviar/Mensaje")
 	@ResponseBody
 	public boolean enviarMensaje(@Valid @RequestBody Integer  id, @Valid @RequestBody Mensaje mensaje) {
 		//Falta enviar al correo
+                System.out.println(mensaje.getContenido());
 		boolean response = false;
 		EnvioEmail servicesEmail = new EnvioEmail();
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
                     return null;
                 });
+                                System.out.println(mensaje.getContenido());
+
 		if(usuario.getMensajesRealizados() != null) {
+                                    System.out.println(mensaje.getContenido());
+
 			usuario.getMensajesRealizados().add(mensaje);
 			response = true;
 			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
 			
 		}
 		else {
+                                    System.out.println(mensaje.getContenido());
+
 			usuario.setMensajesRealizados(new LinkedList<Mensaje>());
 			usuario.getMensajesRealizados().add(mensaje);
 			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
 		}
+
 	}
 	
 	@PostMapping("/usuario/ver/Mensajes/")

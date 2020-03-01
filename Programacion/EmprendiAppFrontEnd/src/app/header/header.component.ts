@@ -1,12 +1,13 @@
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { LoginServiceService } from '../Service/login-service.service';
+import { Usuario } from 'src/app/Modelos/Usuario';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  ingreso;
+  ingreso:boolean;
 
   @Output() messageEvent = new EventEmitter<boolean>();
 

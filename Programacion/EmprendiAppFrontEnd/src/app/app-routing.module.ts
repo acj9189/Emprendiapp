@@ -56,7 +56,7 @@ import { VerConsultorAdminComponent } from './Administrador/ver-consultor-admin/
 import { VerProductoAdminComponent } from './Administrador/ver-producto-admin/ver-producto-admin.component';
 import { MensajesAdminComponent } from 'src/app/Administrador/mensajes-admin/mensajes-admin.component';
 const routes: Routes = [
-  {path: 'verMensajeAdmin:/mensajes',component:MensajesAdminComponent},
+  {path: 'verMensajeAdmin/:mensajes',component:MensajesAdminComponent},
   {path: 'verProductoAdmin/:id',component:VerProductoAdminComponent},
   {path: 'verConsultorAdmin/:id',component:VerConsultorAdminComponent},
   {path: 'verProducto/:id',component:VerProductoComponent},

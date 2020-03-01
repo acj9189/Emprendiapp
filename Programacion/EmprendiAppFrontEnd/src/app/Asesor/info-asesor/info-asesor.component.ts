@@ -17,12 +17,9 @@ export class InfoAsesorComponent implements OnInit {
   redesSociale:String[];
   ngOnInit() {
      this.id=this.rutaActiva.snapshot.params.id;
-     console.log("id "+this.id);
      this.service.getAsesorOConsultor(this.id).subscribe(data=>{
        this.asesor=data;
-       console.log("asesor "+this.asesor);
        this.separaRedes(this.asesor.usuario.redesSociales);
-       console.log("redes "+this.redesSociale);
      })
   }
 

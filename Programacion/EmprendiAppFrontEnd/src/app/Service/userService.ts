@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../Modelos/Usuario';
+import { Mensaje } from '../Modelos/Mensaje'
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,7 @@ export class ServiceService {
   }
 
   public enviarMensaje(id,Mensaje){
-    return this.http.post<Usuario>(this.Url+'/usuario/enviar/Mensaje/'+id,Mensaje);
+    return this.http.post<Usuario>(this.Url+'/usuario/enviar/Mensaje',Number(id),Mensaje);
   }
 
   public getAllMensajes(id){
