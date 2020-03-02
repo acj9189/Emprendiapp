@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class InfoAsesorComponent implements OnInit {
 
   constructor(private rutaActiva:ActivatedRoute, private router:Router,private service:AsesorConsultorServieService) { }
-  asesor:AsesorConultor;
+  private asesor= new AsesorConultor();
   id:number;
   redesSociale:String[];
   ngOnInit() {

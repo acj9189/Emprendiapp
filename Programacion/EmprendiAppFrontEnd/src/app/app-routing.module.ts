@@ -55,7 +55,10 @@ import { VerProductoComponent } from './Producto/ver-producto/ver-producto.compo
 import { VerConsultorAdminComponent } from './Administrador/ver-consultor-admin/ver-consultor-admin.component';
 import { VerProductoAdminComponent } from './Administrador/ver-producto-admin/ver-producto-admin.component';
 import { MensajesAdminComponent } from 'src/app/Administrador/mensajes-admin/mensajes-admin.component';
+import { MensajeAsesorComponent } from 'src/app/Asesor/mensaje-asesor/mensaje-asesor.component';
+
 const routes: Routes = [
+  {path: 'verMensajeAsesor/:id',component:MensajeAsesorComponent},
   {path: 'verMensajeAdmin/:mensajes',component:MensajesAdminComponent},
   {path: 'verProductoAdmin/:id',component:VerProductoAdminComponent},
   {path: 'verConsultorAdmin/:id',component:VerConsultorAdminComponent},
@@ -80,7 +83,7 @@ const routes: Routes = [
   {path: 'agregarAdministrador',component:AgregarAdministradorComponent},
   {path: 'removerAdministrador',component:RemoverAdministradorComponent},
   {path: 'editarAdministradr',component:EditarAdministradorComponent},
-  {path: 'infoAdministrador',component:InfoAdministradorComponent},
+  {path: 'infoAdministrador/:id',component:InfoAdministradorComponent},
   {path: 'registrarSocio',component:RegistrarSocioComponent},
   {path: 'editarSocio/:id',component:EditarSocioComponent},
   {path: 'removerSocio/:id', component:RemoverSocioComponent},

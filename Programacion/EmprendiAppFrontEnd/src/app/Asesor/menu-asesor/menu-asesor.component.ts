@@ -43,4 +43,8 @@ export class MenuAsesorComponent implements OnInit {
   public infoProductp(){
     this.router.navigate(['listaProducto']);
   }
+
+  public enviarMensaje(){
+    this.router.navigate(['verMensajeAsesor',2]);
+  }
 }

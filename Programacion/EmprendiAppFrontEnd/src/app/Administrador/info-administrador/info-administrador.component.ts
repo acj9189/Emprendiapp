@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Modelos/Usuario';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceService } from 'src/app/Service/userService';
 @Component({
   selector: 'app-info-administrador',
   templateUrl: './info-administrador.component.html',
@@ -7,11 +9,15 @@ import { Usuario } from 'src/app/Modelos/Usuario';
 })
 export class InfoAdministradorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rutaActiva:ActivatedRoute,private service:ServiceService) { }
 
   private Administrador = new Usuario();
-
+  private id:number;
   ngOnInit() {
+    this.id=this.rutaActiva.snapshot.params.id;
+    this.service.getUsusario(this.id).subscribe(data=>{
+      this.Administrador=data;
+    });
   }
 
 }
