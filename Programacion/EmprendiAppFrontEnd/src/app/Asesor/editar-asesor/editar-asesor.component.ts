@@ -30,78 +30,43 @@ export class EditarAsesorComponent implements OnInit {
     this.redesSociale=redes.split(";")
   }
 
-  public actualizarAsesor(){
-    /*let i = document.getElementsByTagName("input").length;
-    let j = 10;
-
-    let redesSocialess=this.asesor.usuario.redesSociales;
-
-    if(document.getElementsByTagName("input")[j].value!=""){
-      redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
-    }
-      
-    while (j<i-2){
-      j++;
-      if(document.getElementsByTagName("input")[j].value!=""){
-        redesSocialess=redesSocialess+";"+document.getElementsByTagName("input")[j].value;
-      }
-    }
-
-    if(document.getElementsByTagName("input")[0].value!=""){
-      this.asesor.usuario.nombres=document.getElementsByTagName("input")[0].value;
-    }
-    if(document.getElementsByTagName("input")[1].value!=""){
-      this.asesor.usuario.apellidos=document.getElementsByTagName("input")[1].value;
-    }
-    if(document.getElementsByTagName("input")[2].value!=""){
-      this.asesor.usuario.telefono=document.getElementsByTagName("input")[2].value;
-    }
-    if(document.getElementsByTagName("input")[3].value!=""){
-      this.asesor.usuario.email=document.getElementsByTagName("input")[3].value;
-    }
-    if(document.getElementsByTagName("input")[4].value!=""){
-      this.asesor.usuario.direccionContacto=document.getElementsByTagName("input")[4].value;
-    }
-    if(document.getElementsByTagName("input")[5].value!=""){
-      this.asesor.areasExperticia=document.getElementsByTagName("input")[5].value;
-    }
-    if(document.getElementsByTagName("input")[6].value!=""){
-      this.asesor.areasInteres=document.getElementsByTagName("input")[6].value;
-    }
-    if(document.getElementsByTagName("input")[7].value!=""){
-      this.asesor.usuario.descripcionIntereses=document.getElementsByTagName("input")[6].value;
-
-    }
-    if(document.getElementsByTagName("input")[8].value!=""){
-      this.asesor.costoHora=document.getElementsByTagName("input")[8].value;
-    }
+  public actualizarAsesor(nombres,apellido,telefono,correo,direccion,
+    experticia,interes,descripcionInteres,hora){
     
-    if(document.getElementsByTagName("input")[9].value!=""){
-      this.asesor.conociminetoQAporta=document.getElementsByTagName("input")[9].value;
-    }
-    this.asesor.tipoAsesorConsultor=false;
-    if(redesSocialess!=""){
-      this.asesor.usuario.redesSociales=redesSocialess;
-    }*/
-
     let usuario = new Usuario();
     let perfil = new Perfil();
 
-    usuario.nombres="Sandra";
-    console.log(usuario.nombres);
-    usuario.apellidos="Victoria" 
-    console.log(usuario.apellidos);
+    usuario.nombres=nombres.value;
+    usuario.apellidos=apellido.value;
+    usuario.telefono=telefono.value;
+    usuario.email=correo.value;
+    usuario.direccionContacto=direccion.value;
+    usuario.descripcionIntereses=descripcionInteres.value;
     perfil.id=5;
     usuario.perfil=perfil;
 
-    this.asesor.costoHora="50000";
-    this.asesor.usuario=usuario;
+    this.asesor.areasExperticia=experticia.value;
+    this.asesor.areasInteres=interes.value;
+    this.asesor.costoHora=hora.value;
     this.asesor.tipoAsesorConsultor=true;
-    alert("revisar envio faslta revisar asesor");
-    console.log(this.asesor);
-      this.service.actualizarAsesorConsultor(Number(this.id),this.asesor).subscribe(data=>{
-      this.asesor=data;
-    });
+    let redesSociale= document.getElementById("redes2").childNodes;
+    let redes="";
+    if(redesSociale.length>0){
+      redesSociale.forEach(element => {
+        redes=redes+";"+element;
+      });
+    }
+    usuario.redesSociales=redes;
+    this.asesor.usuario=usuario;
+
+    if(nombres.value=!"" && apellido.value!=""){
+      console.log(this.asesor);
+        this.service.actualizarAsesorConsultor(Number(this.id),this.asesor).subscribe(data=>{
+        this.asesor=data;
+      });
+    }else{
+      alert("debe llenar al menos los campos nombre y apellido");
+    }
   }
 
   public LineaMas(/*ide*/){

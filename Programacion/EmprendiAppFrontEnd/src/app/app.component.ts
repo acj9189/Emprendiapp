@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   public infoAdmin(){
-    this.router.navigate(['infoAdministrador']);
+    this.router.navigate(['infoAdministrador',5]);
   }
 
   public infoProducto(){

@@ -90,7 +90,7 @@ export class MenuAdministradorComponent implements OnInit {
 
 
   public mensajes(){
-    this.router.navigate(['verMensajeAdmin',5]);
+    this.router.navigate(['verMensajeAdmin',3]);
   }
 
   public enviarMensaje(){
