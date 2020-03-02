@@ -90,28 +90,35 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario/enviar/Mensaje")
 	@ResponseBody
-	public boolean enviarMensaje(@Valid @RequestBody Integer  id, @Valid @RequestBody Mensaje mensaje) {
+	public boolean enviarMensaje(@Valid @RequestBody Integer  id, @Valid @RequestBody String mensaje, @Valid @RequestBody String receptor, @Valid @RequestBody String asunto) {
 		//Falta enviar al correo
-                System.out.println(mensaje.getContenido());
+        System.out.println(mensaje);
 		boolean response = false;
 	
 		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
                     return null;
                 });
-                                System.out.println(mensaje.getContenido());
+        System.out.println(mensaje);
                                 
         if(usuario != null){
         	if(usuario.getMensajesRealizados() != null) {
-                     System.out.println(mensaje.getContenido());
-					 usuario.getMensajesRealizados().add(mensaje);
-					 return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
+        		Mensaje email = new Mensaje();
+        		email.setAsunto(asunto);
+        		email.setCorreoDestino(receptor);
+        		email.setContenido(mensaje);
+                System.out.println(mensaje);
+			    usuario.getMensajesRealizados().add(email);
+			    return servicesEmail.sendEmail(mensaje, asunto, receptor);
 					
 			}
 			else {
-					 System.out.println(mensaje.getContenido());
-				     usuario.setMensajesRealizados(new LinkedList<Mensaje>());
-				     usuario.getMensajesRealizados().add(mensaje);
-					 return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
+					 System.out.println(mensaje);
+					 Mensaje email = new Mensaje();
+		        	 email.setAsunto(asunto);
+		        	 email.setCorreoDestino(receptor);
+		        	 email.setContenido(mensaje);
+		             System.out.println(mensaje);
+					 return usuario.getMensajesRealizados().add(email);
 			}
         }
         else{
