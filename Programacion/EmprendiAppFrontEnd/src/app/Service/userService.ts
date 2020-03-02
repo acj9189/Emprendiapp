@@ -35,8 +35,10 @@ export class ServiceService {
     return this.http.delete<Usuario>(this.Url+'/usuario/'+id);
   }
 
-  public enviarMensaje(id,Mensaje){
-    return this.http.post<Usuario>(this.Url+'/usuario/enviar/Mensaje',Number(id),Mensaje);
+  public enviarMensaje(id,Mensaje:Mensaje){
+    console.log(id);
+    console.log(Mensaje);
+    return this.http.post<Usuario>(this.Url+'/usuario/enviar/Mensaje',Number(id));
   }
 
   public getAllMensajes(id){

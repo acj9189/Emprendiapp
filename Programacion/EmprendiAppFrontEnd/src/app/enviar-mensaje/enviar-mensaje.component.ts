@@ -32,6 +32,7 @@ export class EnviarMensajeComponent implements OnInit {
     mensajer.asunto=asunto.value;
     mensajer.contenido=mensaje.value;
     mensajer.nombreOrigen=this.usuario.nombres;
+    mensajer.id_emisor=this.usuario.id;
     let useraux;
     console.log(this.id);
     console.log(mensajer);

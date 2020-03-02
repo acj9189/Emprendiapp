@@ -6,4 +6,6 @@ export class Mensaje{
     nombreOrigen:String;
     correoDestino:String;
     asunto:String;
+    id_emisor:number;
+
 }
