@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -90,7 +91,7 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario/enviar/Mensaje")
 	@ResponseBody
-	public boolean enviarMensaje(@Valid @RequestBody Mensaje mensaje) {
+	public boolean enviarMensaje(@Valid @RequestParam  Mensaje mensaje) {
 		//Falta enviar al correo
         System.out.println(mensaje.getContenido());
 		boolean response = false;
