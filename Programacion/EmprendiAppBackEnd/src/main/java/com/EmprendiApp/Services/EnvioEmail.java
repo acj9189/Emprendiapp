@@ -12,14 +12,13 @@ public class EnvioEmail {
 	 private JavaMailSender mailSender;
 	 
 	 public boolean sendEmail(String destinatario, String contenidoTitulo, String contenido) {
-
+		 	boolean response = false;
 	        SimpleMailMessage email = new SimpleMailMessage();
 	        email.setTo(destinatario);
 	        email.setSubject(contenidoTitulo);
 	        email.setText(contenido);
-	        mailSender.send(email);
-	      
-	        return true;
+	        response = true;
+	        return response;
 	    }
 
 }

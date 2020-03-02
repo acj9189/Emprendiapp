@@ -99,23 +99,24 @@ public class UsuarioController {
                     return null;
                 });
                                 System.out.println(mensaje.getContenido());
-
-		if(usuario.getMensajesRealizados() != null) {
-                                    System.out.println(mensaje.getContenido());
-
-			usuario.getMensajesRealizados().add(mensaje);
-			response = true;
-			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
-			
-		}
-		else {
-                                    System.out.println(mensaje.getContenido());
-
-			usuario.setMensajesRealizados(new LinkedList<Mensaje>());
-			usuario.getMensajesRealizados().add(mensaje);
-			return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
-		}
-
+                                
+        if(usuario != null){
+        	if(usuario.getMensajesRealizados() != null) {
+                     System.out.println(mensaje.getContenido());
+					 usuario.getMensajesRealizados().add(mensaje);
+					 return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
+					
+			}
+			else {
+					 System.out.println(mensaje.getContenido());
+				     usuario.setMensajesRealizados(new LinkedList<Mensaje>());
+				     usuario.getMensajesRealizados().add(mensaje);
+					 return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
+			}
+        }
+        else{
+        	return response;
+        }
 	}
 	
 	@PostMapping("/usuario/ver/Mensajes/")
