@@ -24,6 +24,9 @@ public class Mensaje {
 	@Column(name = "contenido", nullable = true)
 	private String contenido;
 	
+	@Column(name = "id_emisor", nullable = true)
+	private int id_emisor;
+	
 	@Column(name = "fechaRealizadoMensaje", nullable = true)
 	private Date fechaRealizadoMensaje;
 	
@@ -123,5 +126,15 @@ public class Mensaje {
 	public void setCorreoOrigen(String correoOrigen) {
 		this.correoOrigen = correoOrigen;
 	}
+
+	public int getId_emisor() {
+		return id_emisor;
+	}
+
+	public void setId_emisor(int id_emisor) {
+		this.id_emisor = id_emisor;
+	}
+	
+	
 
 }

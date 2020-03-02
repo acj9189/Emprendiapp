@@ -90,35 +90,24 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario/enviar/Mensaje")
 	@ResponseBody
-	public boolean enviarMensaje(@Valid @RequestBody Integer  id, @Valid @RequestBody String mensaje, @Valid @RequestBody String receptor, @Valid @RequestBody String asunto) {
+	public boolean enviarMensaje(@Valid @RequestBody Mensaje mensaje) {
 		//Falta enviar al correo
-        System.out.println(mensaje);
+        System.out.println(mensaje.getContenido());
 		boolean response = false;
 	
-		Usuario usuario = userRepository.findById(id).orElseThrow(() -> {
+		Usuario usuario = userRepository.findById(mensaje.getId_emisor()).orElseThrow(() -> {
                     return null;
                 });
         System.out.println(mensaje);
                                 
         if(usuario != null){
         	if(usuario.getMensajesRealizados() != null) {
-        		Mensaje email = new Mensaje();
-        		email.setAsunto(asunto);
-        		email.setCorreoDestino(receptor);
-        		email.setContenido(mensaje);
-                System.out.println(mensaje);
-			    usuario.getMensajesRealizados().add(email);
-			    return servicesEmail.sendEmail(mensaje, asunto, receptor);
+			    return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
 					
 			}
 			else {
 					 System.out.println(mensaje);
-					 Mensaje email = new Mensaje();
-		        	 email.setAsunto(asunto);
-		        	 email.setCorreoDestino(receptor);
-		        	 email.setContenido(mensaje);
-		             System.out.println(mensaje);
-					 return usuario.getMensajesRealizados().add(email);
+					 return servicesEmail.sendEmail(mensaje.getCorreoDestino(), mensaje.getAsunto(), mensaje.getContenido());
 			}
         }
         else{
